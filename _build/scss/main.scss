@@ -11,7 +11,7 @@ $white:white;
   box-sizing:border-box;
 }
 
-select {
+select, input[type="file"] {
   max-width:100%;
 }
 
