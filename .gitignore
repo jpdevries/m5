@@ -10,4 +10,6 @@ _build/scss/neat
 views/mi5/
 views/twag/
 
+.css.map
+
 yarn.lock
