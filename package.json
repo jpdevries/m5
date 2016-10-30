@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon --watch ./ --watch ./views -e js,twig server.js",
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
+    "postinstall": "grunt build",
     "build": "grunt build"
   },
   "author": "JP DeVries",
