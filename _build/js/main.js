@@ -3,6 +3,12 @@ let hidePageComponents = true;
 document.querySelector('html').classList.remove('no-js');
 document.querySelector('html').classList.add('js');
 
+//document.querySelector('html').setAttribute('complex-layout', true);
+
+//document.querySelector('html').setAttribute('contrast', 'white-on-black');
+//document.querySelector('html').setAttribute('contrast', 'black-on-white');
+//document.querySelector('html').removeAttribute('contrast');
+
 const radios = document.querySelectorAll('input[type="radio"]');
 for(let i = 0; i < radios.length; i++) {
   const radio = radios[i];
@@ -20,12 +26,24 @@ document.getElementById('ubersearch').addEventListener('input', function(event) 
   }
 });
 
+function mainNavDetailsOpen(open = true) {
+  const details = document.querySelectorAll('#mainnav__nav > details');
+  for(let i = 0; i < details.length; i++) {
+    const detail = details[i];
+    (open) ? detail.setAttribute('open',true) : detail.removeAttribute('open');
+  }
+}
+
 document.getElementById('ubersearch').addEventListener('focus', function(event) {
   if(event.target.value) event.target.classList.add('dirty');
+  document.querySelector('aside.sidenav').classList.add('searching');
+  mainNavDetailsOpen(true);
 });
 
 document.getElementById('ubersearch').addEventListener('blur', function(event) {
   if(!event.target.value) event.target.classList.remove('dirty');
+  document.querySelector('aside.sidenav').classList.remove('searching');
+  mainNavDetailsOpen(false);
 });
 
 function doFilterPageComponents(filter) {
@@ -67,3 +85,14 @@ function doFilterPageComponents(filter) {
     }
   }
 }
+
+/*
+const ubersearch = document.querySelector('#ubersearch');
+ubersearch.addEventListener('blur', (event) => {
+  console.log(event);
+});
+
+ubersearch.addEventListener('focus', (event) => {
+  console.log(event);
+});
+*/

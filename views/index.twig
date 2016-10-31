@@ -657,17 +657,6 @@
               <div>
                 <div>
                   <div>
-                    {% include 'mi5/number.twig' with {
-                      placeholder:4,
-                      pattern:"[0-9]*",
-                      options:[{
-                        title:4
-                      },{
-                        title:20
-                      }]
-                    } %}
-                  </div>
-                  <div>
                     {% include 'mi5/listbox-multi.twig' %}
                   </div>
                   <div>
@@ -811,12 +800,28 @@
             <details class="light">
               <summary><h3>💰&nbsp;Product</h3></summary>
               <div>
-                <label for="tv-1">SKU</label>
-                {% include 'mi5/input.twig' with {
-                  name:"tv-1",
-                  id:"tv-1",
-                  placeholder:"#4327"
-                } %}
+                <div>
+                  <div>
+                    {% include 'mi5/number.twig' with {
+                      label:'Quantity',
+                      placeholder:4,
+                      pattern:"[0-9]*",
+                      options:[{
+                        title:4
+                      },{
+                        title:20
+                      }]
+                    } %}
+                  </div>
+                  <div>
+                    <label for="tv-1">SKU</label>
+                    {% include 'mi5/input.twig' with {
+                      name:"tv-1",
+                      id:"tv-1",
+                      placeholder:"#4327"
+                    } %}
+                  </div>
+                </div>
               </div>
             </details>
             <details class="light">
@@ -865,17 +870,17 @@
           </details>
         </div>
       </section>
-
+      <aside class="actionnav">
+        <nav>
+          <button href="#">💾&nbsp;Save</button>
+          <button href="#">📚&nbsp;Duplicate</button>
+          <button href="#">🚫&nbsp;Delete</button>
+          <a href="#">🔎&nbsp;View</a>
+        </nav>
+      </aside>
     </main>
 
-    <aside class="actionnav">
-      <nav>
-        <button href="#">💾&nbsp;Save</button>
-        <button href="#">📚&nbsp;Duplicate</button>
-        <button href="#">🚫&nbsp;Delete</button>
-        <a href="#">🔎&nbsp;View</a>
-      </nav>
-    </aside>
+
 
   </div>
 
