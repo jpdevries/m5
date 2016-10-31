@@ -70,13 +70,21 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
 @media screen and (min-width: 641px) {
+  html[complex-layout] #grail {
+    display: flex;
+    flex-grow: 1; } }
+
+@media screen and (min-width: 641px) {
   html[complex-layout] .page-wrapper {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     max-width: none;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: no-wrap;
+    max-height: 100vh;
+    flex-direction: column;
+    overflow-y: auto; }
     html[complex-layout] .page-wrapper::after {
       clear: both;
       content: "";
@@ -102,13 +110,7 @@ body {
     html[complex-layout] .page-wrapper #stickybar {
       display: none; }
     html[complex-layout] .page-wrapper #tree {
-      float: left;
-      display: block;
-      margin-right: 2.3576515979%;
-      width: 23.2317613015%;
       margin-right: 0; }
-      html[complex-layout] .page-wrapper #tree:last-child {
-        margin-right: 0; }
     html[complex-layout] .page-wrapper #tree, html[complex-layout] .page-wrapper main {
       overflow-y: auto; }
     html[complex-layout] .page-wrapper .document {
@@ -116,7 +118,7 @@ body {
     html[complex-layout] .page-wrapper .actionnav {
       position: absolute;
       font-size: 0.8em;
-      top: 4rem;
+      top: 0;
       right: 0;
       max-width: 24rem;
       margin-left: auto;
@@ -136,32 +138,31 @@ body {
         margin-bottom: 0;
         margin-right: .4em; }
     html[complex-layout] .page-wrapper main {
-      float: left;
-      display: block;
-      margin-right: 2.3576515979%;
-      width: 74.4105871005%;
-      position: relative;
-      margin-right: 0; }
-      html[complex-layout] .page-wrapper main:last-child {
-        margin-right: 0; } }
+      overflow-y: auto;
+      /* max-height: 20em; */
+      flex-grow: 1; } }
 
 #mainnav, #stickybar {
   background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%); }
 
-html[complex-layout] .sidenav.searching {
-  position: relative; }
-  html[complex-layout] .sidenav.searching #mainnav {
-    display: flex;
-    flex-wrap: wrap; }
-    html[complex-layout] .sidenav.searching #mainnav #mainnav__nav {
-      flex-basis: 100vw;
-      background: #2c3a48; }
-      html[complex-layout] .sidenav.searching #mainnav #mainnav__nav > details {
-        border-right: 1px solid #1a2b3d; }
-        html[complex-layout] .sidenav.searching #mainnav #mainnav__nav > details:last-of-type {
-          border: none; }
-      html[complex-layout] .sidenav.searching #mainnav #mainnav__nav > details > nav {
-        position: relative; }
+body.searching {
+  overflow-y: auto; }
+  body.searching .page-wrapper {
+    max-height: none; }
+  html[complex-layout] body.searching .sidenav {
+    position: relative; }
+    html[complex-layout] body.searching .sidenav #mainnav {
+      display: flex;
+      flex-wrap: wrap; }
+      html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav {
+        flex-basis: 100vw;
+        background: #2c3a48; }
+        html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details {
+          border-right: 1px solid #1a2b3d; }
+          html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details:last-of-type {
+            border: none; }
+        html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details > nav {
+          position: relative; }
 
 #mainnav {
   color: white; }
@@ -450,6 +451,11 @@ details nav ul {
 @media screen and (min-width: 641px) {
   html[complex-layout] main > .actionnav {
     display: none; } }
+
+@media screen and (min-width: 641px) {
+  html[complex-layout] body:not(.searching) {
+    overflow-y: hidden;
+    min-height: 100vh; } }
 
 /*.page-wrapper {
   @include media($gtMobile) {

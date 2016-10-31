@@ -86,13 +86,13 @@
 
 	document.getElementById('ubersearch').addEventListener('focus', function (event) {
 	  if (event.target.value) event.target.classList.add('dirty');
-	  document.querySelector('aside.sidenav').classList.add('searching');
+	  document.body.classList.add('searching');
 	  mainNavDetailsOpen(true);
 	});
 
 	document.getElementById('ubersearch').addEventListener('blur', function (event) {
 	  if (!event.target.value) event.target.classList.remove('dirty');
-	  document.querySelector('aside.sidenav').classList.remove('searching');
+	  document.body.classList.remove('searching');
 	  mainNavDetailsOpen(false);
 	});
 
@@ -114,7 +114,7 @@
 
 	        try {
 	          if (pageComponent.querySelector('h3 > a').innerHTML.toLowerCase().includes(filterWord) || pageComponent.querySelector('p').innerHTML.toLowerCase().includes(filterWord)) {
-	            console.log('match');
+	            //console.log('match');
 	            return true;
 	          }
 	        } catch (e) {}

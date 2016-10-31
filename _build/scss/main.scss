@@ -88,6 +88,15 @@ body {
        sans-serif;
 }
 
+#grail {
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
+}
+
 .page-wrapper {
   html[complex-layout] & {
     @include media($gtMobile) {
@@ -95,10 +104,14 @@ body {
       max-width:none;
 
       display:flex;
-      flex-wrap:wrap;
+      flex-wrap:no-wrap;
 
       //max-height:100vh;
       //overflow-y:hidden;
+
+      max-height: 100vh;
+      flex-direction: column;
+      overflow-y: auto;
 
       #uberform #ubersearch {
         line-height:3rem;
@@ -125,7 +138,12 @@ body {
         display:none;
       }
       #tree {
-        @include span-columns(3);
+        //@include span-columns(3);
+        //position:absolute;
+        //top:4rem;
+        //left:0;
+        //width:25vw;
+        //bottom:0;
         margin-right:0;
       }
       #tree, main {
@@ -137,7 +155,7 @@ body {
       .actionnav {
         position:absolute;
         font-size:0.8em;
-        top:4rem;
+        top:0;
         right:0;
         max-width:24rem;
         margin-left:auto;
@@ -165,9 +183,20 @@ body {
         }
       }
       main {
-        @include span-columns(9);
-        position:relative;
-        margin-right:0;
+        //@include span-columns(9);
+        //position:relative;
+        //margin-right:0;
+
+        //position: absolute;
+        //width:75vw;
+        //right: 0;
+        //top:4rem;
+        //bottom: 0;
+        overflow-y: auto;
+
+        /* max-height: 20em; */
+        flex-grow: 1;
+
       }
     }
   }
@@ -177,23 +206,33 @@ body {
   background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
 }
 
-.sidenav.searching {
-  html[complex-layout] & {
-    position:relative;
-    #mainnav {
-      display:flex;
-      flex-wrap:wrap;
-      #mainnav__nav {
-        flex-basis:100vw;
-        background:#2c3a48;
-        > details {
-          border-right:1px solid #1a2b3d;
-          &:last-of-type {
-            border:none;
+body {
+  &.searching {
+    overflow-y:auto;
+
+    .page-wrapper {
+      max-height:none;
+    }
+
+    .sidenav {
+      html[complex-layout] & {
+        position:relative;
+        #mainnav {
+          display:flex;
+          flex-wrap:wrap;
+          #mainnav__nav {
+            flex-basis:100vw;
+            background:#2c3a48;
+            > details {
+              border-right:1px solid #1a2b3d;
+              &:last-of-type {
+                border:none;
+              }
+            }
+            > details > nav {
+              position:relative;
+            }
           }
-        }
-        > details > nav {
-          position:relative;
         }
       }
     }
@@ -624,6 +663,15 @@ main {
       @include media($gtMobile) {
         display:none;
       }
+    }
+  }
+}
+
+body:not(.searching) {
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      overflow-y: hidden;
+      min-height: 100vh;
     }
   }
 }
