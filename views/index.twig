@@ -380,130 +380,130 @@
       </nav>
     </div>
     <main>
+      <form>
+      <aside class="actionnav">
+        <nav>
+          <button href="#">💾&nbsp;Save</button>
+          <button href="#">📚&nbsp;Duplicate</button>
+          <button href="#">🚫&nbsp;Delete</button>
+          <a href="#">🔎&nbsp;View</a>
+        </nav>
+      </aside>
       <header>
         <h1>Announcing the MODX Advisory Board</h1>
         <p class="comfy emoji-bar">
           <button class="emoji reaction long tooltip" title="Ryan Thrash, Mark Hamstra, and 3 Others with a :+1:">👍<span>12</span></button>
           <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
         </p>
-        <aside class="actionnav">
-          <nav>
-            <button href="#">💾&nbsp;Save</button>
-            <button href="#">📚&nbsp;Duplicate</button>
-            <button href="#">🚫&nbsp;Delete</button>
-            <a href="#">🔎&nbsp;View</a>
-          </nav>
-        </aside>
-
-        <details open class="document">
-          <summary><h2>Document</h2></summary>
-          <div>
+        <div class="">
+          <details open class="document">
+            <summary><h2><span class="emoji icon">📝</span>&nbsp;Document</h2></summary>
             <div>
               <div>
-                <label for="pagetitle">Title*</label>
-                <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required>
-              </div>
+                <div>
+                  <label for="pagetitle">Title*</label>
+                  <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required>
+                </div>
 
-              <div>
-                <label for="longtitle">Long Title</label>
-                <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
-              </div>
+                <div>
+                  <label for="longtitle">Long Title</label>
+                  <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
+                </div>
 
-              <div>
-                <label for="description">Description</label>
-                <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
-              </div>
+                <div>
+                  <label for="description">Description</label>
+                  <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
+                </div>
 
+                <div>
+                  <label for="introtext">Summary (intro text)</label>
+                  <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
+                </div>
+              </div>
               <div>
-                <label for="introtext">Summary (intro text)</label>
-                <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
+                <div>
+                  <label for="template">Uses Template</label>
+                  <select class="id" name="template" id="template">
+                    <option>Base Template</otpion>
+                    <option>Blog Post</otpion>
+                  </select>
+                </div>
+                <div>
+                  <label for="alias">Alias</label>
+                  <input type="text" name="alias" id="alias" placeholder="quick-fox">
+                </div>
+                <div>
+                  <label for="menutitle">Menu Title</label>
+                  <input type="text" name="menutitle" id="menutitle" placeholder="The Fox & The Dog">
+                </div>
+                <div>
+                  <label for="linkattributes">Link Attributes</label>
+                  <input type="text" name="linkattributes" id="linkattributes" placeholder=target="_foxdog">
+                </div>
+                <ul class="discrete">
+                  <li>
+                    <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
+                  </li>
+                </ul>
               </div>
             </div>
+          </details>
+          <details class="settings">
+            <summary><h2>🔧&nbsp;Settings</h2></summary>
             <div>
               <div>
-                <label for="template">Uses Template</label>
-                <select class="id" name="template" id="template">
-                  <option>Base Template</otpion>
-                  <option>Blog Post</otpion>
-                </select>
-              </div>
-              <div>
-                <label for="alias">Alias</label>
-                <input type="text" name="alias" id="alias" placeholder="quick-fox">
-              </div>
-              <div>
-                <label for="menutitle">Menu Title</label>
-                <input type="text" name="menutitle" id="menutitle" placeholder="The Fox & The Dog">
-              </div>
-              <div>
-                <label for="linkattributes">Link Attributes</label>
-                <input type="text" name="linkattributes" id="linkattributes" placeholder=target="_foxdog">
-              </div>
-              <ul class="discrete">
-                <li>
-                  <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
-                </li>
-                <li>
-                  <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        <details class="settings">
-          <summary><h2>🔧&nbsp;Settings</h2></summary>
-          <div>
-            <div>
-              <div>
-                <label for="parent">Parent Resource</label>
-                <select name="parent" id="parent">
-                  <optgroup label="Website">
-                    <option>None (root)</option>
-                    <option>Home (1)</option>
-                    <option>Blog (1)</option>
-                  </optgroup>
-                </select>
-              </div>
-              <div>
-                <label for="resourcetype">Resource Type</label>
-                <select name="resourcetype" id="resourcetype">
-                  <option value="modResource">Document</option>
-                  <option value="modStaticResource">Static Resources</option>
-                  <option value="modWebLink">Weblink</option>
-                  <option value="modCollection">Collection</option>
-                </select>
-              </div>
-              <div>
-                <label for="contenttype">Content Type</label>
-                <select name="contenttype" id="contenttype">
-                  <option value="html">HTML</option>
-                  <option value="css">CSS</option>
-                  <option value="javascript">JavaScript</option>
-                  <option value="json">JSON</option>
-                  <option value="pdf">PDF</option>
-                  <option value="rss">RSS</option>
-                  <option value="text">text</option>
-                  <option value="xml">XML</option>
-                </select>
-              </div>
-              <div>
-                <fieldset>
-                  <legend>Content Disposition</legend>
-                  <div>
-                    <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked />
-                    <label for="contentdisposition__inline" checked>Inline</label>
+                <div>
+                  <label for="parent">Parent Resource</label>
+                  <select name="parent" id="parent">
+                    <optgroup label="Website">
+                      <option>None (root)</option>
+                      <option>Home (1)</option>
+                      <option>Blog (1)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div>
+                  <label for="resourcetype">Resource Type</label>
+                  <select name="resourcetype" id="resourcetype">
+                    <option value="modResource">Document</option>
+                    <option value="modStaticResource">Static Resources</option>
+                    <option value="modWebLink">Weblink</option>
+                    <option value="modCollection">Collection</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="contenttype">Content Type</label>
+                  <select name="contenttype" id="contenttype">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="json">JSON</option>
+                    <option value="pdf">PDF</option>
+                    <option value="rss">RSS</option>
+                    <option value="text">text</option>
+                    <option value="xml">XML</option>
+                  </select>
+                </div>
+                <div>
+                  <fieldset>
+                    <legend>Content Disposition</legend>
+                    <div>
+                      <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked />
+                      <label for="contentdisposition__inline" checked>Inline</label>
 
-                    <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement" />
-                    <label for="contentdisposition__attachement">Attachement</label>
-                  </div>
-                </fieldset>
+                      <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement" />
+                      <label for="contentdisposition__attachement">Attachement</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div>
+                  <label for="menuindex">Menu Index</label>
+                  <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
+                </div>
               </div>
-              <div>
-                <label for="menuindex">Menu Index</label>
-                <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
-              </div>
-            </div>
-            <div>
               <div>
                 <div>
                   <label for="publishedon">Published On Date</label>
@@ -513,72 +513,72 @@
                   <label for="publishedontime">Published On Time</label>
                   <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
                 </div>
+                <fieldset>
+                  <legend>Bollean Attributes</legend>
+                  <div>
+                    <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Use ContentBlocks?</legend>
+                  <div>
+                    <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked />
+                    <label for="usecontentblocks__yes" checked>Yes</label>
+
+                    <input type="radio" id="usecontentblocks__no" name="usecontentblocks" />
+                    <label for="usecontentblocks__no">No</label>
+                  </div>
+                </fieldset>
               </div>
             </div>
-            <fieldset>
-              <legend>Bollean Attributes</legend>
-              <div>
-                <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
-              </div>
-              <div>
-                <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
-              </div>
-              <div>
-                <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
-              </div>
-              <div>
-                <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
-              </div>
-              <div>
-                <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
-              </div>
-              <div>
-                <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
-              </div>
-              <div>
-                <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Use ContentBlocks?</legend>
-              <div>
-                <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked />
-                <label for="usecontentblocks__yes" checked>Yes</label>
-
-                <input type="radio" id="usecontentblocks__no" name="usecontentblocks" />
-                <label for="usecontentblocks__no">No</label>
-              </div>
-            </fieldset>
-          </div>
-        </details>
-        <details class="resource-groups">
-          <summary><h2>📑&nbsp;Resource Groups</h2></summary>
-          <div>
-            <table>
-              <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
-              <thead>
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Access
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <label for="resourcegroup_4_13">Client Only</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
+          </details>
+          <details class="resource-groups">
+            <summary><h2>📑&nbsp;Resource Groups</h2></summary>
+            <div>
+              <table>
+                <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
+                <thead>
+                  <tr>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Access
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="resourcegroup_4_13">Client Only</label>
+                    </td>
+                    <td>
+                      <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
       </header>
 
       <section><!-- maybe this should be <main> instead? -->
@@ -879,10 +879,12 @@
           <a href="#">🔎&nbsp;View</a>
         </nav>
       </aside>
+    </form>
     </main>
+    <!--aside class="">
+      <h2>Preview</h2>
+    </aside-->
     </div>
-
-
   </div>
 
   <div visually-hidden>

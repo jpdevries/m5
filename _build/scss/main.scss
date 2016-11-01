@@ -89,10 +89,25 @@ body {
 }
 
 #grail {
+  main {
+    > header, > form > header {
+      > div {
+        @include shaded;
+        padding-top:1rem;
+        background:white;
+      }
+    }
+  }
   html[complex-layout] & {
     @include media($gtMobile) {
       display: flex;
       flex-grow: 1;
+      main {
+        padding-right:14px;
+      }
+      main,aside {
+        flex-grow:2;
+      }
     }
   }
 }
@@ -144,13 +159,14 @@ body {
         //left:0;
         //width:25vw;
         //bottom:0;
+        border-right:1px solid darken($bodyBG, 8%);
         margin-right:0;
       }
       #tree, main {
         overflow-y:auto;
       }
       .document {
-        margin-top:-2.4rem;
+        //margin-top:-2.4rem;
       }
       .actionnav {
         position:absolute;
@@ -166,7 +182,7 @@ body {
         position: -webkit-sticky;
 
 
-        background:#EFEFEA;
+        background:$bodyBG;
         z-index:99999;
         nav > * {
           padding-left:0.5rem;
@@ -417,6 +433,12 @@ details {
   }
 }
 
+details fieldset {
+  div label {
+    display:inline-block;
+  }
+}
+
 .tooltip {
   position:relative;
 }
@@ -478,6 +500,11 @@ button {
 
 .emoji-bar {
   display:flex;
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      margin-top:0;
+    }
+  }
 }
 
 @mixin comfy() {
@@ -595,6 +622,23 @@ button {
           color:$dark !important;
           text-transform:uppercase !important;
           font-style:normal !important;
+          @include media($gtMobile) {
+            bottom:auto !important;
+            top:0.25rem !important;
+          }
+      }
+    }
+  }
+}
+
+html[complex-layout] {
+  @include media($gtMobile) {
+    #tree {
+      padding-top:1rem;
+      > nav {
+        > details {
+          margin-bottom:1rem;
+        }
       }
     }
   }
@@ -602,6 +646,12 @@ button {
 
 summary {
   padding:1rem .5rem;
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      padding-top:0;
+      padding-bottom:0;
+    }
+  }
   h1,h2,h3,h4,h5,h6 {
     display:inline;
   }
@@ -657,11 +707,42 @@ header {
   }
 }
 
+details {
+  > div {
+    > div {
+      > div, fieldset {
+        margin-bottom:1rem;
+      }
+    }
+  }
+}
+
 main {
-  > .actionnav {
+  > .actionnav, > form > .actionnav {
     html[complex-layout] & {
       @include media($gtMobile) {
-        display:none;
+        &:last-of-type {
+          display:none;
+        }
+      }
+    }
+  }
+  > section, > form > section {
+    padding-bottom:1rem;
+    background:white;
+    color:$dark;
+    &:last-of-type {
+      //padding-bottom:0;
+    }
+  }
+  > header, > form > header {
+    > div {
+      padding-bottom:1rem;
+      > details {
+        margin-bottom:1rem;
+        &:last-of-type {
+          margin-bottom:0;
+        }
       }
     }
   }
@@ -771,7 +852,16 @@ details {
       margin-bottom:0;
     }
     li {
-      padding-bottom:1em;
+      padding-top:1rem;
+      padding-bottom:1rem;
+      margin-bottom:0;
+      transition:background 240ms ease;
+      h1,h2,h3,h4,h5,h6 {
+        margin-top:0;
+      }
+      &:hover, &:target, &:active {
+        background:darken($dark,4%);
+      }
     }
 
   }
@@ -784,6 +874,15 @@ details {
       color:#5ABCE5;
     }
   }
+
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      > details > summary {
+        line-height:3;
+      }
+    }
+  }
+
 }
 
 .radio-bar fieldset {
@@ -798,10 +897,6 @@ details {
   input[type="radio"] {
     font-size:1.4em;
   }
-}
-
-%shaded {
-  box-shadow:0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -846,8 +941,10 @@ h1 {
 main {
   h1 {
     padding:0 0.5rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
   }
-  > section {
+  > section, > form > section {
     &:last-of-type {
       > div > details {
         padding-bottom:0.5rem;
@@ -890,6 +987,11 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
   background:$white;
   color:#566d87;
   padding-bottom:1rem;
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      font-size:0.8em;
+    }
+  }
   summary summary {
     padding:0;
   }
@@ -897,14 +999,14 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
 
 details {
   > div > div > div {
-    margin-bottom:0.5rem;
+    //margin-bottom:0.5rem;
     &:last-of-type {
-      margin-bottom:0;
+      //margin-bottom:0;
     }
   }
 }
 
-main > header > details {
+main > header > details, main > form > header > details {
   label {
     display:block;
   }
@@ -955,6 +1057,7 @@ label {
       line-height:3rem;
       font-size:inherit;
       background:$white;
+      @extend %shaded;
       text-align:center;
       color:currentColor;
       text-decoration:none;

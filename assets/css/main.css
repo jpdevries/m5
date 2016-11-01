@@ -20,6 +20,9 @@ http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3/
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px); }
 
+#tree, .actionnav nav button, .actionnav nav a {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); }
+
 * {
   box-sizing: border-box; }
 
@@ -69,10 +72,19 @@ body {
   background: #efefef;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
+#grail main > header > div, #grail main > form > header > div {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
+  background: white; }
+
 @media screen and (min-width: 641px) {
   html[complex-layout] #grail {
     display: flex;
-    flex-grow: 1; } }
+    flex-grow: 1; }
+    html[complex-layout] #grail main {
+      padding-right: 14px; }
+    html[complex-layout] #grail main, html[complex-layout] #grail aside {
+      flex-grow: 2; } }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] .page-wrapper {
@@ -110,11 +122,10 @@ body {
     html[complex-layout] .page-wrapper #stickybar {
       display: none; }
     html[complex-layout] .page-wrapper #tree {
+      border-right: 1px solid #ddddd3;
       margin-right: 0; }
     html[complex-layout] .page-wrapper #tree, html[complex-layout] .page-wrapper main {
       overflow-y: auto; }
-    html[complex-layout] .page-wrapper .document {
-      margin-top: -2.4rem; }
     html[complex-layout] .page-wrapper .actionnav {
       position: absolute;
       font-size: 0.8em;
@@ -291,6 +302,9 @@ details div label {
 details .auto-tags label, details .inline-describe label, details .options label {
   display: inline-block; }
 
+details fieldset div label {
+  display: inline-block; }
+
 .tooltip {
   position: relative; }
 
@@ -333,6 +347,9 @@ button.emoji {
 
 .emoji-bar {
   display: flex; }
+  @media screen and (min-width: 641px) {
+    html[complex-layout] .emoji-bar {
+      margin-top: 0; } }
 
 .comfy {
   padding-left: 0.5rem;
@@ -412,9 +429,23 @@ button.emoji {
       color: #343436 !important;
       text-transform: uppercase !important;
       font-style: normal !important; }
+      @media screen and (min-width: 641px) {
+        #uberform #ubersearch:focus + label[for="ubersearch"], #uberform #ubersearch.dirty + label[for="ubersearch"] {
+          bottom: auto !important;
+          top: 0.25rem !important; } }
+
+@media screen and (min-width: 641px) {
+  html[complex-layout] #tree {
+    padding-top: 1rem; }
+    html[complex-layout] #tree > nav > details {
+      margin-bottom: 1rem; } }
 
 summary {
   padding: 1rem .5rem; }
+  @media screen and (min-width: 641px) {
+    html[complex-layout] summary {
+      padding-top: 0;
+      padding-bottom: 0; } }
   summary h1, summary h2, summary h3, summary h4, summary h5, summary h6 {
     display: inline; }
 
@@ -448,9 +479,24 @@ details nav ul {
   header .actionnav {
     display: none; } }
 
+details > div > div > div, details > div > div fieldset {
+  margin-bottom: 1rem; }
+
 @media screen and (min-width: 641px) {
-  html[complex-layout] main > .actionnav {
+  html[complex-layout] main > .actionnav:last-of-type, html[complex-layout] main > form > .actionnav:last-of-type {
     display: none; } }
+
+main > section, main > form > section {
+  padding-bottom: 1rem;
+  background: white;
+  color: #343436; }
+
+main > header > div, main > form > header > div {
+  padding-bottom: 1rem; }
+  main > header > div > details, main > form > header > div > details {
+    margin-bottom: 1rem; }
+    main > header > div > details:last-of-type, main > form > header > div > details:last-of-type {
+      margin-bottom: 0; }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] body:not(.searching) {
@@ -525,13 +571,23 @@ details.context .flexible {
     #mainnav__nav details p {
       margin-bottom: 0; }
     #mainnav__nav details li {
-      padding-bottom: 1em; }
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 0;
+      transition: background 240ms ease; }
+      #mainnav__nav details li h1, #mainnav__nav details li h2, #mainnav__nav details li h3, #mainnav__nav details li h4, #mainnav__nav details li h5, #mainnav__nav details li h6 {
+        margin-top: 0; }
+      #mainnav__nav details li:hover, #mainnav__nav details li:target, #mainnav__nav details li:active {
+        background: #2a2a2c; }
   #mainnav__nav li {
     border-top: 1px solid #1a2b3d;
     padding: 0 1em;
     color: #C9D4E1; }
     #mainnav__nav li p {
       color: #5ABCE5; }
+  @media screen and (min-width: 641px) {
+    html[complex-layout] #mainnav__nav > details > summary {
+      line-height: 3; } }
 
 .radio-bar fieldset {
   border-color: white; }
@@ -542,9 +598,6 @@ details.context .flexible {
     margin-right: .5em; }
   .radio-bar fieldset > div input[type="radio"] {
     font-size: 1.4em; }
-
-#tree {
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); }
 
 h1 {
   color: #343436; }
@@ -569,9 +622,11 @@ h1 {
   width: 90%; }
 
 main h1 {
-  padding: 0 0.5rem; }
+  padding: 0 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
 
-main > section:last-of-type > div > details {
+main > section:last-of-type > div > details, main > form > section:last-of-type > div > details {
   padding-bottom: 0.5rem; }
 
 table {
@@ -600,26 +655,24 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
   background: white;
   color: #566d87;
   padding-bottom: 1rem; }
+  @media screen and (min-width: 641px) {
+    html[complex-layout] #tree {
+      font-size: 0.8em; } }
   #tree summary summary {
     padding: 0; }
 
-details > div > div > div {
-  margin-bottom: 0.5rem; }
-  details > div > div > div:last-of-type {
-    margin-bottom: 0; }
-
-main > header > details {
+main > header > details, main > form > header > details {
   /*> div > div > div {
     margin-bottom:0.5rem;
     &:last-of-type {
       margin-bottom:0;
     }
   }*/ }
-  main > header > details label {
+  main > header > details label, main > form > header > details label {
     display: block; }
-  main > header > details > div > div > *:last-child {
+  main > header > details > div > div > *:last-child, main > form > header > details > div > div > *:last-child {
     padding-bottom: 0; }
-  main > header > details.settings fieldset label {
+  main > header > details.settings fieldset label, main > form > header > details.settings fieldset label {
     display: inline-block; }
 
 label[for="hidemenu"], label[for="published"] {
