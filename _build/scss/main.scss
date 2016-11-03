@@ -88,6 +88,62 @@ body {
        sans-serif;
 }
 
+label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
+  margin-top:.5rem;
+  display:block;
+}
+
+#mainnav__nav li {
+  form {
+    padding-top:.5rem;
+  }
+  form > div {
+    margin-top:.3rem;
+    display:flex;
+    > * {
+      &:first-child {
+        flex-grow:1;
+        padding-right:.5rem;
+      }
+    }
+    button, input[type="text"] {
+      line-height:2rem;
+      border:1px solid grey;
+      border-radius:4px;
+      padding:0 0.5rem;
+    }
+    button {
+      background:$bodyBG;
+      border:1px solid darken($bodyBG, 6%);
+      color:$dark;
+    }
+    #new_pagetitle {
+      line-height:2rem;
+      padding-left:.5rem;
+      padding-right:.5rem;
+    }
+  }
+
+  &.quick-upload {
+    form {
+      padding-top:0;
+    }
+    form > div button {
+      line-height:initial;
+    }
+  }
+}
+
+.command-line {
+  textarea {
+    font-family:monospace, sans-serif;
+    font-size:.8rem;
+    background:$dark;
+    color:$white;
+    margin-top:1rem;
+  }
+}
+
 #grail {
   main {
     > header, > form > header {
@@ -224,7 +280,7 @@ body {
 
 body {
   &.searching {
-    overflow-y:auto;
+    //overflow-y:auto;
 
     .page-wrapper {
       max-height:none;
@@ -236,11 +292,15 @@ body {
         #mainnav {
           display:flex;
           flex-wrap:wrap;
+          @include media($gtMobile) {
+             padding-right:0;
+          }
           #mainnav__nav {
             flex-basis:100vw;
             background:#2c3a48;
             > details {
               border-right:1px solid #1a2b3d;
+              flex-grow:1;
               &:last-of-type {
                 border:none;
               }
@@ -253,6 +313,33 @@ body {
       }
     }
   }
+}
+
+#mainnav__nav li.messages {
+  label {
+    color:currentColor;
+  }
+}
+
+#mainnav__nav li.system-setting {
+  label {
+    color:currentColor;
+  }
+  form > div {
+    display:block;
+  }
+}
+
+#mainnav__nav li.messages {
+  form > div {
+   display:block;
+ }
+ button[type="submit"] {
+   margin-top:.5rem;
+   display:block;
+   width:100%;
+   cursor:pointer;
+ }
 }
 
 #mainnav {
@@ -282,7 +369,7 @@ body {
         margin:0;
         @include media($gtMobile) {
           flex-grow:4;
-          flex-basis:30%;
+          //flex-basis:12em;
         }
       }
 
@@ -500,6 +587,11 @@ button {
 
 .emoji-bar {
   display:flex;
+  &.comfy {
+    @include media($gtMobile) {
+      padding-right:0;
+    }
+  }
   html[complex-layout] & {
     @include media($gtMobile) {
       margin-top:0;
@@ -518,6 +610,45 @@ button {
 
 .comfy {
   @extend %comfy;
+}
+
+#template-variables {
+  > details {
+    margin-bottom:1rem;
+  }
+}
+
+.quick-upload {
+  form {
+    margin-top:1rem;
+  }
+}
+
+.dragdrop {
+  margin-top:1rem;
+  //padding-top:100%;
+  padding-top:50%;
+  background:lighten(#2c3a48, 22%);
+  position:relative;
+  border-radius:.75em;
+  border:1px solid lighten(#2c3a48, 12%);
+  transition:background 500ms ease;
+
+  &:hover {
+    background:lighten(#2c3a48, 28%);
+  }
+  &:after {
+    position:absolute;
+    top:4px;
+    right:4px;
+    bottom:4px;
+    left:4px;
+    z-index:99999;
+    border:2px dashed lighten(#2c3a48, 12%);
+    content:" ";
+    display:block;
+    border-radius:.75em;
+  }
 }
 
 #uberform {
@@ -545,6 +676,7 @@ button {
     z-index:1;
     h1 {
       font-size:1em;
+      font-weight:600;
       //font-weight:normal;
     }
   }
@@ -672,6 +804,18 @@ summary {
 
   }
 }
+
+/*#content {
+  padding-bottom:.5rem;
+  &:target {
+    background:transparent;
+    color:white;
+    > summary {
+      background:transparent;
+      color:#EB6436;
+    }
+  }
+}*/
 
 .button-row {
   display:flex;
@@ -855,12 +999,13 @@ details {
       padding-top:1rem;
       padding-bottom:1rem;
       margin-bottom:0;
-      transition:background 240ms ease;
+      transition:all 240ms ease;
       h1,h2,h3,h4,h5,h6 {
         margin-top:0;
       }
       &:hover, &:target, &:active {
-        background:darken($dark,4%);
+        background:darken(#2c3a48,4%);
+        opacity:1 !important;
       }
     }
 
@@ -870,8 +1015,17 @@ details {
     border-top:1px solid #1a2b3d;
     padding:0 1em;
     color:#C9D4E1;
-    p {
+    p, label {
       color:#5ABCE5;
+      &:first-of-type {
+
+      }
+    }
+    p a {
+      color:#5ABCE5;
+    }
+    &.messages {
+
     }
   }
 

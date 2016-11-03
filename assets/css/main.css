@@ -72,6 +72,46 @@ body {
   background: #efefef;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
+label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
+  margin-top: .5rem;
+  display: block; }
+
+#mainnav__nav li form {
+  padding-top: .5rem; }
+
+#mainnav__nav li form > div {
+  margin-top: .3rem;
+  display: flex; }
+  #mainnav__nav li form > div > *:first-child {
+    flex-grow: 1;
+    padding-right: .5rem; }
+  #mainnav__nav li form > div button, #mainnav__nav li form > div input[type="text"] {
+    line-height: 2rem;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 0 0.5rem; }
+  #mainnav__nav li form > div button {
+    background: #EFEFEA;
+    border: 1px solid #e2e2d9;
+    color: #343436; }
+  #mainnav__nav li form > div #new_pagetitle {
+    line-height: 2rem;
+    padding-left: .5rem;
+    padding-right: .5rem; }
+
+#mainnav__nav li.quick-upload form {
+  padding-top: 0; }
+
+#mainnav__nav li.quick-upload form > div button {
+  line-height: initial; }
+
+.command-line textarea {
+  font-family: monospace, sans-serif;
+  font-size: .8rem;
+  background: #343436;
+  color: white;
+  margin-top: 1rem; }
+
 #grail main > header > div, #grail main > form > header > div {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   padding-top: 1rem;
@@ -156,24 +196,45 @@ body {
 #mainnav, #stickybar {
   background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%); }
 
-body.searching {
-  overflow-y: auto; }
-  body.searching .page-wrapper {
-    max-height: none; }
-  html[complex-layout] body.searching .sidenav {
-    position: relative; }
-    html[complex-layout] body.searching .sidenav #mainnav {
-      display: flex;
-      flex-wrap: wrap; }
-      html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav {
-        flex-basis: 100vw;
-        background: #2c3a48; }
-        html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details {
-          border-right: 1px solid #1a2b3d; }
-          html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details:last-of-type {
-            border: none; }
-        html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details > nav {
-          position: relative; }
+body.searching .page-wrapper {
+  max-height: none; }
+
+html[complex-layout] body.searching .sidenav {
+  position: relative; }
+  html[complex-layout] body.searching .sidenav #mainnav {
+    display: flex;
+    flex-wrap: wrap; }
+    @media screen and (min-width: 641px) {
+      html[complex-layout] body.searching .sidenav #mainnav {
+        padding-right: 0; } }
+    html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav {
+      flex-basis: 100vw;
+      background: #2c3a48; }
+      html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details {
+        border-right: 1px solid #1a2b3d;
+        flex-grow: 1; }
+        html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details:last-of-type {
+          border: none; }
+      html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details > nav {
+        position: relative; }
+
+#mainnav__nav li.messages label {
+  color: currentColor; }
+
+#mainnav__nav li.system-setting label {
+  color: currentColor; }
+
+#mainnav__nav li.system-setting form > div {
+  display: block; }
+
+#mainnav__nav li.messages form > div {
+  display: block; }
+
+#mainnav__nav li.messages button[type="submit"] {
+  margin-top: .5rem;
+  display: block;
+  width: 100%;
+  cursor: pointer; }
 
 #mainnav {
   color: white; }
@@ -197,8 +258,7 @@ body.searching {
         margin: 0; } }
     @media screen and (min-width: 641px) and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform {
-        flex-grow: 4;
-        flex-basis: 30%; } }
+        flex-grow: 4; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #mainnav__nav > details > nav {
         position: absolute;
@@ -348,12 +408,43 @@ button.emoji {
 .emoji-bar {
   display: flex; }
   @media screen and (min-width: 641px) {
+    .emoji-bar.comfy {
+      padding-right: 0; } }
+  @media screen and (min-width: 641px) {
     html[complex-layout] .emoji-bar {
       margin-top: 0; } }
 
 .comfy {
   padding-left: 0.5rem;
   padding-right: 0.5rem; }
+
+#template-variables > details {
+  margin-bottom: 1rem; }
+
+.quick-upload form {
+  margin-top: 1rem; }
+
+.dragdrop {
+  margin-top: 1rem;
+  padding-top: 50%;
+  background: #57728e;
+  position: relative;
+  border-radius: .75em;
+  border: 1px solid #43596e;
+  transition: background 500ms ease; }
+  .dragdrop:hover {
+    background: #6381a0; }
+  .dragdrop:after {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    left: 4px;
+    z-index: 99999;
+    border: 2px dashed #43596e;
+    content: " ";
+    display: block;
+    border-radius: .75em; }
 
 #uberform {
   position: relative;
@@ -374,7 +465,8 @@ button.emoji {
     bottom: 0.25em;
     z-index: 1; }
     #uberform label[for="ubersearch"] h1 {
-      font-size: 1em; }
+      font-size: 1em;
+      font-weight: 600; }
   #uberform #ubersearch {
     min-width: 16rem;
     font-size: 1em;
@@ -457,6 +549,17 @@ summary {
     background: #EB6436;
     color: white; }
 
+/*#content {
+  padding-bottom:.5rem;
+  &:target {
+    background:transparent;
+    color:white;
+    > summary {
+      background:transparent;
+      color:#EB6436;
+    }
+  }
+}*/
 .button-row {
   display: flex;
   justify-content: space-between;
@@ -574,16 +677,19 @@ details.context .flexible {
       padding-top: 1rem;
       padding-bottom: 1rem;
       margin-bottom: 0;
-      transition: background 240ms ease; }
+      transition: all 240ms ease; }
       #mainnav__nav details li h1, #mainnav__nav details li h2, #mainnav__nav details li h3, #mainnav__nav details li h4, #mainnav__nav details li h5, #mainnav__nav details li h6 {
         margin-top: 0; }
       #mainnav__nav details li:hover, #mainnav__nav details li:target, #mainnav__nav details li:active {
-        background: #2a2a2c; }
+        background: #24303b;
+        opacity: 1 !important; }
   #mainnav__nav li {
     border-top: 1px solid #1a2b3d;
     padding: 0 1em;
     color: #C9D4E1; }
-    #mainnav__nav li p {
+    #mainnav__nav li p, #mainnav__nav li label {
+      color: #5ABCE5; }
+    #mainnav__nav li p a {
       color: #5ABCE5; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #mainnav__nav > details > summary {
