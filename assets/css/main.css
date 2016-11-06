@@ -73,30 +73,41 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
 label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
+  margin-top: 8px;
   margin-top: .5rem;
   display: block; }
 
 #mainnav__nav li form {
+  padding-top: 8px;
   padding-top: .5rem; }
 
 #mainnav__nav li form > div {
+  margin-top: 4.8px;
   margin-top: .3rem;
+  display: -ms-flexbox;
   display: flex; }
   #mainnav__nav li form > div > *:first-child {
-    flex-grow: 1;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding-right: 8px;
     padding-right: .5rem; }
   #mainnav__nav li form > div button, #mainnav__nav li form > div input[type="text"] {
+    line-height: 32px;
     line-height: 2rem;
     border: 1px solid grey;
     border-radius: 4px;
+    padding: 0 8px;
     padding: 0 0.5rem; }
   #mainnav__nav li form > div button {
     background: #EFEFEA;
     border: 1px solid #e2e2d9;
     color: #343436; }
   #mainnav__nav li form > div #new_pagetitle {
+    line-height: 32px;
     line-height: 2rem;
+    padding-left: 8px;
     padding-left: .5rem;
+    padding-right: 8px;
     padding-right: .5rem; }
 
 #mainnav__nav li.quick-upload form {
@@ -107,24 +118,30 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
 
 .command-line textarea {
   font-family: monospace, sans-serif;
+  font-size: 12.8px;
   font-size: .8rem;
   background: #343436;
   color: white;
+  margin-top: 16px;
   margin-top: 1rem; }
 
 #grail main > header > div, #grail main > form > header > div {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 16px;
   padding-top: 1rem;
   background: white; }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] #grail {
+    display: -ms-flexbox;
     display: flex;
-    flex-grow: 1; }
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
     html[complex-layout] #grail main {
       padding-right: 14px; }
     html[complex-layout] #grail main, html[complex-layout] #grail aside {
-      flex-grow: 2; } }
+      -ms-flex-positive: 2;
+          flex-grow: 2; } }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] .page-wrapper {
@@ -132,10 +149,13 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
     margin-left: auto;
     margin-right: auto;
     max-width: none;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: no-wrap;
+    -ms-flex-wrap: no-wrap;
+        flex-wrap: no-wrap;
     max-height: 100vh;
-    flex-direction: column;
+    -ms-flex-direction: column;
+        flex-direction: column;
     overflow-y: auto; }
     html[complex-layout] .page-wrapper::after {
       clear: both;
@@ -165,7 +185,9 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       border-right: 1px solid #ddddd3;
       margin-right: 0; }
     html[complex-layout] .page-wrapper #tree, html[complex-layout] .page-wrapper main {
-      overflow-y: auto; }
+      overflow-y: auto;
+      overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch; }
     html[complex-layout] .page-wrapper .actionnav {
       position: absolute;
       font-size: 0.8em;
@@ -185,13 +207,15 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
         padding-top: 0.25rem;
         padding-bottom: 0.25rem; }
       html[complex-layout] .page-wrapper .actionnav nav > *:first-child {
-        flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+            flex-basis: auto;
         margin-bottom: 0;
         margin-right: .4em; }
     html[complex-layout] .page-wrapper main {
       overflow-y: auto;
       /* max-height: 20em; */
-      flex-grow: 1; } }
+      -ms-flex-positive: 1;
+          flex-grow: 1; } }
 
 #mainnav, #stickybar {
   background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%); }
@@ -202,17 +226,21 @@ body.searching .page-wrapper {
 html[complex-layout] body.searching .sidenav {
   position: relative; }
   html[complex-layout] body.searching .sidenav #mainnav {
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
     @media screen and (min-width: 641px) {
       html[complex-layout] body.searching .sidenav #mainnav {
         padding-right: 0; } }
     html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav {
-      flex-basis: 100vw;
+      -ms-flex-preferred-size: 100vw;
+          flex-basis: 100vw;
       background: #2c3a48; }
       html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details {
         border-right: 1px solid #1a2b3d;
-        flex-grow: 1; }
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
         html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details:last-of-type {
           border: none; }
       html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details > nav {
@@ -231,6 +259,7 @@ html[complex-layout] body.searching .sidenav {
   display: block; }
 
 #mainnav__nav li.messages button[type="submit"] {
+  margin-top: 8px;
   margin-top: .5rem;
   display: block;
   width: 100%;
@@ -240,6 +269,7 @@ html[complex-layout] body.searching .sidenav {
   color: white; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #mainnav {
+      display: -ms-flexbox;
       display: flex; }
       html[complex-layout] #mainnav .radio-bar {
         position: absolute;
@@ -252,30 +282,37 @@ html[complex-layout] body.searching .sidenav {
         clip: rect(1px, 1px, 1px, 1px); } }
   @media screen and (min-width: 641px) and (min-width: 641px) {
     html[complex-layout] #mainnav > .page {
-      flex-basis: 20em; } }
+      -ms-flex-preferred-size: 20em;
+          flex-basis: 20em; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform {
         margin: 0; } }
     @media screen and (min-width: 641px) and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform {
-        flex-grow: 4; } }
+        -ms-flex-positive: 4;
+            flex-grow: 4; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #mainnav__nav > details > nav {
         position: absolute;
         z-index: 99999; } }
   @media screen and (min-width: 641px) and (min-width: 641px) {
     html[complex-layout] #mainnav #mainnav__nav {
-      flex-grow: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
       font-size: 0.9em; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform #ubersearch {
         margin-bottom: 0; }
       html[complex-layout] #mainnav #mainnav__nav {
+        display: -ms-flexbox;
         display: flex;
-        justify-content: flex-end; } }
+        -ms-flex-pack: end;
+            justify-content: flex-end; } }
 
 .logo {
+  height: 32px;
   height: 2rem;
+  width: 32px;
   width: 2rem; }
 
 #mainnav {
@@ -293,8 +330,10 @@ html[complex-layout] body.searching .sidenav {
     font-style: italic;
     font-weight: 400;
     color: #f8f8f8;
+    display: -ms-flexbox;
     display: flex; }
     #mainnav .version span {
+      line-height: 32px;
       line-height: 2rem;
       padding-left: .4em; }
   #mainnav a {
@@ -316,10 +355,14 @@ html:not(.hide-unmatched-elements) #mainnav__nav li[hidden] {
     clip: rect(1px, 1px, 1px, 1px); } }
 
 #stickybar {
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
   color: white;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 8px;
   padding: .5rem;
   border-bottom: 1px solid #1a2b3d; }
   @media screen and (min-height: 320px) {
@@ -329,21 +372,25 @@ html:not(.hide-unmatched-elements) #mainnav__nav li[hidden] {
       top: 0;
       z-index: 99999; } }
   #stickybar > div > * {
+    margin-right: 8px;
     margin-right: 0.5rem; }
     #stickybar > div > *:last-child {
       margin-right: 0; }
   #stickybar > *:first-child {
     margin-right: auto; }
   #stickybar div a, #stickybar div button {
-    appearance: none;
+    -moz-appearance: none;
+         appearance: none;
     -webkit-appearance: none;
     border: 1px solid #343436;
+    margin-right: 8px;
     margin-right: .5rem;
     color: black;
     background: white;
     display: inline-block;
     text-decoration: none;
     border-radius: 4px;
+    font-size: 12.8px;
     font-size: .8rem;
     font-family: inherit;
     padding-top: 2px;
@@ -351,8 +398,10 @@ html:not(.hide-unmatched-elements) #mainnav__nav li[hidden] {
     padding-bottom: 3px;
     padding-left: 6px; }
   #stickybar > div {
+    display: -ms-flexbox;
     display: flex;
-    align-items: center; }
+    -ms-flex-align: center;
+        align-items: center; }
   #stickybar h2 {
     margin: 0; }
 
@@ -406,6 +455,7 @@ button.emoji {
     padding-left: 0.5em; }
 
 .emoji-bar {
+  display: -ms-flexbox;
   display: flex; }
   @media screen and (min-width: 641px) {
     .emoji-bar.comfy {
@@ -415,16 +465,21 @@ button.emoji {
       margin-top: 0; } }
 
 .comfy {
+  padding-left: 8px;
   padding-left: 0.5rem;
+  padding-right: 8px;
   padding-right: 0.5rem; }
 
 #template-variables > details {
+  margin-bottom: 16px;
   margin-bottom: 1rem; }
 
 .quick-upload form {
+  margin-top: 16px;
   margin-top: 1rem; }
 
 .dragdrop {
+  margin-top: 16px;
   margin-top: 1rem;
   padding-top: 50%;
   background: #57728e;
@@ -452,13 +507,16 @@ button.emoji {
   margin-top: 1em;
   margin-bottom: 1em;
   font-size: 1.2em;
+  padding-left: 8px;
   padding-left: 0.5rem;
+  padding-right: 8px;
   padding-right: 0.5rem; }
   #uberform > div {
     position: relative; }
   @media screen and (max-width: 640px) {
     #uberform {
-      flex-basis: 100%; } }
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; } }
   #uberform label[for="ubersearch"] {
     position: absolute;
     color: #2F363D;
@@ -468,13 +526,17 @@ button.emoji {
       font-size: 1em;
       font-weight: 600; }
   #uberform #ubersearch {
+    min-width: 256px;
     min-width: 16rem;
     font-size: 1em;
+    line-height: 64px;
     line-height: 4rem;
+    padding: 0 16px;
     padding: 0 1rem;
     width: 100%;
     border-radius: 0.25em;
     border: 1px solid grey;
+    margin-bottom: 16px;
     margin-bottom: 1rem;
     /*&:not(.dirty) {
 
@@ -494,7 +556,9 @@ button.emoji {
       transition: all 0 ease;
       transition-delay: 200ms;
       position: absolute;
+      left: 16px;
       left: 1rem;
+      bottom: 32px;
       bottom: 2rem;
       font-size: 1.2em; }
     @media screen and (min-width: 641px) {
@@ -515,8 +579,10 @@ button.emoji {
       opacity: 1;
       transition-delay: 240ms; }
     #uberform #ubersearch:focus + label[for="ubersearch"], #uberform #ubersearch.dirty + label[for="ubersearch"] {
+      font-size: 12.8px !important;
       font-size: .8rem !important;
       font-weight: bold !important;
+      bottom: 64px !important;
       bottom: 4rem !important;
       color: #343436 !important;
       text-transform: uppercase !important;
@@ -533,6 +599,7 @@ button.emoji {
       margin-bottom: 1rem; } }
 
 summary {
+  padding: 16px 8px;
   padding: 1rem .5rem; }
   @media screen and (min-width: 641px) {
     html[complex-layout] summary {
@@ -561,9 +628,12 @@ summary {
   }
 }*/
 .button-row {
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; }
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 html.js details nav a {
   color: currentColor;
@@ -572,6 +642,7 @@ html.js details nav a {
 details nav ul {
   list-style-type: none;
   margin: 0;
+  padding: 0 0 0 8px;
   padding: 0 0 0 0.5rem; }
   details nav ul li {
     margin-bottom: 0.5em; }
@@ -583,6 +654,7 @@ details nav ul {
     display: none; } }
 
 details > div > div > div, details > div > div fieldset {
+  margin-bottom: 16px;
   margin-bottom: 1rem; }
 
 @media screen and (min-width: 641px) {
@@ -590,13 +662,16 @@ details > div > div > div, details > div > div fieldset {
     display: none; } }
 
 main > section, main > form > section {
+  padding-bottom: 16px;
   padding-bottom: 1rem;
   background: white;
   color: #343436; }
 
 main > header > div, main > form > header > div {
+  padding-bottom: 16px;
   padding-bottom: 1rem; }
   main > header > div > details, main > form > header > div > details {
+    margin-bottom: 16px;
     margin-bottom: 1rem; }
     main > header > div > details:last-of-type, main > form > header > div > details:last-of-type {
       margin-bottom: 0; }
@@ -624,17 +699,21 @@ main > header > div, main > form > header > div {
   }
 }*/
 details > nav header {
+  padding: 0 8px;
   padding: 0 0.5rem; }
 
 details.context > nav {
+  padding: 0 8px;
   padding: 0 0.5rem; }
 
 details.context > summary::-webkit-details-marker {
   transform: translateY(1.2em); }
 
 details.context > summary > div {
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
   padding-left: 1em; }
   details.context > summary > div h3 {
     margin: 0;
@@ -642,13 +721,16 @@ details.context > summary > div {
 
 details.context ul {
   margin: 0;
+  padding: 0 8px;
   padding: 0 0.5rem;
   list-style-type: none; }
 
 details.context .flexible {
+  display: -ms-flexbox;
   display: flex; }
   details.context .flexible h3 {
-    flex-grow: 10;
+    -ms-flex-positive: 10;
+        flex-grow: 10;
     margin: 0; }
 
 #mainnav__nav {
@@ -674,7 +756,9 @@ details.context .flexible {
     #mainnav__nav details p {
       margin-bottom: 0; }
     #mainnav__nav details li {
+      padding-top: 16px;
       padding-top: 1rem;
+      padding-bottom: 16px;
       padding-bottom: 1rem;
       margin-bottom: 0;
       transition: all 240ms ease; }
@@ -699,6 +783,7 @@ details.context .flexible {
   border-color: white; }
 
 .radio-bar fieldset > div {
+  display: -ms-flexbox;
   display: flex; }
   .radio-bar fieldset > div > * {
     margin-right: .5em; }
@@ -714,25 +799,34 @@ h1 {
   background: white;
   color: #343436; }
   .document > div, .resource-groups > div, .settings > div, .content > div, .light > div {
+    padding: 0 8px;
     padding: 0 .5rem; }
   .document details, .resource-groups details, .settings details, .content details, .light details {
+    padding-left: 16px;
     padding-left: 1rem; }
   .document input, .document textarea, .resource-groups input, .resource-groups textarea, .settings input, .settings textarea, .content input, .content textarea, .light input, .light textarea {
+    font-size: 19.2px;
     font-size: 1.2rem; }
   .document input[type="file"], .document input[type="image"], .resource-groups input[type="file"], .resource-groups input[type="image"], .settings input[type="file"], .settings input[type="image"], .content input[type="file"], .content input[type="image"], .light input[type="file"], .light input[type="image"] {
+    font-size: 17.6px;
     font-size: 1.1rem; }
   .document select, .resource-groups select, .settings select, .content select, .light select {
+    font-size: 14.4px;
     font-size: .9rem; }
 
 .resource-groups table th:first-of-type, .resource-groups table td:first-of-type {
   width: 90%; }
 
 main h1 {
+  padding: 0 8px;
   padding: 0 0.5rem;
+  margin-top: 16px;
   margin-top: 1rem;
+  margin-bottom: 16px;
   margin-bottom: 1rem; }
 
 main > section:last-of-type > div > details, main > form > section:last-of-type > div > details {
+  padding-bottom: 8px;
   padding-bottom: 0.5rem; }
 
 table {
@@ -742,9 +836,11 @@ table {
 
 ul.discrete {
   margin: 0;
+  padding: 16px 0;
   padding: 1rem 0;
   list-style-type: none; }
   ul.discrete li {
+    padding-bottom: 8px;
     padding-bottom: 0.5rem; }
     ul.discrete li:last-of-type {
       padding-bottom: 0; }
@@ -760,6 +856,7 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
 #tree {
   background: white;
   color: #566d87;
+  padding-bottom: 16px;
   padding-bottom: 1rem; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #tree {
@@ -788,19 +885,24 @@ label[for="hidemenu"], label[for="published"] {
   width: 100%; }
 
 #content > details > div {
+  padding: 0 8px;
   padding: 0 0.5rem; }
 
 .actionnav {
   font-size: 1em;
   color: #555555;
+  padding: 8px;
   padding: 0.5rem;
   background: #e4e4e4; }
   .actionnav nav {
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap; }
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
     .actionnav nav button, .actionnav nav a {
       min-height: 3em;
       /* safari bug need to report this to flexbugs */
+      line-height: 48px;
       line-height: 3rem;
       font-size: inherit;
       background: white;
@@ -811,16 +913,22 @@ label[for="hidemenu"], label[for="published"] {
     .actionnav nav > * {
       margin: 0;
       padding: 0;
-      flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
       border-radius: .25rem;
       border: none;
+      margin-right: 6.4px;
       margin-right: .4rem; }
       .actionnav nav > *:first-child {
-        flex-basis: 100%;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
         margin-right: 0;
+        margin-bottom: 6.4px;
         margin-bottom: .4rem;
         background-color: #2b9385;
         background-image: linear-gradient(#2b9385, #007571);
         color: white; }
       .actionnav nav > *:last-child {
         margin-right: 0; }
+
+/*# sourceMappingURL=main.css.map */

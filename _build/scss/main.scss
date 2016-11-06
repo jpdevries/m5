@@ -220,6 +220,8 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       }
       #tree, main {
         overflow-y:auto;
+        overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
       }
       .document {
         //margin-top:-2.4rem;

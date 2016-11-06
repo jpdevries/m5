@@ -157,7 +157,7 @@ module.exports = function(grunt) {
         processors: [
           require('pixrem')(), // add fallbacks for rem units
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-          require('cssnano')() // minify the result
+          //require('cssnano')() // minify the result
         ]
       },
       dist: {
@@ -219,7 +219,7 @@ module.exports = function(grunt) {
               livereload: false
           },
           files: '<%= dirs.scss %>**/*.scss',
-          tasks: ['sass:dev', 'growl:sass']
+          tasks: ['sass:dev', 'postcss', 'cssmin' , 'growl:sass']
       },
       js: {
           files: ['<%= dirs.build %><%= dirs.js %>**/*.js'],
