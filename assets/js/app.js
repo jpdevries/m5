@@ -57,6 +57,8 @@
 	//document.querySelector('html').setAttribute('contrast', 'black-on-white');
 	//document.querySelector('html').removeAttribute('contrast');
 
+	//document.body.classList.add('searching');
+
 	var radios = document.querySelectorAll('input[type="radio"]');
 	for (var i = 0; i < radios.length; i++) {
 	  var radio = radios[i];

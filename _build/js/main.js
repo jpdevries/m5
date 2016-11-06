@@ -9,6 +9,8 @@ document.querySelector('html').classList.add('js');
 //document.querySelector('html').setAttribute('contrast', 'black-on-white');
 //document.querySelector('html').removeAttribute('contrast');
 
+//document.body.classList.add('searching');
+
 const radios = document.querySelectorAll('input[type="radio"]');
 for(let i = 0; i < radios.length; i++) {
   const radio = radios[i];

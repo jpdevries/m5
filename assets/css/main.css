@@ -282,15 +282,15 @@ html[complex-layout] body.searching .sidenav {
         clip: rect(1px, 1px, 1px, 1px); } }
   @media screen and (min-width: 641px) and (min-width: 641px) {
     html[complex-layout] #mainnav > .page {
-      -ms-flex-preferred-size: 20em;
-          flex-basis: 20em; } }
+      -ms-flex-preferred-size: 19em;
+          flex-basis: 19em; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform {
         margin: 0; } }
     @media screen and (min-width: 641px) and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform {
-        -ms-flex-positive: 4;
-            flex-grow: 4; } }
+        -ms-flex-preferred-size: 10em;
+            flex-basis: 10em; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #mainnav__nav > details > nav {
         position: absolute;
@@ -299,15 +299,15 @@ html[complex-layout] body.searching .sidenav {
     html[complex-layout] #mainnav #mainnav__nav {
       -ms-flex-positive: 4;
           flex-grow: 4;
-      font-size: 0.9em; } }
+      font-size: 0.85em; } }
   @media screen and (min-width: 641px) {
       html[complex-layout] #mainnav #uberform #ubersearch {
         margin-bottom: 0; }
       html[complex-layout] #mainnav #mainnav__nav {
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: end;
-            justify-content: flex-end; } }
+        -ms-flex-pack: justify;
+            justify-content: space-between; } }
 
 .logo {
   height: 32px;
@@ -511,6 +511,9 @@ button.emoji {
   padding-left: 0.5rem;
   padding-right: 8px;
   padding-right: 0.5rem; }
+  body.searching #uberform {
+    -ms-flex-positive: 4;
+        flex-grow: 4; }
   #uberform > div {
     position: relative; }
   @media screen and (max-width: 640px) {
@@ -526,8 +529,8 @@ button.emoji {
       font-size: 1em;
       font-weight: 600; }
   #uberform #ubersearch {
-    min-width: 256px;
-    min-width: 16rem;
+    min-width: 96px;
+    min-width: 6rem;
     font-size: 1em;
     line-height: 64px;
     line-height: 4rem;
@@ -563,7 +566,7 @@ button.emoji {
       font-size: 1.2em; }
     @media screen and (min-width: 641px) {
       html[complex-layout] #uberform #ubersearch + label[for="ubersearch"] {
-        bottom: 1rem; } }
+        bottom: .9rem; } }
     #uberform #ubersearch::-webkit-input-placeholder {
       opacity: 0;
       transition: opacity 240ms ease;
