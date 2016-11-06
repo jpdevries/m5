@@ -88,6 +88,13 @@ body {
        sans-serif;
 }
 
+body.snappy {
+  @include media($mobile) {
+    scroll-snap-points-y: repeat(100%);
+    scroll-snap-type: mandatory;
+  }
+}
+
 label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   margin-top:.5rem;
   display:block;

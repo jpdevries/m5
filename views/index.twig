@@ -1,6 +1,6 @@
 {% include 'header.twig' with { loadStyles:true } %}
 </head>
-<body>
+<body class=""><!-- .snappy -->
   <link rel="stylesheet" href="assets/css/main.css" media="screen" title="Revolution Manager Theme">
   <div class="page-wrapper">
     <aside class="sidenav">
@@ -34,6 +34,10 @@
                 <label for="hide_unmatched_elements__no">No</label>
               </div>
             </fieldset>
+          </div>
+          <div class="radio-bar sticky-scroll" style="margin-top:1em">
+            <input type="checkbox" id="snap-scroll" name="snap-scroll">
+            <label for="snap-scroll">Assistive Scrolling</label>
           </div>
         </form>
         <!--div class="button-row">
@@ -923,6 +927,20 @@
           </details>
         </div>
       </section>
+      <div class="radio-bar comfy sticky-scroll" style="margin-top:1em;margin-bottom:1em">
+        <input type="checkbox" id="snap-scroll-2" name="snap-scroll-2">
+        <label for="snap-scroll-2">Assistive Scrolling</label>
+      </div>
+      <script>
+        let stickyComponents = document.querySelectorAll('.sticky-scroll');
+        for(let i = 0; i < stickyComponents.length; i++) {
+          stickyComponents[i].querySelector('input[name="snap-scroll"]').addEventListener('change', function(event) {
+            event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy')
+            let stickyBoxes = document.querySelectorAll('input[name="snap-scroll"]');
+            for(let i = 0; i < stickyBoxes.length; i++) stickyBoxes[i].checked = event.target.checked;
+          });
+        }
+      </script>
       <aside class="actionnav">
         <nav>
           <button href="#">💾&nbsp;Save</button>
