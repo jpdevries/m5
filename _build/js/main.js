@@ -10,6 +10,7 @@ document.querySelector('html').classList.add('js');
 //document.querySelector('html').removeAttribute('contrast');
 
 //document.body.classList.add('searching');
+document.body.classList.add('snappy');
 
 const radios = document.querySelectorAll('input[type="radio"]');
 for(let i = 0; i < radios.length; i++) {
@@ -44,8 +45,8 @@ document.getElementById('ubersearch').addEventListener('focus', function(event) 
 
 document.getElementById('ubersearch').addEventListener('blur', function(event) {
   if(!event.target.value) event.target.classList.remove('dirty');
-  document.body.classList.remove('searching');
-  mainNavDetailsOpen(false);
+  //document.body.classList.remove('searching');
+  //mainNavDetailsOpen(false);
 });
 
 function doFilterPageComponents(filter) {

@@ -90,8 +90,21 @@ body {
 
 body.snappy {
   @include media($mobile) {
-    scroll-snap-points-y: repeat(100%);
-    scroll-snap-type: mandatory;
+    //scroll-snap-points-y: repeat(100%);
+    scroll-snap-type: proximity; //mandatory
+    .page-wrapper {
+      > * {
+        scroll-snap-coordinate: 0 0;
+      }
+    }
+  }
+  @include media($gtMobile) {
+    #grail > main {
+      scroll-snap-type: proximity; //mandatory
+      > form > *, > form details, > form section {
+        scroll-snap-coordinate: 0 0;
+      }
+    }
   }
 }
 
@@ -189,7 +202,7 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
 
       max-height: 100vh;
       flex-direction: column;
-      overflow-y: auto;
+      //overflow-y: auto;
 
       #uberform #ubersearch {
         line-height:3rem;

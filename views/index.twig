@@ -130,7 +130,7 @@
                 <li class="extras command-line">
                   <h3><a href="#">💥&nbsp;Installer</a></h3>
                   <p>Manage Add&ndash;ons and&nbsp;Distributions</p>
-                  <textarea name="extras_commandline" rows="3" cols="32" placeholder="$ mpm install getResources"></textarea>
+                  <textarea name="extras_commandline" rows="3" cols="32" placeholder="$ modx install getResources"></textarea>
                   <p>
                     You have 3 package updates available.<br><a href="#">Update packages now</a>.
                   </p>
@@ -435,14 +435,7 @@
     </div>
     <main>
       <form>
-      <aside class="actionnav">
-        <nav>
-          <button href="#">💾&nbsp;Save</button>
-          <button href="#">📚&nbsp;Duplicate</button>
-          <button href="#">🚫&nbsp;Delete</button>
-          <a href="#">🔎&nbsp;View</a>
-        </nav>
-      </aside>
+      {% include 'partials/actionnav.twig' %}
       <header>
         <h1>Announcing the MODX Advisory Board</h1>
         <p class="comfy emoji-bar">
@@ -934,21 +927,14 @@
       <script>
         let stickyComponents = document.querySelectorAll('.sticky-scroll');
         for(let i = 0; i < stickyComponents.length; i++) {
-          stickyComponents[i].querySelector('input[name="snap-scroll"]').addEventListener('change', function(event) {
+          stickyComponents[i].querySelector('input[name*="snap-scroll"]').addEventListener('change', function(event) {
             event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy')
-            let stickyBoxes = document.querySelectorAll('input[name="snap-scroll"]');
+            let stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
             for(let i = 0; i < stickyBoxes.length; i++) stickyBoxes[i].checked = event.target.checked;
           });
         }
       </script>
-      <aside class="actionnav">
-        <nav>
-          <button href="#">💾&nbsp;Save</button>
-          <button href="#">📚&nbsp;Duplicate</button>
-          <button href="#">🚫&nbsp;Delete</button>
-          <a href="#">🔎&nbsp;View</a>
-        </nav>
-      </aside>
+      {% include 'partials/actionnav.twig' %}
     </form>
     </main>
     <!--aside class="">
