@@ -1,7 +1,7 @@
 {% include 'header.twig' with { loadStyles:true } %}
 </head>
 <body class=""><!-- .snappy -->
-  <link rel="stylesheet" href="assets/css/main.css" media="screen" title="Revolution Manager Theme">
+  <link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">
   <div class="page-wrapper">
     <aside class="sidenav">
       <header id="mainnav">
@@ -831,7 +831,7 @@
                 <div id="autotag">
                   {% include 'mi5/autotag.twig' with {
                     allowBlank:true,
-                    placeholder:'Buter, Bread, Green Cheese',
+                    placeholder:'Buter, Bread, Green-Cheese',
                     id:"autotag",
                     name:"autotag",
                     options:[{
@@ -839,7 +839,7 @@
                     },{
                       title:'Bread'
                     },{
-                      title:'Green Cheese'
+                      title:'Green-Cheese'
                     }]
                   } %}
                 </div>

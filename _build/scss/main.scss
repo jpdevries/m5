@@ -96,7 +96,7 @@ button[disabled] {
   opacity:0.7;
 }
 
-body.snappy {
+body.snappy { // experimental Webkit is suuuuuper buggy spec is a WIP
   @include media($mobile) {
     //scroll-snap-points-y: repeat(100%);
     scroll-snap-type: proximity; //mandatory

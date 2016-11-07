@@ -29,6 +29,7 @@ module.exports = function(grunt) {
           "audio",
           "batteryapi",
           "cookies",
+          "details",
           "emoji",
           "eventlistener",
           "fullscreen",
@@ -157,6 +158,7 @@ module.exports = function(grunt) {
         processors: [
           require('pixrem')(), // add fallbacks for rem units
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require("css-mqpacker")()
           //require('cssnano')() // minify the result
         ]
       },
@@ -184,7 +186,9 @@ module.exports = function(grunt) {
       js: {
         options:{report:"gzip"},
         files: {
-          '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>app.min.js': '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>app.js'
+          '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>app.min.js': '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>app.js',
+          '<%= dirs.theme %><%= dirs.assets %>components/mi5/js/m5.autotag.min.js': '<%= dirs.theme %><%= dirs.assets %>components/mi5/js/m5.autotag.js',
+          '<%= dirs.theme %><%= dirs.assets %>components/mi5/js/m5.input.min.js': '<%= dirs.theme %><%= dirs.assets %>components/mi5/js/m5.input.js'
         }
       }
     },
