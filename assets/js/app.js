@@ -58,7 +58,7 @@
 	//document.querySelector('html').removeAttribute('contrast');
 
 	//document.body.classList.add('searching');
-	document.body.classList.add('snappy');
+	//document.body.classList.add('snappy');
 
 	var radios = document.querySelectorAll('input[type="radio"]');
 	for (var i = 0; i < radios.length; i++) {
@@ -69,6 +69,71 @@
 	    hidePageComponents ? document.querySelector('html').classList.add('hide-unmatched-elements') : document.querySelector('html').classList.remove('hide-unmatched-elements');
 	  });
 	}
+
+	document.querySelector('.sidenav > footer a').addEventListener('click', function (event) {
+	  event.preventDefault();
+	  document.body.classList.remove('searching');
+	  mainNavDetailsOpen(false);
+	});
+
+	(function () {
+	  var stickyComponents = document.querySelectorAll('.sticky-scroll');
+	  for (var _i = 0; _i < stickyComponents.length; _i++) {
+	    stickyComponents[_i].querySelector('input[name*="snap-scroll"]').addEventListener('change', function (event) {
+	      event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy');
+	      var stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
+	      for (var _i2 = 0; _i2 < stickyBoxes.length; _i2++) {
+	        stickyBoxes[_i2].checked = event.target.checked;
+	      }
+	    });
+	  }
+	})();
+
+	(function () {
+	  var emojis = document.querySelectorAll('span[emoji]');
+
+	  var _loop = function _loop(_i3) {
+
+	    var emoji = emojis[_i3],
+	        props = {
+	      iconset: emoji.getAttribute('data-iconset'),
+	      icon: emoji.getAttribute('data-icon'),
+	      svgClass: emoji.getAttribute('data-svg-class'),
+	      svgTitle: emoji.getAttribute('data-svg-title')
+	    },
+	        sprite = undefined;
+
+	    (function () {
+	      console.log(emoji);
+	      console.log(props);
+
+	      if (!props.icon) return;
+
+	      if (!sprite) {
+	        switch (props.iconset) {
+	          case 'svgawesome':
+	            sprite = 'assets/img/icons.svg';
+	            break;
+	        }
+	      }
+
+	      var svgClass = props.svgClass ? ' class="' + props.svgClass + '"' : undefined,
+	          xlinkHref = sprite + '#' + props.icon,
+	          html = '<svg' + svgClass + '>\n        <use xlink:href="' + xlinkHref + '"></use>\n      </svg>';
+
+	      emoji.outerHTML = html;
+	    })();
+	  };
+
+	  for (var _i3 = 0; _i3 < emojis.length; _i3++) {
+	    _loop(_i3);
+	  }
+	})();
+
+	document.getElementById('pagetitle').addEventListener('input', function (event) {
+	  document.querySelector('#grail > main > form > header > h1').innerHTML = event.target.value || '&nbsp;';
+	  document.querySelector('html > head > title').innerHTML = 'Editing ' + event.target.value;
+	});
 
 	document.getElementById('ubersearch').addEventListener('input', function (event) {
 	  if (event.target.value) event.target.classList.add('dirty');
@@ -81,8 +146,8 @@
 	  var open = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 	  var details = document.querySelectorAll('#mainnav__nav > details');
-	  for (var _i = 0; _i < details.length; _i++) {
-	    var detail = details[_i];
+	  for (var _i4 = 0; _i4 < details.length; _i4++) {
+	    var detail = details[_i4];
 	    open ? detail.setAttribute('open', true) : detail.removeAttribute('open');
 	  }
 	}
@@ -106,14 +171,14 @@
 
 	  var pageComponents = document.querySelectorAll('#mainnav__nav li');
 
-	  var _loop = function _loop(_i2) {
-	    var pageComponent = pageComponents[_i2];
+	  var _loop2 = function _loop2(_i5) {
+	    var pageComponent = pageComponents[_i5];
 
 	    var match = function () {
 	      var found = false;
 
-	      for (var _i3 = 0; _i3 < filterWords.length; _i3++) {
-	        var filterWord = filterWords[_i3];
+	      for (var _i6 = 0; _i6 < filterWords.length; _i6++) {
+	        var filterWord = filterWords[_i6];
 
 	        try {
 	          if (pageComponent.querySelector('h3 > a').innerHTML.toLowerCase().includes(filterWord) || pageComponent.querySelector('p').innerHTML.toLowerCase().includes(filterWord)) {
@@ -135,8 +200,8 @@
 	    }
 	  };
 
-	  for (var _i2 = 0; _i2 < pageComponents.length; _i2++) {
-	    _loop(_i2);
+	  for (var _i5 = 0; _i5 < pageComponents.length; _i5++) {
+	    _loop2(_i5);
 	  }
 	}
 

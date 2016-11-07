@@ -11,6 +11,10 @@ $white:white;
   box-sizing:border-box;
 }
 
+.greedy {
+  @extend %very-greedy;
+}
+
 @mixin body-contrast($color, $bg, $outline) {
   body {
     background:$bg !important;
@@ -88,21 +92,27 @@ body {
        sans-serif;
 }
 
+button[disabled] {
+  opacity:0.7;
+}
+
 body.snappy {
   @include media($mobile) {
     //scroll-snap-points-y: repeat(100%);
     scroll-snap-type: proximity; //mandatory
+    //scroll-padding: em(52) 0 0 0;
     .page-wrapper {
       > * {
-        scroll-snap-coordinate: 0 0;
+        scroll-snap-coordinate: 0 -52px;
       }
     }
   }
   @include media($gtMobile) {
     #grail > main {
       scroll-snap-type: proximity; //mandatory
+      //scroll-padding: em(52) 0 0 0;
       > form > *, > form details, > form section {
-        scroll-snap-coordinate: 0 0;
+        scroll-snap-coordinate: 0 -52px;
       }
     }
   }
@@ -118,7 +128,7 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
     padding-top:.5rem;
   }
   form > div {
-    margin-top:.3rem;
+    margin-top:.5rem;
     display:flex;
     > * {
       &:first-child {
@@ -364,10 +374,47 @@ body {
  }
 }
 
+form > .sticky-scroll {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  @include media($gtDesktop) {
+    display:none;
+  }
+}
+
 #mainnav {
   @extend %painted;
   color:white;
   //min-height:100vh;
+
+  & + footer {
+    background:darken(#2c3a48, 6%);
+    color:$white;
+    border:1px solid darken(#2c3a48, 9%);
+    border-left:none;
+    border-right:none;
+
+    transition:background 640ms ease;
+
+    &:hover, &:focus, &:target, &:active {
+      background:darken(#2c3a48, 9%);
+      border:1px solid darken(#2c3a48, 12%);
+    }
+
+    body.searching & {
+      display:block;
+    }
+    a {
+      @extend %clickable;
+      display:block;
+      padding:.5rem 0;
+    }
+    h3,h4 {
+      margin:0;
+      text-align:center;
+    }
+  }
+
   html[complex-layout] & {
     @include media($gtMobile) {
       //@include outer-container;
@@ -993,6 +1040,9 @@ details {
 #mainnav__nav {
   h1,h2,h3,h4,h5,h6 {
     margin-bottom:0;
+  }
+  input[type="file"] {
+    max-width:16em;
   }
   p {
     margin-top:0.5em;

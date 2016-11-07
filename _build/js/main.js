@@ -10,7 +10,7 @@ document.querySelector('html').classList.add('js');
 //document.querySelector('html').removeAttribute('contrast');
 
 //document.body.classList.add('searching');
-document.body.classList.add('snappy');
+//document.body.classList.add('snappy');
 
 const radios = document.querySelectorAll('input[type="radio"]');
 for(let i = 0; i < radios.length; i++) {
@@ -21,6 +21,68 @@ for(let i = 0; i < radios.length; i++) {
     (hidePageComponents) ? document.querySelector('html').classList.add('hide-unmatched-elements') :  document.querySelector('html').classList.remove('hide-unmatched-elements') ;
   });
 }
+
+document.querySelector('.sidenav > footer a').addEventListener('click', function(event) {
+  event.preventDefault();
+  document.body.classList.remove('searching');
+  mainNavDetailsOpen(false);
+});
+
+(function(){
+  let stickyComponents = document.querySelectorAll('.sticky-scroll');
+  for(let i = 0; i < stickyComponents.length; i++) {
+    stickyComponents[i].querySelector('input[name*="snap-scroll"]').addEventListener('change', function(event) {
+      event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy')
+      let stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
+      for(let i = 0; i < stickyBoxes.length; i++) stickyBoxes[i].checked = event.target.checked;
+    });
+  }
+})();
+
+(function(){
+  let emojis = document.querySelectorAll('span[emoji]');
+  for(let i = 0; i < emojis.length; i++) {
+
+
+    let emoji = emojis[i],
+    props = {
+      iconset: emoji.getAttribute('data-iconset'),
+      icon: emoji.getAttribute('data-icon'),
+      svgClass: emoji.getAttribute('data-svg-class'),
+      svgTitle: emoji.getAttribute('data-svg-title')
+    },
+    sprite = undefined;
+
+    (function(){
+      console.log(emoji);
+      console.log(props);
+
+      if(!props.icon) return;
+
+      if(!sprite) {
+        switch(props.iconset) {
+          case 'svgawesome':
+          sprite = 'assets/img/icons.svg';
+          break;
+        }
+      }
+
+      let svgClass = (props.svgClass) ? ` class="${props.svgClass}"` : undefined,
+      xlinkHref = `${sprite}#${props.icon}`,
+      html = `<svg${svgClass}>
+        <use xlink:href="${xlinkHref}"></use>
+      </svg>`;
+
+      emoji.outerHTML = html;
+    })();
+
+  }
+})();
+
+document.getElementById('pagetitle').addEventListener('input', function(event) {
+  document.querySelector('#grail > main > form > header > h1').innerHTML = event.target.value || '&nbsp;';
+  document.querySelector('html > head > title').innerHTML = `Editing ${event.target.value}`;
+});
 
 document.getElementById('ubersearch').addEventListener('input', function(event) {
   if(event.target.value) event.target.classList.add('dirty');

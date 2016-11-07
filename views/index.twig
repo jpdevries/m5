@@ -8,7 +8,7 @@
         <div class="page">
         <h1>MODX Advisory Board</h1>
         <h2 class="version">
-          <a href="#">
+          <a>
             <svg class="logo">
               <title>Dashboard</title>
               <use xlink:href="#modx"></use>
@@ -21,7 +21,7 @@
         <form id="uberform">
           <div>
             <input placeholder="context:web blog" type="text" id="ubersearch" name="q" required />
-            <label for="ubersearch"><h1>🔎 Search<span visually-hidden> for anything&hellip;</span></h1></label>
+            <label for="ubersearch"><h1><span emoji>🔎</span> Search<span visually-hidden> for anything&hellip;</span></h1></label>
           </div>
           <div class="radio-bar">
             <fieldset>
@@ -41,24 +41,28 @@
           </div>
         </form>
         <!--div class="button-row">
-          <div><a href="#">New Resource</a></div>
-          <div><a href="#">New WebLink</a></div>
-          <div><a href="#">New Symlink</a></div>
-          <div><a href="#">New Static Resource</a></div>
-          <div><a href="#">Remove Deleted Resources</a></div>
+          <div><a>New Resource</a></div>
+          <div><a>New WebLink</a></div>
+          <div><a>New Symlink</a></div>
+          <div><a>New Static Resource</a></div>
+          <div><a>Remove Deleted Resources</a></div>
         </div-->
         <nav id="mainnav__nav">
           <details>
-            <summary><h2>📇&nbsp;Content</h2></summary>
+            <summary>
+              <h2>
+                <!--span emoji data-iconset="svgawesome" data-icon="heart" data-svg-class="foo">📇</span--><span emoji>📇</span>&nbsp;Content
+              </h2>
+            </summary>
             <nav>
               <ul>
               <li class="new_resource" data-tags="new resources">
-              <h3><a href="#">📝&nbsp;New Resource</a></h3>
+              <h3><a>📝&nbsp;New Resource</a></h3>
                 <form action="/create/resource" target="_blank">
                   <label for="new_pagetitle">Create a new Resource &mdash; usually a web page</label>
                   <div class="">
                     <div class="">
-                      <input id="new_pagetitle" name="new_pagetitle" type="text" name="new_pagetitle" placeholder="blog > modResource * 3">
+                      <input required id="new_pagetitle" name="new_pagetitle" type="text" name="new_pagetitle" placeholder="blog > modResource * 3">
                     </div>
                     <div>
                       <button type="submit">Create</button>
@@ -68,23 +72,23 @@
               </li>
 
               <li>
-              <h3><a href="#">👀&nbsp;Preview Site</a></h3>
+              <h3><a>👀&nbsp;Preview Site</a></h3>
               <p>View your website in a new&nbsp;window</p>
               </li>
               <li>
-              <h3><a href="#">📄&nbsp;Import HTML</a></h3>
+              <h3><a>📄&nbsp;Import HTML</a></h3>
               <p>Import HTML files to&nbsp;Resources</p>
               </li>
               <li>
-              <h3><a href="#">🔗&nbsp;Import Static Resources</a></h3>
+              <h3><a>🔗&nbsp;Import Static Resources</a></h3>
               <p>Import any Content Type based on file extensions to Static&nbsp;Resources</p>
               </li>
               <li>
-              <h3><a href="#">📑&nbsp;Resource Groups</a></h3>
+              <h3><a>📑&nbsp;Resource Groups</a></h3>
               <p>Assign Resources to&nbsp;Group</p>
               </li>
               <li>
-              <h3><a href="#">📦&nbsp;Content Types</a></h3>
+              <h3><a>📦&nbsp;Content Types</a></h3>
               <p>Add content types for resources, such as .html, js,&nbsp;etc.</p>
               </li>
               </ul>
@@ -92,28 +96,28 @@
           </details>
           <details>
             <summary>
-              <h2>🎑&nbsp;Media</h2>
+              <h2><span emoji>🎑</span>&nbsp;Media</h2>
             </summary>
             <nav>
                 <ul>
                   <li>
-                    <h3><a href="#">📡&nbsp;Media Sources</a></h3>
+                    <h3><a>📡&nbsp;Media Sources</a></h3>
                     <p>Media sources for use of media from remote servers or&nbsp;services</p>
                   </li>
                   <li>
-                    <h3><a href="#">👀&nbsp;Media Browser</a></h3>
+                    <h3><a>👀&nbsp;Media Browser</a></h3>
                     <p>View, upload, and manage&nbsp;media</p>
                   </li>
                   <li>
-                    <h3><a href="#">🌲&nbsp;Eureka</a></h3>
+                    <h3><a>🌲&nbsp;Eureka</a></h3>
                     <p>Browse your Media Sources with the Eureka Media Browser by&nbsp;mod<strong>more</strong></p>
                   </li>
                   <li class="quick-upload">
-                    <h3><a href="#">📤&nbsp;Upload</a></h3>
+                    <h3><a>📤&nbsp;Upload</a></h3>
                     <p>Quickly upload a&nbsp;file</p>
                     <form>
                         <div>
-                          <input type="file" name="pic" accept="image/*">
+                          <input required type="file" name="pic" accept="image/*">
                           <button type="submit">Upload</button>
                         </div>
                         <div class="dragdrop">
@@ -124,27 +128,27 @@
               </nav>
           </details>
           <details>
-            <summary><h2>🚀&nbsp;Extras</h2></summary>
+            <summary><h2><span emoji>🚀</span>&nbsp;Extras</h2></summary>
             <nav>
               <ul>
                 <li class="extras command-line">
-                  <h3><a href="#">💥&nbsp;Installer</a></h3>
+                  <h3><a>💥&nbsp;Installer</a></h3>
                   <p>Manage Add&ndash;ons and&nbsp;Distributions</p>
                   <textarea name="extras_commandline" rows="3" cols="32" placeholder="$ modx install getResources"></textarea>
                   <p>
-                    You have 3 package updates available.<br><a href="#">Update packages now</a>.
+                    You have 3 package updates available.<br><a>Update packages now</a>.
                   </p>
                 </li>
                 <li>
-                  <h3><a href="#">📑&nbsp;Collection views</a></h3>
+                  <h3><a>📑&nbsp;Collection views</a></h3>
                   <p>Define views for collection's children&nbsp;grid</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔳&nbsp;Content Blocks</a></h3>
+                  <h3><a>🔳&nbsp;Content Blocks</a></h3>
                   <p>Manage the Content Blocks fields and&nbsp;layouts</p>
                 </li>
                 <li>
-                  <h3><a href="#">↪&nbsp;Redirector</a></h3>
+                  <h3><a>↪&nbsp;Redirector</a></h3>
                   <p>Manage your&nbsp;redirects</p>
                 </li>
 
@@ -153,32 +157,32 @@
           </details>
           <details>
             <summary>
-              <h2>💼&nbsp;Manage</h2>
+              <h2><span emoji>💼</span>&nbsp;Manage</h2>
             </summary>
             <nav>
               <ul>
                 <li>
-                  <h3><a href="#">👥&nbsp;Users</a></h3>
+                  <h3><a>👥&nbsp;Users</a></h3>
                   <p>Manage Users and their&nbsp;Permissions</p>
                 </li>
                 <li>
-                  <h3><a href="#">🚫&nbsp;Clear Cache</a></h3>
+                  <h3><a>🚫&nbsp;Clear Cache</a></h3>
                   <p>Delete Cache files in all&nbsp;Contexts</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔓&nbsp;Remove Locks</a></h3>
+                  <h3><a>🔓&nbsp;Remove Locks</a></h3>
                   <p>Remove all locks on Manager&nbsp;pages</p>
                 </li>
                 <li>
-                  <h3><a href="#">🚽&nbsp;Flush Your Permissions</a></h3>
+                  <h3><a>🚽&nbsp;Flush Your Permissions</a></h3>
                   <p>Reload this session's&nbsp;Permissions</p>
                 </li>
                 <li>
-                  <h3><a href="#">⛔&nbsp;Lougout All Users</a></h3>
+                  <h3><a>⛔&nbsp;Lougout All Users</a></h3>
                   <p>Immediately destroy all&nbsp;sessions</p>
                 </li>
                 <li>
-                  <h3><a href="#">📈&nbsp;Reports</a></h3>
+                  <h3><a>📈&nbsp;Reports</a></h3>
                   <p>Admin reports for your MODX&nbsp;install</p>
                 </li>
               </ul>
@@ -186,20 +190,20 @@
           </details>
           <details>
             <summary>
-              <h2>👾&nbsp;Account</h2>
+              <h2><span emoji>👾</span>&nbsp;Account</h2>
             </summary>
             <nav>
               <ul>
                 <li>
-                  <h3><a href="#">😎&nbsp;Edit Account</a></h3>
+                  <h3><a>😎&nbsp;Edit Account</a></h3>
                   <p>Update account email, password or&nbsp;info</p>
                 </li>
                 <li>
-                  <h3><a href="#">🌐&nbsp;Accessibility Settings</a></h3>
+                  <h3><a>🌐&nbsp;Accessibility Settings</a></h3>
                   <p>Configure the Management interface to your&nbsp;liking</p>
                 </li>
                 <li class="messages">
-                  <h3><a href="#">📫&nbsp;Messages</a></h3>
+                  <h3><a>📫&nbsp;Messages</a></h3>
                   <p>
                     View and send messages
                   </p>
@@ -216,13 +220,13 @@
                     <label for="quick_sendmessage">Message</label>
                     <div>
 
-                      <textarea id="quick_sendmessage" name="quick_sendmessage" rows="3" placeholder="Hey sudo,"></textarea>
+                      <textarea required id="quick_sendmessage" name="quick_sendmessage" rows="3" placeholder="Hey sudo,"></textarea>
                       <button type="submit">Send</button>
                     </div>
                   </form>
                 </li>
                 <li>
-                  <h3><a href="#">⛔&nbsp;Logout</a></h3>
+                  <h3><a>⛔&nbsp;Logout</a></h3>
                   <p>Log out of the&nbsp;Manager</p>
                 </li>
               </ul>
@@ -230,54 +234,57 @@
           </details>
           <details>
             <summary>
-              <h2>🔧&nbsp;Settings</h2>
+              <h2><span emoji>🔧</span>&nbsp;Settings</h2>
             </summary>
             <nav>
               <ul>
                 <li class="system-setting">
-                  <h3><a href="#">💼&nbsp;System Settings</a></h3>
+                  <h3><a>💼&nbsp;System Settings</a></h3>
                   <p>Configure all system settings</p>
                   <form action="">
                     <label for="quick__new_settingname">Setting Name</label>
                     <div>
-                      <input type="text" name="quick__new_settingname" id="quick__new_settingname" placeholder="foo">
+                      <input required type="text" name="quick__new_settingname" id="quick__new_settingname" placeholder="foo">
                     </div>
                     <label for="quick__new_settingvalue">Setting Value</label>
                     <div>
-                      <input type="text" name="quick__new_settingvalue" id="quick__new_settingvalue" placeholder="bar">
+                      <input required type="text" name="quick__new_settingvalue" id="quick__new_settingvalue" placeholder="bar">
+                    </div>
+                    <div>
+                      <button type="submit" class="greedy">Create Setting</button>
                     </div>
                   </form>
                 </li>
                 <li>
-                  <h3><a href="#">🔧&nbsp;Manage Customization</a></h3>
+                  <h3><a>🔧&nbsp;Manage Customization</a></h3>
                   <p>Manage bespoke MODX Managers</p>
                 </li>
                 <li>
-                  <h3><a href="#">📥&nbsp;Dashboards</a></h3>
+                  <h3><a>📥&nbsp;Dashboards</a></h3>
                   <p>Manage custom login Dashboards</p>
                 </li>
                 <li>
-                  <h3><a href="#">📂&nbsp;Contexts</a></h3>
+                  <h3><a>📂&nbsp;Contexts</a></h3>
                   <p>Manage Contexts and their settings</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔗&nbsp;Menus</a></h3>
+                  <h3><a>🔗&nbsp;Menus</a></h3>
                   <p>Manage the top Manager menu</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔏&nbsp;Access Control Lists</a></h3>
+                  <h3><a>🔏&nbsp;Access Control Lists</a></h3>
                   <p>Manage Permissions through Groups, Roles, and Access Policies</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔐&nbsp;Property Sets</a></h3>
+                  <h3><a>🔐&nbsp;Property Sets</a></h3>
                   <p>Manage ELement property sets</p>
                 </li>
                 <li>
-                  <h3><a href="#">💬&nbsp;Lexicons</a></h3>
+                  <h3><a>💬&nbsp;Lexicons</a></h3>
                   <p>Edit Manager language strings</p>
                 </li>
                 <li>
-                  <h3><a href="#">🔖&nbsp;Namespaces</a></h3>
+                  <h3><a>🔖&nbsp;Namespaces</a></h3>
                   <p>Distinguish between Add-on settings</p>
                 </li>
               </ul>
@@ -285,30 +292,30 @@
           </details>
           <details>
             <summary>
-              <h2>👋&nbsp;Support</h2>
+              <h2><span emoji>👋</span>&nbsp;Support</h2>
             </summary>
             <nav>
               <ul>
                 <li>
-                  <h3><a href="#">🙌&nbsp;Help &amp; Support</a></h3>
+                  <h3><a>🙌&nbsp;Help &amp; Support</a></h3>
                   <p>
                     Meet the MODX&nbsp;Community
                   </p>
                 </li>
                 <li>
-                  <h3><a href="#">💬&nbsp;Forums</a></h3>
+                  <h3><a>💬&nbsp;Forums</a></h3>
                   <p>
                     Access the Multilingual Community Driven&nbsp;Forums
                   </p>
                 </li>
                 <li>
-                  <h3><a href="#">📠&nbsp;Slack</a></h3>
+                  <h3><a>📠&nbsp;Slack</a></h3>
                   <p>
                     Join the discussion and connect in&nbsp;realtime
                   </p>
                 </li>
                 <li>
-                  <h3><a href="#">🚒&nbsp;Emergency</a></h3>
+                  <h3><a>🚒&nbsp;Emergency</a></h3>
                   <p>
                     Emergency support from the&nbsp;source
                   </p>
@@ -318,9 +325,12 @@
           </details>
         </nav>
       </header>
+      <footer hidden>
+        <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+      </footer>
     </aside>
     <aside id="stickybar">
-      <a href="#">
+      <a>
         <svg class="logo">
           <title>Dashboard</title>
           <use xlink:href="#modx"></use>
@@ -337,27 +347,26 @@
     <div id="tree">
       <nav>
         <details id="resources">
-          <summary><h2>📃&nbsp;Resources</h2></summary>
+          <summary><h2><span emoji>📃</span>&nbsp;Resources</h2></summary>
           <nav class="quick-links">
             <header>
               <h4>Quick<span visually-hidden> Resource</span> Links</h4>
               <ul>
-                <li><a href="#">📝&nbsp;New Resource</a></li>
-                <li><a href="#">🔗&nbsp;New Weblink</a></li>
-                <li><a href="#">🎭&nbsp;New Symlink</a></li>
-                <li><a href="#">📎&nbsp;New Static Resource</a></li>
-                <li><a href="#">🚫&nbsp;Delete Trashed Resources (5)</a></li>
+                <li><a><span emoji>📝</span>&nbsp;New Resource</a></li>
+                <li><a><span emoji>🔗</span>&nbsp;New Weblink</a></li>
+                <li><a><span emoji>🎭</span>&nbsp;New Symlink</a></li>
+                <li><a><span emoji>📎</span>&nbsp;New Static Resource</a></li>
+                <li><a><span emoji>🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
               </ul>
             </header>
           </nav>
           <details class="context">
             <summary>
-
               <div>
                 <h3>Website</h3>
                 <div>
                   <button>
-                    ➕
+                    <span emoji>➕</span>
                     <span visually-hidden>
                       Add Resource to Website Context
                     </span>
@@ -365,7 +374,7 @@
                 </div>
                 <div>
                   <button>
-                    🔃
+                    <span emoji>🔃</span>
                     <span visually-hidden>Refresh Context</span>
                   </button>
                 </div>
@@ -373,34 +382,34 @@
             </summary>
             <nav>
               <ul>
-                <li><a href="#">📄&nbsp;Home</a></li>
+                <li><a><span emoji>📄</span>&nbsp;Home</a></li>
                 <li>
                   <details>
-                    <summary><a href="#">📂&nbsp;Blog</a></summary>
+                    <summary><a><span emoji>📂</span>&nbsp;Blog</a></summary>
                     <ul>
-                      <li><a href="#">📄&nbsp;Post 1</a></li>
-                      <li><a href="#">📄&nbsp;Post 2</a></li>
-                      <li><a href="#">📄&nbsp;Post 3</a></li>
+                      <li><a><span emoji>📄</span>&nbsp;Post 1</a></li>
+                      <li><a><span emoji>📄</span>&nbsp;Post 2</a></li>
+                      <li><a><span emoji>📄</span>&nbsp;Post 3</a></li>
                     </ul>
                   </details>
                 </li>
-                <li><a href="#">Tips</a></li>
+                <li><a>Tips</a></li>
               </ul>
             </nav>
           </details>
         </details>
         <details>
-          <summary><h2>🔧&nbsp;Elements</h2></summary>
+          <summary><h2><span emoji>🔧</span>&nbsp;Elements</h2></summary>
           <nav class="quick-links">
             <header>
               <h4>Quick<span visually-hidden> Elements</span> Links</h4>
               <ul>
-                <li><a href="#">📝&nbsp;New Template</a></li>
-                <li><a href="#">📺&nbsp;New Template Variable</a></li>
-                <li><a href="#">📃&nbsp;New Chunk</a></li>
-                <li><a href="#">🔨&nbsp;New Snippet</a></li>
-                <li><a href="#">🚀&nbsp;New Plugin</a></li>
-                <li><a href="#">📁&nbsp;New Folder</a></li>
+                <li><a><span emoji>📝</span>&nbsp;New Template</a></li>
+                <li><a><span emoji>📺</span>&nbsp;New Template Variable</a></li>
+                <li><a><span emoji>📃</span>&nbsp;New Chunk</a></li>
+                <li><a><span emoji>🔨</span>&nbsp;New Snippet</a></li>
+                <li><a><span emoji>🚀</span>&nbsp;New Plugin</a></li>
+                <li><a><span emoji>📁</span>&nbsp;New Folder</a></li>
               </ul>
             </header>
             <details class="context templates">
@@ -409,13 +418,13 @@
                   <h3>Templates</h3>
                   <div>
                     <button>
-                      ➕
+                      <span emoji>➕</span>
                       <span visually-hidden>
                         Add Resource to Website Context
                       </span>
                     </button>
                     <button>
-                      🔃
+                      <span emoji>🔃</span>
                       <span visually-hidden>Refresh Context</span>
                     </button>
                   </div>
@@ -423,9 +432,9 @@
               </summary>
               <nav>
                 <ul>
-                  <li><a href="#">📝&nbsp;Base Template</a></li>
-                  <li><a href="#">📢&nbsp;Simple Post</a></li>
-                  <li><a href="#">ℹ&nbsp;About Us</a></li>
+                  <li><a><span emoji>📝</span>&nbsp;Base Template</a></li>
+                  <li><a><span emoji>📢</span>&nbsp;Simple Post</a></li>
+                  <li><a><span emoji>ℹ</span>&nbsp;About Us</a></li>
                 </ul>
               </nav>
             </details>
@@ -444,7 +453,7 @@
         </p>
         <div class="">
           <details open class="document">
-            <summary><h2><span class="emoji icon">📝</span>&nbsp;Document</h2></summary>
+            <summary><h2><span class="emoji icon"><span emoji>📝</span></span>&nbsp;Document</h2></summary>
             <div>
               <div>
                 <div>
@@ -499,7 +508,7 @@
             </div>
           </details>
           <details class="settings">
-            <summary><h2>🔧&nbsp;Settings</h2></summary>
+            <summary><h2><span emoji>🔧</span>&nbsp;Settings</h2></summary>
             <div>
               <div>
                 <div>
@@ -598,7 +607,7 @@
             </div>
           </details>
           <details class="resource-groups">
-            <summary><h2>📑&nbsp;Resource Groups</h2></summary>
+            <summary><h2><span emoji>📑</span>&nbsp;Resource Groups</h2></summary>
             <div>
               <table>
                 <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
@@ -631,7 +640,7 @@
       <section><!-- maybe this should be <main> instead? -->
         <details  id="content"  class="content">
           <summary>
-            <h2><label for="contentarea">📇&nbsp;Content</label></h2>
+            <h2><label for="contentarea"><span emoji>📇</span>&nbsp;Content</label></h2>
           </summary>
 
           <div>
@@ -644,11 +653,11 @@
         <div>
           <details id="template-variables" class="light">
             <summary>
-              <h2>📺&nbsp;Template Variables</h2>
+              <h2><span emoji>📺</span>&nbsp;Template Variables</h2>
             </summary>
             <details class="light">
               <summary>
-                <h3>📞&nbsp;Contact</h3>
+                <h3><span emoji>📞</span>&nbsp;Contact</h3>
               </summary>
               <div>
                 <div>
@@ -700,7 +709,7 @@
             </details>
             <details class="light">
               <summary>
-                <h3>📓&nbsp;Info</h3>
+                <h3><span emoji>📓</span>&nbsp;Info</h3>
               </summary>
               <div>
                 <div>
@@ -815,22 +824,22 @@
             </details>
             <details class="light">
               <summary>
-                <h3>📌&nbsp;Meta</h3>
+                <h3><span emoji>📌</span>&nbsp;Meta</h3>
               </summary>
               <div>
               <div>
                 <div id="autotag">
                   {% include 'mi5/autotag.twig' with {
                     allowBlank:true,
-                    placeholder:'Buter, Cheese',
+                    placeholder:'Buter, Bread, Green Cheese',
                     id:"autotag",
                     name:"autotag",
                     options:[{
-                      title:'Black'
+                      title:'Buter'
                     },{
-                      title:'Gold'
+                      title:'Bread'
                     },{
-                      title:'Silver'
+                      title:'Green Cheese'
                     }]
                   } %}
                 </div>
@@ -848,7 +857,7 @@
               </div>
             </details>
             <details class="light">
-              <summary><h3>💰&nbsp;Product</h3></summary>
+              <summary><h3><span emoji>💰</span>&nbsp;Product</h3></summary>
               <div>
                 <div>
                   <div>
@@ -876,7 +885,7 @@
             </details>
             <details class="light">
               <summary>
-                <h3>📅&nbsp;Time</h3>
+                <h3><span emoji>📅</span>&nbsp;Time</h3>
               </summary>
               <div>
                 <div>
@@ -920,20 +929,10 @@
           </details>
         </div>
       </section>
-      <div class="radio-bar comfy sticky-scroll" style="margin-top:1em;margin-bottom:1em">
+      <div class="radio-bar comfy sticky-scroll">
         <input type="checkbox" id="snap-scroll-2" name="snap-scroll-2">
         <label for="snap-scroll-2">Assistive Scrolling</label>
       </div>
-      <script>
-        let stickyComponents = document.querySelectorAll('.sticky-scroll');
-        for(let i = 0; i < stickyComponents.length; i++) {
-          stickyComponents[i].querySelector('input[name*="snap-scroll"]').addEventListener('change', function(event) {
-            event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy')
-            let stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
-            for(let i = 0; i < stickyBoxes.length; i++) stickyBoxes[i].checked = event.target.checked;
-          });
-        }
-      </script>
       {% include 'partials/actionnav.twig' %}
     </form>
     </main>

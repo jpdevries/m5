@@ -4,7 +4,10 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-button.emoji {
+.greedy {
+  width: 100%; }
+
+#mainnav + footer a, button.emoji {
   cursor: pointer; }
 
 /*
@@ -72,15 +75,18 @@ body {
   background: #efefef;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
+button[disabled] {
+  opacity: 0.7; }
+
 @media screen and (max-width: 640px) {
   body.snappy {
     -webkit-scroll-snap-type: proximity;
         -ms-scroll-snap-type: proximity;
             scroll-snap-type: proximity; }
     body.snappy .page-wrapper > * {
-      -webkit-scroll-snap-coordinate: 0 0;
-          -ms-scroll-snap-coordinate: 0 0;
-              scroll-snap-coordinate: 0 0; } }
+      -webkit-scroll-snap-coordinate: 0 -52px;
+          -ms-scroll-snap-coordinate: 0 -52px;
+              scroll-snap-coordinate: 0 -52px; } }
 
 @media screen and (min-width: 641px) {
   body.snappy #grail > main {
@@ -88,9 +94,9 @@ body {
         -ms-scroll-snap-type: proximity;
             scroll-snap-type: proximity; }
     body.snappy #grail > main > form > *, body.snappy #grail > main > form details, body.snappy #grail > main > form section {
-      -webkit-scroll-snap-coordinate: 0 0;
-          -ms-scroll-snap-coordinate: 0 0;
-              scroll-snap-coordinate: 0 0; } }
+      -webkit-scroll-snap-coordinate: 0 -52px;
+          -ms-scroll-snap-coordinate: 0 -52px;
+              scroll-snap-coordinate: 0 -52px; } }
 
 label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   margin-top: 8px;
@@ -102,8 +108,8 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   padding-top: .5rem; }
 
 #mainnav__nav li form > div {
-  margin-top: 4.8px;
-  margin-top: .3rem;
+  margin-top: 8px;
+  margin-top: .5rem;
   display: -ms-flexbox;
   display: flex; }
   #mainnav__nav li form > div > *:first-child {
@@ -284,8 +290,34 @@ html[complex-layout] body.searching .sidenav {
   width: 100%;
   cursor: pointer; }
 
+form > .sticky-scroll {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 991px) {
+    form > .sticky-scroll {
+      display: none; } }
+
 #mainnav {
   color: white; }
+  #mainnav + footer {
+    background: #202b35;
+    color: white;
+    border: 1px solid #1b232c;
+    border-left: none;
+    border-right: none;
+    transition: background 640ms ease; }
+    #mainnav + footer:hover, #mainnav + footer:focus, #mainnav + footer:target, #mainnav + footer:active {
+      background: #1b232c;
+      border: 1px solid #151b22; }
+    body.searching #mainnav + footer {
+      display: block; }
+    #mainnav + footer a {
+      display: block;
+      padding: 8px 0;
+      padding: .5rem 0; }
+    #mainnav + footer h3, #mainnav + footer h4 {
+      margin: 0;
+      text-align: center; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #mainnav {
       display: -ms-flexbox;
@@ -759,6 +791,8 @@ details.context .flexible {
   padding: 0; }
   #mainnav__nav h1, #mainnav__nav h2, #mainnav__nav h3, #mainnav__nav h4, #mainnav__nav h5, #mainnav__nav h6 {
     margin-bottom: 0; }
+  #mainnav__nav input[type="file"] {
+    max-width: 16em; }
   #mainnav__nav p {
     margin-top: 0.5em; }
   html.js #mainnav__nav a {
