@@ -4,3 +4,4 @@
     <meta charset="utf-8">
     <title>M5</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if not deferStyles|default(false) %}<link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">{% endif %}

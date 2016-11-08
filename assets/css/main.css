@@ -433,21 +433,23 @@ html:not(.hide-unmatched-elements) #mainnav__nav li[hidden] {
     -moz-appearance: none;
          appearance: none;
     -webkit-appearance: none;
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 6px;
+    padding-left: 6px; }
+  #stickybar div a, #stickybar div button, #stickybar div select {
     border: 1px solid #343436;
     margin-right: 8px;
     margin-right: .5rem;
     color: black;
     background: white;
-    display: inline-block;
-    text-decoration: none;
     border-radius: 4px;
     font-size: 12.8px;
     font-size: .8rem;
     font-family: inherit;
     padding-top: 2px;
-    padding-right: 6px;
     padding-bottom: 3px;
-    padding-left: 6px; }
+    text-align: center; }
   #stickybar > div {
     display: -ms-flexbox;
     display: flex;

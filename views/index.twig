@@ -1,7 +1,7 @@
 {% include 'header.twig' with { loadStyles:true } %}
 </head>
 <body class=""><!-- .snappy -->
-  <link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">
+  {% if deferStyles|default(false) %}<link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">{% endif %}
   <div class="page-wrapper">
     <aside class="sidenav">
       <header id="mainnav">
@@ -339,7 +339,7 @@
       </a>
       <div>
         <a href="#ubersearch">Search</a>
-        <a href="#contentarea">Content</a>
+        <a href="#contentarea" id="jumplink">Content</a>
         <button>Save</button>
       </div>
     </aside>
@@ -398,7 +398,7 @@
             </nav>
           </details>
         </details>
-        <details>
+        <details id="elements">
           <summary><h2><span emoji>🔧</span>&nbsp;Elements</h2></summary>
           <nav class="quick-links">
             <header>
@@ -452,7 +452,7 @@
           <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
         </p>
         <div class="">
-          <details open class="document">
+          <details open id="document" class="document">
             <summary><h2><span class="emoji icon"><span emoji>📝</span></span>&nbsp;Document</h2></summary>
             <div>
               <div>
@@ -507,7 +507,7 @@
               </div>
             </div>
           </details>
-          <details class="settings">
+          <details id="settings" class="settings">
             <summary><h2><span emoji>🔧</span>&nbsp;Settings</h2></summary>
             <div>
               <div>
@@ -606,7 +606,7 @@
               </div>
             </div>
           </details>
-          <details class="resource-groups">
+          <details id="resource-groups" class="resource-groups">
             <summary><h2><span emoji>📑</span>&nbsp;Resource Groups</h2></summary>
             <div>
               <table>
@@ -831,7 +831,7 @@
                 <div id="autotag">
                   {% include 'mi5/autotag.twig' with {
                     allowBlank:true,
-                    placeholder:'Buter, Bread, Green-Cheese',
+                    placeholder:'Buter, Bread, Green Cheese',
                     id:"autotag",
                     name:"autotag",
                     options:[{
@@ -839,7 +839,7 @@
                     },{
                       title:'Bread'
                     },{
-                      title:'Green-Cheese'
+                      title:'Green Cheese'
                     }]
                   } %}
                 </div>

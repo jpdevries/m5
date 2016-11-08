@@ -22,6 +22,55 @@ for(let i = 0; i < radios.length; i++) {
   });
 }
 
+document.getElementById('jumplink').outerHTML = `
+<label for="jumpto" visually-hidden>Jump to a section of hte page</label>
+<select name="jumpto" id="jumpto">
+  <option value="" aria-label="Choose a section to scroll to">Scroll to&hellip;</option>
+  <optgroup label="Content">
+    <option value="#content">Content</option>
+    <option value="#document">Document</option>
+    <option value="#resources">Resources</option>
+    <option value="#resource-groups">Resource Groups</option>
+    <option value="#settings">Settings</option>
+  </optgroup>
+  <optgroup label="Code">
+    <option value="#elements">Elements</option>
+    <option value="#template-variables">Template Variables</option>
+  </optgroup>
+  <optgroup label="Navigation">
+    <option value="#mainnav__nav" data-above-sticky-bar="true">Main Navigation</option>
+  </optgroup>
+</select>
+`;
+
+document.getElementById('jumpto').addEventListener('change', function(event) {
+  /*document.querySelector(event.target.value).scrollIntoView({ // works but sticky bar covers up what we scroll to :/
+    behavior: 'smooth'
+  });*/
+
+  console.log(event.target.value);
+
+  if(!event.target.value) return;
+
+  //https://davidwalsh.name/element-matches-selector
+
+  if(document.querySelector(event.target.value).matches('details')) {
+    document.querySelector(event.target.value).setAttribute('open', true);
+  }
+
+  let offset = 0;
+  if(event.target.querySelector(`option[value="${event.target.value}"]`).dataset.aboveStickyBar !== "true") {
+    offset = document.getElementById('stickybar').offsetHeight + 4;
+  }
+
+  console.log(document.querySelector(event.target.value).getBoundingClientRect());
+  window.scrollBy({
+    top: document.querySelector(event.target.value).getBoundingClientRect().top - offset,
+    //left: 0,
+    behavior: 'smooth'
+  });
+});
+
 document.querySelector('.sidenav > footer a').addEventListener('click', function(event) {
   event.preventDefault();
   document.body.classList.remove('searching');
@@ -54,8 +103,8 @@ document.querySelector('.sidenav > footer a').addEventListener('click', function
     sprite = undefined;
 
     (function(){
-      console.log(emoji);
-      console.log(props);
+      //console.log(emoji);
+      //console.log(props);
 
       if(!props.icon) return;
 
