@@ -299,6 +299,8 @@ form > .sticky-scroll {
 
 #mainnav {
   color: white; }
+  body.searching #mainnav .close-nav {
+    display: block; }
   #mainnav + footer {
     background: #202b35;
     color: white;

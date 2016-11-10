@@ -387,6 +387,12 @@ form > .sticky-scroll {
   color:white;
   //min-height:100vh;
 
+  .close-nav {
+    body.searching & {
+      display:block;
+    }
+  }
+
   & + footer {
     background:darken(#2c3a48, 6%);
     color:$white;
