@@ -93,6 +93,10 @@ body {
        sans-serif;
 }
 
+.quick-links {
+  padding-bottom:1rem;
+}
+
 button[disabled] {
   opacity:0.7;
 }
@@ -182,6 +186,9 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
         @include shaded;
         //padding-top:1rem;
         background:white;
+        @include media($gtMobile) {
+          padding:.5rem;
+        }
       }
     }
   }
@@ -255,6 +262,8 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       max-height: 100vh;
       flex-direction: column;
       //overflow-y: auto;
+
+      min-height:100vh;
 
       #uberform #ubersearch {
         line-height:3rem;
@@ -408,6 +417,21 @@ body {
   }
 }
 
+fieldset {
+  &.mild {
+    max-width:20em;
+    > div {
+      margin:1rem 0;
+    }
+  }
+}
+
+table {
+  &.mild {
+    max-width:30em;
+  }
+}
+
 #mainnav__nav li.messages {
   form > div {
    display:block;
@@ -467,6 +491,51 @@ form > .sticky-scroll {
     }
   }
 
+  .new-context-element {
+    @include media(min-width 641px max-width 1530px, 12) {
+      @include span-columns(6);
+    }
+  }
+
+  html[complex-layout] body:not(.searching) & {
+    label[for="ubersearch"] {
+      @include media(min-width 641px max-width 1530px, 12) {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        line-height: 3.5rem !important;
+        font-size: 160% !important;
+        text-align:center;
+      }
+    }
+
+    #uberform {
+      @include media($gtMobile) {
+        //flex-grow:4;
+        //flex-basis:10em;
+        flex-basis:4em;
+
+      }
+      @include media(min-width 641px max-width 1529px, 12) {
+        .search {
+          @include accessibly-hidden;
+        }
+      }
+      @include media(min-width 1530px, 12) {
+          flex-basis:10em;
+      }
+    }
+
+    #ubersearch {
+      @include media($gtMobile) {
+        min-width:auto;
+        padding-left:0;
+        padding-right:0;
+      }
+    }
+  }
+
   html[complex-layout] & {
     @include media($gtMobile) {
       //@include outer-container;
@@ -488,10 +557,6 @@ form > .sticky-scroll {
 
       #uberform {
         margin:0;
-        @include media($gtMobile) {
-          //flex-grow:4;
-          flex-basis:10em;
-        }
       }
 
       #mainnav__nav {
@@ -502,6 +567,13 @@ form > .sticky-scroll {
         @include media($gtMobile) {
           flex-grow:4;
           font-size:0.85em;
+        }
+
+      }
+
+      #uberform {
+        @include media(min-width 1530, 12) {
+          flex-basis:10em;
         }
       }
 
@@ -638,6 +710,11 @@ details {
   div label {
     display:block;
   }
+  fieldset:not(.mild) {
+    div label {
+      display:inline-block;
+    }
+  }
   .auto-tags, .inline-describe, .options {
     label {
       display:inline-block;
@@ -646,7 +723,7 @@ details {
 }
 
 .clicky {
-  @extend %greedy;
+  @extend %very-greedy;
   line-height:2;
   border-radius:.25rem;
   background:rgb(240,240,240);
@@ -751,11 +828,29 @@ button {
   }
 }
 
+a[href="#ubersearch"] {
+  text-decoration:none;
+}
+
 fieldset {
-  > div {
+  > div > div {
     margin-bottom:1rem;
     &:last-child {
       margin-bottom:0;
+    }
+  }
+  &.flexible {
+    @include media($gtMobile) {
+      max-width:24em;
+      > div {
+        column-count:2;
+        //display:flex;
+        //flex-wrap:wrap;
+      }
+      > div > div {
+        //flex-shrink:0;
+        //flex-grow:1;
+      }
     }
   }
 }
@@ -911,24 +1006,41 @@ fieldset {
 html[complex-layout] {
   @include media($gtMobile) {
     #tree {
-      padding-top:1rem;
+      //padding-top:1rem;
       > nav {
         > details {
-          margin-bottom:1rem;
+          padding-top:.5rem;
+          padding-bottom:.5rem;
+          margin-top:0;
+          margin-bottom:0;
         }
       }
     }
   }
 }
 
-summary {
-  padding:1rem .5rem;
-  html[complex-layout] & {
+#tree {
+  summary {
+    html[complex-layout] & {
+      @include media($gtMobile) {
+        padding-top:0;
+        padding-bottom:0;
+      }
+    }
+  }
+}
+
+#mainnav__nav {
+  summary {
     @include media($gtMobile) {
       padding-top:0;
       padding-bottom:0;
     }
   }
+}
+
+summary {
+  padding:1rem .5rem;
   h1,h2,h3,h4,h5,h6 {
     display:inline;
   }
@@ -1054,6 +1166,20 @@ body:not(.searching) {
       overflow-y: hidden;
       min-height: 100vh;
     }
+  }
+}
+
+main {
+  > form {
+    position:relative;
+    /*&:after {
+      content:" ";
+      background:red;
+      left:0;
+      right:0;
+      bottom:-100vh;
+      height:100vh;
+    }*/
   }
 }
 

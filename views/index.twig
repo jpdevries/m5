@@ -21,7 +21,7 @@
         <form id="uberform">
           <div>
             <input placeholder="context:web blog" type="text" id="ubersearch" name="q" required />
-            <label for="ubersearch"><h1><span emoji>🔎</span> Search<span visually-hidden> for anything&hellip;</span></h1></label>
+            <label for="ubersearch"><a href="#ubersearch"><h1><span emoji>🔎</span><span class="search"> Search</span><span visually-hidden> for anything&hellip;</span></h1></a></label>
           </div>
           <div class="radio-bar">
             <fieldset>
@@ -35,7 +35,7 @@
               </div>
             </fieldset>
             <div class="close-nav" hidden>
-              <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+              <a><h3><span emoji>❌</span>&ensp;Close Navigation</h3></a>
             </div>
           </div>
           <!--div class="radio-bar sticky-scroll" style="margin-top:1em">
@@ -62,13 +62,13 @@
               <li class="new_resource" data-tags="new resources">
               <h3><a>📝&nbsp;New Resource</a></h3>
                 <form action="/create/resource" target="_blank">
-                  <label for="new_pagetitle">Create a new Resource &mdash; usually a web page</label>
+                  <label for="new_pagetitle">Create a new Resource &mdash; usually a web&nbsp;page</label>
                   <div class="">
                     <div class="">
                       <input required id="new_pagetitle" name="new_pagetitle" type="text" name="new_pagetitle" placeholder="blog > modResource * 3">
                     </div>
                     <div>
-                      <button type="submit">Create</button>
+                      <button type="submit" disabled>Create</button>
                     </div>
                   </div>
                 </form>
@@ -137,7 +137,7 @@
                 <li class="extras command-line">
                   <h3><a>💥&nbsp;Installer</a></h3>
                   <p>Manage Add&ndash;ons and&nbsp;Distributions</p>
-                  <textarea name="extras_commandline" rows="3" cols="32" placeholder="$ modx install getResources"></textarea>
+                  <textarea name="extras_commandline" rows="3" cols="36" placeholder="$ modx install getResources"></textarea>
                   <p>
                     You have 3 package updates available.<br><a>Update packages now</a>.
                   </p>
@@ -335,7 +335,7 @@
         </nav>
       </header>
       <footer hidden>
-        <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+        <a><h3><span emoji>❌</span>&ensp;Close Navigation</h3></a>
       </footer>
     </aside>
     <aside id="stickybar">
@@ -364,11 +364,11 @@
             <header>
               <h4>Quick<span visually-hidden> Resource</span> Links</h4>
               <ul>
-                <li><a><span emoji>📝</span>&nbsp;New Resource</a></li>
-                <li><a><span emoji>🔗</span>&nbsp;New Weblink</a></li>
-                <li><a><span emoji>🎭</span>&nbsp;New Symlink</a></li>
-                <li><a><span emoji>📎</span>&nbsp;New Static Resource</a></li>
-                <li><a><span emoji>🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
+                <li><a href="#"><span emoji>📝</span>&nbsp;New Resource</a></li>
+                <li><a href="#"><span emoji>🔗</span>&nbsp;New Weblink</a></li>
+                <li><a href="#"><span emoji>🎭</span>&nbsp;New Symlink</a></li>
+                <li><a href="#"><span emoji>📎</span>&nbsp;New Static Resource</a></li>
+                <li><a href="#"><span emoji>🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
               </ul>
             </header>
           </nav>
@@ -394,18 +394,18 @@
             </summary>
             <nav>
               <ul>
-                <li><a><span emoji>📄</span>&nbsp;Home</a></li>
+                <li><a href="#"><span emoji>📄</span>&nbsp;Home</a></li>
                 <li>
                   <details>
-                    <summary><a><span emoji>📂</span>&nbsp;Blog</a></summary>
+                    <summary><a href="#"><span emoji>📂</span>&nbsp;Blog</a></summary>
                     <ul>
-                      <li><a><span emoji>📄</span>&nbsp;Post 1</a></li>
-                      <li><a><span emoji>📄</span>&nbsp;Post 2</a></li>
-                      <li><a><span emoji>📄</span>&nbsp;Post 3</a></li>
+                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 1</a></li>
+                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 2</a></li>
+                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 3</a></li>
                     </ul>
                   </details>
                 </li>
-                <li><a>Tips</a></li>
+                <li><a href="#">Tips</a></li>
               </ul>
             </nav>
           </details>
@@ -416,12 +416,12 @@
             <header>
               <h4>Quick<span visually-hidden> Elements</span> Links</h4>
               <ul>
-                <li><a><span emoji>📝</span>&nbsp;New Template</a></li>
-                <li><a><span emoji>📺</span>&nbsp;New Template Variable</a></li>
-                <li><a><span emoji>📃</span>&nbsp;New Chunk</a></li>
-                <li><a><span emoji>🔨</span>&nbsp;New Snippet</a></li>
-                <li><a><span emoji>🚀</span>&nbsp;New Plugin</a></li>
-                <li><a><span emoji>📁</span>&nbsp;New Folder</a></li>
+                <li><a href="#"><span emoji>📝</span>&nbsp;New Template</a></li>
+                <li><a href="#"><span emoji>📺</span>&nbsp;New Template Variable</a></li>
+                <li><a href="#"><span emoji>📃</span>&nbsp;New Chunk</a></li>
+                <li><a href="#"><span emoji>🔨</span>&nbsp;New Snippet</a></li>
+                <li><a href="#"><span emoji>🚀</span>&nbsp;New Plugin</a></li>
+                <li><a href="#"><span emoji>📁</span>&nbsp;New Folder</a></li>
               </ul>
             </header>
             <details class="context templates">
@@ -444,9 +444,9 @@
               </summary>
               <nav>
                 <ul>
-                  <li><a><span emoji>📝</span>&nbsp;Base Template</a></li>
-                  <li><a><span emoji>📢</span>&nbsp;Simple Post</a></li>
-                  <li><a><span emoji>ℹ</span>&nbsp;About Us</a></li>
+                  <li><a href="#"><span emoji>📝</span>&nbsp;Base Template</a></li>
+                  <li><a href="#"><span emoji>📢</span>&nbsp;Simple Post</a></li>
+                  <li><a href="#"><span emoji>ℹ</span>&nbsp;About Us</a></li>
                 </ul>
               </nav>
             </details>
@@ -581,28 +581,30 @@
                   <label for="publishedontime">Published On Time</label>
                   <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
                 </div>
-                <fieldset>
+                <fieldset class="flexible">
                   <legend>Bollean Attributes</legend>
                   <div>
-                    <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
+                    <div>
+                      <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
+                    </div>
                   </div>
                 </fieldset>
                 <fieldset>
@@ -899,7 +901,7 @@
               <summary>
                 <h3><span emoji>👕</span>&nbsp;Product Variants</h3>
               </summary>
-              <table>
+              <table class="mild data-grid">
                 <thead>
                   <tr>
                     <th>Title</th>
@@ -908,117 +910,106 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr tabindex="0">
                     <td>Small</td>
                     <td>#001</td>
                     <td>$12.99</td>
                   </tr>
-                  <tr>
-                    <td colspan="3" hidden>
-                      <div>
-                        <label for="varianttitle__1">Variant Title</label>
-                        {% include 'mi5/input.twig' with {
-                          name:"varianttitle__1",
-                          id:"varianttitle__1",
-                          placeholder:"Small",
-                          type:"text",
-                          value:'Small'
-                        } %}
-                      </div>
-                      <div>
-                        <label for="variantsku__1">SKU</label>
-                        {% include 'mi5/input.twig' with {
-                          name:"variantsku__1",
-                          id:"variantsku__1",
-                          placeholder:"#0125",
-                          type:"text",
-                          value:"#001"
-                        } %}
-                      </div>
-                      <div>
-                        {% include 'mi5/number.twig' with {
-                          name:"variantprice__1",
-                          id:"variantprice__1",
-                          placeholder:"2.40",
-                          min:0,
-                          value:"12.99"
-                        } %}
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
+                  {% include 'dummy/edit-product-variant.twig' with {
+                    index: 1,
+                    title: {
+                      name:"editvarianttitle__001",
+                      id:"editvarianttitle__001",
+                      placeholder:"Small",
+                      value:"Small",
+                      type:"text"
+                    },
+                    sku: {
+                      name:"editvariantsku__001",
+                      id:"editvariantsku__001",
+                      placeholder:"#0125",
+                      value:"#001",
+                      type:"text"
+                    },
+                    price: {
+                      name:"editvariantprice__001",
+                      id:"editvariantprice__001",
+                      for:"editvariantprice__001",
+                      placeholder:"2.40",
+                      value:"12.99",
+                      min:0
+                    }
+                  } %}
+                  <tr tabindex="0">
                     <td>Medium</td>
                     <td>#002</td>
                     <td>$12.99</td>
                   </tr>
-                  <tr>
-                    <td colspan="3" hidden>
-                      <div>
-                        <label for="varianttitle__2">Variant Title</label>
-                        {% include 'mi5/input.twig' with {
-                          name:"varianttitle__2",
-                          id:"varianttitle__2",
-                          placeholder:"Small",
-                          type:"text",
-                          value:'Small'
-                        } %}
-                      </div>
-                      <div>
-                        <label for="variantsku__2">SKU</label>
-                        {% include 'mi5/input.twig' with {
-                          name:"variantsku__2",
-                          id:"variantsku__2",
-                          placeholder:"#0125",
-                          type:"text",
-                          value:"#001"
-                        } %}
-                      </div>
-                      <div>
-                        {% include 'mi5/number.twig' with {
-                          name:"variantprice__2",
-                          id:"variantprice__2",
-                          placeholder:"2.40",
-                          min:0,
-                          value:"12.99"
-                        } %}
-                      </div>
-                    </td>
-                  </tr>
+                  {% include 'dummy/edit-product-variant.twig' with {
+                    index: 2,
+                    title: {
+                      name:"editvarianttitle__002",
+                      id:"editvarianttitle__002",
+                      placeholder:"Small",
+                      value:"Medium",
+                      type:"text"
+                    },
+                    sku: {
+                      name:"editvariantsku__002",
+                      id:"editvariantsku__002",
+                      placeholder:"#0125",
+                      value:"#002",
+                      type:"text"
+                    },
+                    price: {
+                      name:"editvariantprice__002",
+                      id:"editvariantprice__002",
+                      for:"editvariantprice__002",
+                      placeholder:"2.40",
+                      value:"12.99",
+                      min:0
+                    }
+                  } %}
                 </tbody>
               </table>
-              <fieldset>
-                <legend>Add a Product Variant</legend>
+              <details style="padding-left:0">
+                <summary>Add a Product Variant</summary>
                 <div>
-                  <label for="varianttitle">Variant Title</label>
-                  {% include 'mi5/input.twig' with {
-                    name:"varianttitle",
-                    id:"varianttitle",
-                    placeholder:"Small",
-                    type:"text"
-                  } %}
+                  <fieldset class="mild">
+                    <legend>New Varient</legend>
+                    <div>
+                      <label for="varianttitle">Variant Title</label>
+                      {% include 'mi5/input.twig' with {
+                        name:"varianttitle",
+                        id:"varianttitle",
+                        placeholder:"Small",
+                        type:"text"
+                      } %}
+                    </div>
+                    <div>
+                      <label for="variantsku">SKU</label>
+                      {% include 'mi5/input.twig' with {
+                        name:"variantsku",
+                        id:"variantsku",
+                        placeholder:"#0125",
+                        type:"text"
+                      } %}
+                    </div>
+                    <div>
+                      {% include 'mi5/number.twig' with {
+                        name:"variantprice",
+                        id:"variantprice",
+                        for:"variantprice",
+                        placeholder:"2.40",
+                        min:0
+                      } %}
+                    </div>
+                    <footer>
+                      <button type="submit" class="clicky" disabled>Add Variant</button>
+                    </footer>
+                  </fieldset>
                 </div>
-                <div>
-                  <label for="variantsku">SKU</label>
-                  {% include 'mi5/input.twig' with {
-                    name:"variantsku",
-                    id:"variantsku",
-                    placeholder:"#0125",
-                    type:"text"
-                  } %}
-                </div>
-                <div>
-                  {% include 'mi5/number.twig' with {
-                    name:"variantprice",
-                    id:"variantprice",
-                    placeholder:"$2.40",
-                    min:0
-                  } %}
-                </div>
-                <footer>
-                  <button type="submit" class="clicky">Add Variant</button>
-
-                </footer>
-              </fieldset>
+              </details>
             </details>
             <details class="light">
               <summary>
@@ -1073,9 +1064,9 @@
       {% include 'partials/actionnav.twig' %}
     </form>
     </main>
-    <aside class="preview frame">
+    <aside id="preview" class="preview frame">
       <div class="">
-        <iframe src="https://modx.com"></iframe>
+        <iframe data-src="https://modx.com"></iframe>
       </div>
     </aside>
     <!--aside class="">

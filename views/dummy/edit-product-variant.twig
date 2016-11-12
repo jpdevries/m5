@@ -1,0 +1,21 @@
+<tr hidden>
+  <td colspan="3">
+    <fieldset class="mild">
+      <legend>Edit Small #{{index|default(0)}}<span visually-hidden> Product Variant</span></legend>
+      <div>
+        <label for="{{title.id}}">Variant Title</label>
+        {% include 'mi5/input.twig' with title %}
+      </div>
+      <div>
+        <label for="{{sku.id}}">SKU</label>
+        {% include 'mi5/input.twig' with sku %}
+      </div>
+      <div>
+        {% include 'mi5/number.twig' with price %}
+      </div>
+      <footer>
+        <button type="submit" class="clicky" disabled>Update Variant</button>
+      </footer>
+    </fieldset>
+  </td>
+</tr>

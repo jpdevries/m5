@@ -23,13 +23,38 @@ for(let i = 0; i < radios.length; i++) {
 }
 
 (function(){
-  let viewBtns = document.querySelectorAll('.actionnav .view');
+  const viewBtns = document.querySelectorAll('.actionnav .view');
   for(let i = 0; i < viewBtns.length; i++) {
-    let viewBtn = viewBtns[i];
+    const viewBtn = viewBtns[i];
+    const iframe = document.getElementById('preview').querySelector('iframe');
     viewBtn.addEventListener('click', function(event) {
       event.preventDefault();
       (document.body.dataset.previewing) = (document.body.dataset.previewing == 'true') ? 'false' : 'true';
+      if(!iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
     });
+  }
+})();
+
+(function(){
+  const dataGrids = document.querySelectorAll('table.data-grid');
+  for(let i = 0; i < dataGrids.length; i++) {
+    const dataGrid = dataGrids[i];
+    const trs = dataGrid.querySelectorAll('tbody > tr');
+
+    for(let i = 0; i < trs.length; i++) {
+      trs[i].addEventListener('focus', function(event) {
+        console.log(event);
+        closeModals();
+        event.target.nextElementSibling.removeAttribute('hidden');
+      });
+    }
+    function closeModals() {
+      const modals = dataGrid.querySelectorAll('tbody > tr > td[colspan]');
+      console.log('modals',modals);
+      for(let i = 0; i < modals.length; i++) {
+        modals[i].parentNode.setAttribute('hidden', 'true');
+      }
+    }
   }
 })();
 
@@ -48,6 +73,11 @@ for(let i = 0; i < radios.length; i++) {
 
       case 'arrowup':
       if(event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(false);
+      break;
+
+      case 'escape':
+      document.body.classList.remove('searching');
+      mainNavDetailsOpen(false);
       break;
     }
   });
