@@ -70,6 +70,41 @@
 	  });
 	}
 
+	(function () {
+	  var viewBtns = document.querySelectorAll('.actionnav .view');
+	  for (var _i = 0; _i < viewBtns.length; _i++) {
+	    var viewBtn = viewBtns[_i];
+	    viewBtn.addEventListener('click', function (event) {
+	      event.preventDefault();
+	      document.body.dataset.previewing = document.body.dataset.previewing == 'true' ? 'false' : 'true';
+	    });
+	  }
+	})();
+
+	(function () {
+	  function expandCollapseAllDetails() {
+	    var open = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	    var details = document.querySelectorAll('details');
+	    for (var _i2 = 0; _i2 < details.length; _i2++) {
+	      open ? details[_i2].setAttribute('open', 'true') : details[_i2].removeAttribute('open');
+	    }
+	  }
+	  document.addEventListener("keydown", function (event) {
+	    console.log(event, event.key.toLowerCase());
+	    switch (event.key.toLowerCase()) {
+	      case 'arrowdown':
+	        if (event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(true);
+
+	        break;
+
+	      case 'arrowup':
+	        if (event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(false);
+	        break;
+	    }
+	  });
+	})();
+
 	document.getElementById('jumplink').outerHTML = '\n<label for="jumpto" visually-hidden>Jump to a section of hte page</label>\n<select name="jumpto" id="jumpto">\n  <option value="" aria-label="Choose a section to scroll to">Scroll to&hellip;</option>\n  <optgroup label="Content">\n    <option value="#content">Content</option>\n    <option value="#document">Document</option>\n    <option value="#resources">Resources</option>\n    <option value="#resource-groups">Resource Groups</option>\n    <option value="#settings">Settings</option>\n  </optgroup>\n  <optgroup label="Code">\n    <option value="#elements">Elements</option>\n    <option value="#template-variables">Template Variables</option>\n  </optgroup>\n  <optgroup label="Navigation">\n    <option value="#mainnav__nav" data-above-sticky-bar="true">Main Navigation</option>\n  </optgroup>\n</select>\n';
 
 	document.getElementById('jumpto').addEventListener('change', function (event) {
@@ -108,12 +143,12 @@
 
 	(function () {
 	  var stickyComponents = document.querySelectorAll('.sticky-scroll');
-	  for (var _i = 0; _i < stickyComponents.length; _i++) {
-	    stickyComponents[_i].querySelector('input[name*="snap-scroll"]').addEventListener('change', function (event) {
+	  for (var _i3 = 0; _i3 < stickyComponents.length; _i3++) {
+	    stickyComponents[_i3].querySelector('input[name*="snap-scroll"]').addEventListener('change', function (event) {
 	      event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy');
 	      var stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
-	      for (var _i2 = 0; _i2 < stickyBoxes.length; _i2++) {
-	        stickyBoxes[_i2].checked = event.target.checked;
+	      for (var _i4 = 0; _i4 < stickyBoxes.length; _i4++) {
+	        stickyBoxes[_i4].checked = event.target.checked;
 	      }
 	    });
 	  }
@@ -122,9 +157,9 @@
 	(function () {
 	  var emojis = document.querySelectorAll('span[emoji]');
 
-	  var _loop = function _loop(_i3) {
+	  var _loop = function _loop(_i5) {
 
-	    var emoji = emojis[_i3],
+	    var emoji = emojis[_i5],
 	        props = {
 	      iconset: emoji.getAttribute('data-iconset'),
 	      icon: emoji.getAttribute('data-icon'),
@@ -155,8 +190,8 @@
 	    })();
 	  };
 
-	  for (var _i3 = 0; _i3 < emojis.length; _i3++) {
-	    _loop(_i3);
+	  for (var _i5 = 0; _i5 < emojis.length; _i5++) {
+	    _loop(_i5);
 	  }
 	})();
 
@@ -176,8 +211,8 @@
 	  var open = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 	  var details = document.querySelectorAll('#mainnav__nav > details');
-	  for (var _i4 = 0; _i4 < details.length; _i4++) {
-	    var detail = details[_i4];
+	  for (var _i6 = 0; _i6 < details.length; _i6++) {
+	    var detail = details[_i6];
 	    open ? detail.setAttribute('open', true) : detail.removeAttribute('open');
 	  }
 	}
@@ -201,14 +236,14 @@
 
 	  var pageComponents = document.querySelectorAll('#mainnav__nav li');
 
-	  var _loop2 = function _loop2(_i5) {
-	    var pageComponent = pageComponents[_i5];
+	  var _loop2 = function _loop2(_i7) {
+	    var pageComponent = pageComponents[_i7];
 
 	    var match = function () {
 	      var found = false;
 
-	      for (var _i6 = 0; _i6 < filterWords.length; _i6++) {
-	        var filterWord = filterWords[_i6];
+	      for (var _i8 = 0; _i8 < filterWords.length; _i8++) {
+	        var filterWord = filterWords[_i8];
 
 	        try {
 	          if (pageComponent.querySelector('h3 > a').innerHTML.toLowerCase().includes(filterWord) || pageComponent.querySelector('p').innerHTML.toLowerCase().includes(filterWord)) {
@@ -230,8 +265,8 @@
 	    }
 	  };
 
-	  for (var _i5 = 0; _i5 < pageComponents.length; _i5++) {
-	    _loop2(_i5);
+	  for (var _i7 = 0; _i7 < pageComponents.length; _i7++) {
+	    _loop2(_i7);
 	  }
 	}
 

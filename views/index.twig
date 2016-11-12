@@ -34,11 +34,14 @@
                 <label for="hide_unmatched_elements__no">No</label>
               </div>
             </fieldset>
+            <div class="close-nav" hidden>
+              <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+            </div>
           </div>
-          <div class="radio-bar sticky-scroll" style="margin-top:1em">
+          <!--div class="radio-bar sticky-scroll" style="margin-top:1em">
             <input type="checkbox" id="snap-scroll" name="snap-scroll">
             <label for="snap-scroll">Assistive Scrolling</label>
-          </div>
+          </div-->
         </form>
         <!--div class="button-row">
           <div><a>New Resource</a></div>
@@ -320,6 +323,12 @@
                     Emergency support from the&nbsp;source
                   </p>
                 </li>
+                <li>
+                  <h3><img aria-hidden src="assets/img/modmore.svg" alt=""><a style="font-weight:normal">mod<strong>more</strong></a></h3>
+                  <p>
+                    Emergency &amp; product support</strong>
+                  </p>
+                </li>
               </ul>
             </nav>
           </details>
@@ -330,7 +339,10 @@
       </footer>
     </aside>
     <aside id="stickybar">
-      <a>
+      <!--footer>
+        <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+      </footer-->
+      <a href="#ubersearch">
         <svg class="logo">
           <title>Dashboard</title>
           <use xlink:href="#modx"></use>
@@ -338,7 +350,7 @@
         </svg>
       </a>
       <div>
-        <a href="#ubersearch">Search</a>
+        <a id="jumpsearch" href="#ubersearch">Search</a>
         <a href="#contentarea" id="jumplink">Content</a>
         <button>Save</button>
       </div>
@@ -885,6 +897,131 @@
             </details>
             <details class="light">
               <summary>
+                <h3><span emoji>👕</span>&nbsp;Product Variants</h3>
+              </summary>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>SKU</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Small</td>
+                    <td>#001</td>
+                    <td>$12.99</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" hidden>
+                      <div>
+                        <label for="varianttitle__1">Variant Title</label>
+                        {% include 'mi5/input.twig' with {
+                          name:"varianttitle__1",
+                          id:"varianttitle__1",
+                          placeholder:"Small",
+                          type:"text",
+                          value:'Small'
+                        } %}
+                      </div>
+                      <div>
+                        <label for="variantsku__1">SKU</label>
+                        {% include 'mi5/input.twig' with {
+                          name:"variantsku__1",
+                          id:"variantsku__1",
+                          placeholder:"#0125",
+                          type:"text",
+                          value:"#001"
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/number.twig' with {
+                          name:"variantprice__1",
+                          id:"variantprice__1",
+                          placeholder:"2.40",
+                          min:0,
+                          value:"12.99"
+                        } %}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Medium</td>
+                    <td>#002</td>
+                    <td>$12.99</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" hidden>
+                      <div>
+                        <label for="varianttitle__2">Variant Title</label>
+                        {% include 'mi5/input.twig' with {
+                          name:"varianttitle__2",
+                          id:"varianttitle__2",
+                          placeholder:"Small",
+                          type:"text",
+                          value:'Small'
+                        } %}
+                      </div>
+                      <div>
+                        <label for="variantsku__2">SKU</label>
+                        {% include 'mi5/input.twig' with {
+                          name:"variantsku__2",
+                          id:"variantsku__2",
+                          placeholder:"#0125",
+                          type:"text",
+                          value:"#001"
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/number.twig' with {
+                          name:"variantprice__2",
+                          id:"variantprice__2",
+                          placeholder:"2.40",
+                          min:0,
+                          value:"12.99"
+                        } %}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <fieldset>
+                <legend>Add a Product Variant</legend>
+                <div>
+                  <label for="varianttitle">Variant Title</label>
+                  {% include 'mi5/input.twig' with {
+                    name:"varianttitle",
+                    id:"varianttitle",
+                    placeholder:"Small",
+                    type:"text"
+                  } %}
+                </div>
+                <div>
+                  <label for="variantsku">SKU</label>
+                  {% include 'mi5/input.twig' with {
+                    name:"variantsku",
+                    id:"variantsku",
+                    placeholder:"#0125",
+                    type:"text"
+                  } %}
+                </div>
+                <div>
+                  {% include 'mi5/number.twig' with {
+                    name:"variantprice",
+                    id:"variantprice",
+                    placeholder:"$2.40",
+                    min:0
+                  } %}
+                </div>
+                <footer>
+                  <button type="submit" class="clicky">Add Variant</button>
+
+                </footer>
+              </fieldset>
+            </details>
+            <details class="light">
+              <summary>
                 <h3><span emoji>📅</span>&nbsp;Time</h3>
               </summary>
               <div>
@@ -929,13 +1066,18 @@
           </details>
         </div>
       </section>
-      <div class="radio-bar comfy sticky-scroll">
+      <!--div class="radio-bar comfy sticky-scroll">
         <input type="checkbox" id="snap-scroll-2" name="snap-scroll-2">
         <label for="snap-scroll-2">Assistive Scrolling</label>
-      </div>
+      </div-->
       {% include 'partials/actionnav.twig' %}
     </form>
     </main>
+    <aside class="preview frame">
+      <div class="">
+        <iframe src="https://modx.com"></iframe>
+      </div>
+    </aside>
     <!--aside class="">
       <h2>Preview</h2>
     </aside-->

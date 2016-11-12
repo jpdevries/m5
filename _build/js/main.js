@@ -22,6 +22,37 @@ for(let i = 0; i < radios.length; i++) {
   });
 }
 
+(function(){
+  let viewBtns = document.querySelectorAll('.actionnav .view');
+  for(let i = 0; i < viewBtns.length; i++) {
+    let viewBtn = viewBtns[i];
+    viewBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      (document.body.dataset.previewing) = (document.body.dataset.previewing == 'true') ? 'false' : 'true';
+    });
+  }
+})();
+
+(function(){
+  function expandCollapseAllDetails(open = true) {
+    const details = document.querySelectorAll('details');
+    for(let i = 0; i < details.length; i++) (open) ? details[i].setAttribute('open','true') : details[i].removeAttribute('open');
+  }
+  document.addEventListener("keydown", function(event) {
+    console.log(event, event.key.toLowerCase())
+    switch(event.key.toLowerCase()) {
+      case 'arrowdown':
+      if(event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(true);
+
+      break;
+
+      case 'arrowup':
+      if(event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(false);
+      break;
+    }
+  });
+})();
+
 document.getElementById('jumplink').outerHTML = `
 <label for="jumpto" visually-hidden>Jump to a section of hte page</label>
 <select name="jumpto" id="jumpto">

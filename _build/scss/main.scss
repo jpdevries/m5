@@ -4,6 +4,7 @@
 @import "spec/tacular";
 
 @import "globals/globals";
+@import "dashboard";
 
 $white:white;
 
@@ -179,8 +180,40 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
     > header, > form > header {
       > div {
         @include shaded;
-        padding-top:1rem;
+        //padding-top:1rem;
         background:white;
+      }
+    }
+  }
+  html.treeless & {
+      main {
+        padding-left:14px;
+      }
+  }
+  > .preview {
+    position:relative;
+    display:none;
+    body[data-previewing="true"] & {
+      display:block;
+    }
+    > div, > div > iframe {
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      overflow:auto;
+      border:none;
+    }
+    > div > iframe {
+      width:100%;
+      height:100%;
+    }
+    @include media($mobile) {
+      min-height:100vh;
+      > div {
+        left:0.5rem;
+        right:0.5rem;
       }
     }
   }
@@ -191,11 +224,20 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       main {
         padding-right:14px;
       }
+      > .preview {
+        flex-basis:320px;
+        max-width:320px;
+        flex-grow:0;
+      }
       main,aside {
         flex-grow:2;
       }
     }
   }
+}
+
+#jumpsearch {
+  @extend %accessibly-hidden;
 }
 
 .page-wrapper {
@@ -238,6 +280,7 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       #stickybar {
         display:none;
       }
+
       #tree {
         //@include span-columns(3);
         //position:absolute;
@@ -324,12 +367,15 @@ body {
         #mainnav {
           display:flex;
           flex-wrap:wrap;
+
+
           @include media($gtMobile) {
              padding-right:0;
           }
           #mainnav__nav {
             flex-basis:100vw;
             background:#2c3a48;
+
             > details {
               border-right:1px solid #1a2b3d;
               flex-grow:1;
@@ -386,6 +432,12 @@ form > .sticky-scroll {
   @extend %painted;
   color:white;
   //min-height:100vh;
+
+  .close-nav {
+    body.searching & {
+      display:block;
+    }
+  }
 
   & + footer {
     background:darken(#2c3a48, 6%);
@@ -593,9 +645,17 @@ details {
   }
 }
 
+.clicky {
+  @extend %greedy;
+  line-height:2;
+  border-radius:.25rem;
+  background:rgb(240,240,240);
+  border:1px solid rgb(220,220,220);
+}
+
 details fieldset {
   div label {
-    display:inline-block;
+    //display:inline-block;
   }
 }
 
@@ -687,7 +747,16 @@ button {
 
 #template-variables {
   > details {
+    //margin-bottom:1rem;
+  }
+}
+
+fieldset {
+  > div {
     margin-bottom:1rem;
+    &:last-child {
+      margin-bottom:0;
+    }
   }
 }
 
@@ -863,6 +932,10 @@ summary {
   h1,h2,h3,h4,h5,h6 {
     display:inline;
   }
+  #tree & {
+    //padding-top:1rem;
+    //padding-bottom:1rem;
+  }
 }
 
 * {
@@ -948,18 +1021,25 @@ main {
     }
   }
   > section, > form > section {
-    padding-bottom:1rem;
+    //padding-bottom:1rem;
     background:white;
     color:$dark;
     &:last-of-type {
       //padding-bottom:0;
     }
   }
+  form > *, form > * > * {
+    > details {
+      border-bottom:1px solid rgb(240,240,240);
+
+    }
+  }
   > header, > form > header {
+
     > div {
-      padding-bottom:1rem;
+      //padding-bottom:1rem;
       > details {
-        margin-bottom:1rem;
+        //margin-bottom:1rem;
         &:last-of-type {
           margin-bottom:0;
         }
@@ -1043,6 +1123,10 @@ details {
 #mainnav__nav {
   h1,h2,h3,h4,h5,h6 {
     margin-bottom:0;
+    img {
+      max-width:1em;
+      margin-right:.25rem;
+    }
   }
   input[type="file"] {
     max-width:16em;
@@ -1180,7 +1264,7 @@ main {
   > section, > form > section {
     &:last-of-type {
       > div > details {
-        padding-bottom:0.5rem;
+        //padding-bottom:0.5rem;
       }
     }
   }
@@ -1219,7 +1303,12 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
   @extend %shaded;
   background:$white;
   color:#566d87;
-  padding-bottom:1rem;
+  //padding-top:1rem;
+  //padding-bottom:1rem;
+  h1,h2,h3,h4,h5,h6 {
+    //margin-top:1rem;
+    //margin-bottom:1rem;
+  }
   html[complex-layout] & {
     @include media($gtMobile) {
       font-size:0.8em;
@@ -1227,6 +1316,11 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
   }
   summary summary {
     padding:0;
+  }
+  > nav {
+    > * {
+      border-bottom:1px solid rgb(240,240,240);
+    }
   }
 }
 
