@@ -1,8 +1,8 @@
 <aside class="actionnav">
   <nav>
-    <button href="#">💾&nbsp;Save</button>
-    <button href="#">📚&nbsp;Duplicate</button>
-    <button href="#"{% if deleteDisabled|default(true) %} disabled{% endif %}>🚫&nbsp;Delete</button>
+    <button>💾&nbsp;Save</button>
+    <button>📚&nbsp;Duplicate</button>
+    <button{% if deleteDisabled|default(true) %} disabled{% endif %}>🚫&nbsp;Delete</button>
     <a href="#" class="view">🔎&nbsp;View</a>
   </nav>
 </aside>

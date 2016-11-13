@@ -21,28 +21,28 @@
         <form id="uberform">
           <div>
             <input placeholder="context:web blog" type="text" id="ubersearch" name="q" required />
-            <label for="ubersearch"><a href="#ubersearch"><h1><span emoji>🔎</span><span class="search"> Search</span><span visually-hidden> for anything&hellip;</span></h1></a></label>
+            <h2><label for="ubersearch"><a href="#ubersearch"><span class="emoji">🔎</span><span class="search"> Search</span><span visually-hidden> for anything&hellip;</span></a></label></h2>
           </div>
           <div class="radio-bar">
             <fieldset>
               <legend>Hide Unmatched Elements</legend>
               <div>
                 <input type="radio" id="hide_unmatched_elements__yes" name="hide_unmatched_elements" value="1" />
-                <label for="hide_unmatched_elements__yes" checked>Yes</label>
+                <label for="hide_unmatched_elements__yes">Yes</label>
 
                 <input type="radio" id="hide_unmatched_elements__no" name="hide_unmatched_elements" value="0" checked />
                 <label for="hide_unmatched_elements__no">No</label>
               </div>
             </fieldset>
-            <div class="close-nav" hidden>
-              <a><h3><span emoji>❌</span>&ensp;Close Navigation</h3></a>
-            </div>
           </div>
           <!--div class="radio-bar sticky-scroll" style="margin-top:1em">
             <input type="checkbox" id="snap-scroll" name="snap-scroll">
             <label for="snap-scroll">Assistive Scrolling</label>
           </div-->
         </form>
+        <div class="close-nav" hidden>
+          <a><h3><span class="emoji">❌</span>&ensp;Close Navigation</h3></a>
+        </div>
         <!--div class="button-row">
           <div><a>New Resource</a></div>
           <div><a>New WebLink</a></div>
@@ -54,7 +54,7 @@
           <details>
             <summary>
               <h2>
-                <!--span emoji data-iconset="svgawesome" data-icon="heart" data-svg-class="foo">📇</span--><span emoji>📇</span>&nbsp;Content
+                <!--span emoji data-iconset="svgawesome" data-icon="heart" data-svg-class="foo">📇</span--><span class="emoji">📇</span>&nbsp;Content
               </h2>
             </summary>
             <nav>
@@ -65,7 +65,7 @@
                   <label for="new_pagetitle">Create a new Resource &mdash; usually a web&nbsp;page</label>
                   <div class="">
                     <div class="">
-                      <input required id="new_pagetitle" name="new_pagetitle" type="text" name="new_pagetitle" placeholder="blog > modResource * 3">
+                      <input required id="new_pagetitle" name="new_pagetitle" type="text" placeholder="blog > modResource * 3">
                     </div>
                     <div>
                       <button type="submit" disabled>Create</button>
@@ -99,7 +99,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>🎑</span>&nbsp;Media</h2>
+              <h2><span class="emoji">🎑</span>&nbsp;Media</h2>
             </summary>
             <nav>
                 <ul>
@@ -131,7 +131,7 @@
               </nav>
           </details>
           <details>
-            <summary><h2><span emoji>🚀</span>&nbsp;Extras</h2></summary>
+            <summary><h2><span class="emoji">🚀</span>&nbsp;Extras</h2></summary>
             <nav>
               <ul>
                 <li class="extras command-line">
@@ -160,7 +160,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>💼</span>&nbsp;Manage</h2>
+              <h2><span class="emoji">💼</span>&nbsp;Manage</h2>
             </summary>
             <nav>
               <ul>
@@ -193,7 +193,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>👾</span>&nbsp;Account</h2>
+              <h2><span class="emoji">👾</span>&nbsp;<span class="hideable">Account</span></h2>
             </summary>
             <nav>
               <ul>
@@ -237,14 +237,14 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>🔧</span>&nbsp;Settings</h2>
+              <h2><span class="emoji">🔧</span>&nbsp;<span class="hideable">Settings</span></h2>
             </summary>
             <nav>
               <ul>
                 <li class="system-setting">
-                  <h3><a>💼&nbsp;System Settings</a></h3>
+                  <h3><a><span class="emoji">💼&nbsp;</span>System Settings</a></h3>
                   <p>Configure all system settings</p>
-                  <form action="">
+                  <form>
                     <label for="quick__new_settingname">Setting Name</label>
                     <div>
                       <input required type="text" name="quick__new_settingname" id="quick__new_settingname" placeholder="foo">
@@ -295,7 +295,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>👋</span>&nbsp;Support</h2>
+              <h2><span class="emoji">👋</span>&nbsp;<span class="hideable">Support</span></h2>
             </summary>
             <nav>
               <ul>
@@ -324,9 +324,9 @@
                   </p>
                 </li>
                 <li>
-                  <h3><img aria-hidden src="assets/img/modmore.svg" alt=""><a style="font-weight:normal">mod<strong>more</strong></a></h3>
+                  <h3><img aria-hidden="true" src="assets/img/modmore.svg" alt=""><a style="font-weight:normal">mod<strong>more</strong></a></h3>
                   <p>
-                    Emergency &amp; product support</strong>
+                    Emergency &amp; product support
                   </p>
                 </li>
               </ul>
@@ -335,12 +335,12 @@
         </nav>
       </header>
       <footer hidden>
-        <a><h3><span emoji>❌</span>&ensp;Close Navigation</h3></a>
+        <a><h3><span class="emoji">❌</span>&ensp;Close Navigation</h3></a>
       </footer>
     </aside>
     <aside id="stickybar">
       <!--footer>
-        <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+        <h3><a><span class="emoji">❌</span>&ensp;Close Navigation</a></h3>
       </footer-->
       <a href="#ubersearch">
         <svg class="logo">
@@ -359,16 +359,16 @@
     <div id="tree">
       <nav>
         <details id="resources">
-          <summary><h2><span emoji>📃</span>&nbsp;Resources</h2></summary>
+          <summary><h2><span class="emoji">📃</span>&nbsp;Resources</h2></summary>
           <nav class="quick-links">
             <header>
               <h4>Quick<span visually-hidden> Resource</span> Links</h4>
               <ul>
-                <li><a href="#"><span emoji>📝</span>&nbsp;New Resource</a></li>
-                <li><a href="#"><span emoji>🔗</span>&nbsp;New Weblink</a></li>
-                <li><a href="#"><span emoji>🎭</span>&nbsp;New Symlink</a></li>
-                <li><a href="#"><span emoji>📎</span>&nbsp;New Static Resource</a></li>
-                <li><a href="#"><span emoji>🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
+                <li><a href="#"><span class="emoji">📝</span>&nbsp;New Resource</a></li>
+                <li><a href="#"><span class="emoji">🔗</span>&nbsp;New Weblink</a></li>
+                <li><a href="#"><span class="emoji">🎭</span>&nbsp;New Symlink</a></li>
+                <li><a href="#"><span class="emoji">📎</span>&nbsp;New Static Resource</a></li>
+                <li><a href="#"><span class="emoji">🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
               </ul>
             </header>
           </nav>
@@ -378,7 +378,7 @@
                 <h3>Website</h3>
                 <div>
                   <button>
-                    <span emoji>➕</span>
+                    <span class="emoji">➕</span>
                     <span visually-hidden>
                       Add Resource to Website Context
                     </span>
@@ -386,7 +386,7 @@
                 </div>
                 <div>
                   <button>
-                    <span emoji>🔃</span>
+                    <span class="emoji">🔃</span>
                     <span visually-hidden>Refresh Context</span>
                   </button>
                 </div>
@@ -394,14 +394,14 @@
             </summary>
             <nav>
               <ul>
-                <li><a href="#"><span emoji>📄</span>&nbsp;Home</a></li>
+                <li><a href="#"><span class="emoji">📄</span>&nbsp;Home</a></li>
                 <li>
                   <details>
-                    <summary><a href="#"><span emoji>📂</span>&nbsp;Blog</a></summary>
+                    <summary><a href="#"><span class="emoji">📂</span>&nbsp;Blog</a></summary>
                     <ul>
-                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 1</a></li>
-                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 2</a></li>
-                      <li><a href="#"><span emoji>📄</span>&nbsp;Post 3</a></li>
+                      <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 1</a></li>
+                      <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 2</a></li>
+                      <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 3</a></li>
                     </ul>
                   </details>
                 </li>
@@ -411,17 +411,17 @@
           </details>
         </details>
         <details id="elements">
-          <summary><h2><span emoji>🔧</span>&nbsp;Elements</h2></summary>
+          <summary><h2><span class="emoji">🔧</span>&nbsp;Elements</h2></summary>
           <nav class="quick-links">
             <header>
               <h4>Quick<span visually-hidden> Elements</span> Links</h4>
               <ul>
-                <li><a href="#"><span emoji>📝</span>&nbsp;New Template</a></li>
-                <li><a href="#"><span emoji>📺</span>&nbsp;New Template Variable</a></li>
-                <li><a href="#"><span emoji>📃</span>&nbsp;New Chunk</a></li>
-                <li><a href="#"><span emoji>🔨</span>&nbsp;New Snippet</a></li>
-                <li><a href="#"><span emoji>🚀</span>&nbsp;New Plugin</a></li>
-                <li><a href="#"><span emoji>📁</span>&nbsp;New Folder</a></li>
+                <li><a href="#"><span class="emoji">📝</span>&nbsp;New Template</a></li>
+                <li><a href="#"><span class="emoji">📺</span>&nbsp;New Template Variable</a></li>
+                <li><a href="#"><span class="emoji">📃</span>&nbsp;New Chunk</a></li>
+                <li><a href="#"><span class="emoji">🔨</span>&nbsp;New Snippet</a></li>
+                <li><a href="#"><span class="emoji">🚀</span>&nbsp;New Plugin</a></li>
+                <li><a href="#"><span class="emoji">📁</span>&nbsp;New Folder</a></li>
               </ul>
             </header>
             <details class="context templates">
@@ -430,13 +430,13 @@
                   <h3>Templates</h3>
                   <div>
                     <button>
-                      <span emoji>➕</span>
+                      <span class="emoji">➕</span>
                       <span visually-hidden>
                         Add Resource to Website Context
                       </span>
                     </button>
                     <button>
-                      <span emoji>🔃</span>
+                      <span class="emoji">🔃</span>
                       <span visually-hidden>Refresh Context</span>
                     </button>
                   </div>
@@ -444,9 +444,9 @@
               </summary>
               <nav>
                 <ul>
-                  <li><a href="#"><span emoji>📝</span>&nbsp;Base Template</a></li>
-                  <li><a href="#"><span emoji>📢</span>&nbsp;Simple Post</a></li>
-                  <li><a href="#"><span emoji>ℹ</span>&nbsp;About Us</a></li>
+                  <li><a href="#"><span class="emoji">📝</span>&nbsp;Base Template</a></li>
+                  <li><a href="#"><span class="emoji">📢</span>&nbsp;Simple Post</a></li>
+                  <li><a href="#"><span class="emoji">ℹ</span>&nbsp;About Us</a></li>
                 </ul>
               </nav>
             </details>
@@ -465,7 +465,7 @@
         </p>
         <div class="">
           <details open id="document" class="document">
-            <summary><h2><span class="emoji icon"><span emoji>📝</span></span>&nbsp;Document</h2></summary>
+            <summary><h2><span class="emoji icon"><span class="emoji">📝</span></span>&nbsp;Document</h2></summary>
             <div>
               <div>
                 <div>
@@ -492,8 +492,8 @@
                 <div>
                   <label for="template">Uses Template</label>
                   <select class="id" name="template" id="template">
-                    <option>Base Template</otpion>
-                    <option>Blog Post</otpion>
+                    <option>Base Template</option>
+                    <option>Blog Post</option>
                   </select>
                 </div>
                 <div>
@@ -502,11 +502,11 @@
                 </div>
                 <div>
                   <label for="menutitle">Menu Title</label>
-                  <input type="text" name="menutitle" id="menutitle" placeholder="The Fox & The Dog">
+                  <input type="text" name="menutitle" id="menutitle" placeholder="The Fox &amp; The Dog">
                 </div>
                 <div>
                   <label for="linkattributes">Link Attributes</label>
-                  <input type="text" name="linkattributes" id="linkattributes" placeholder=target="_foxdog">
+                  <input type="text" name="linkattributes" id="linkattributes" placeholder='target="_foxdog"'>
                 </div>
                 <ul class="discrete">
                   <li>
@@ -520,7 +520,7 @@
             </div>
           </details>
           <details id="settings" class="settings">
-            <summary><h2><span emoji>🔧</span>&nbsp;Settings</h2></summary>
+            <summary><h2><span class="emoji">🔧</span>&nbsp;Settings</h2></summary>
             <div>
               <div>
                 <div>
@@ -560,7 +560,7 @@
                     <legend>Content Disposition</legend>
                     <div>
                       <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked />
-                      <label for="contentdisposition__inline" checked>Inline</label>
+                      <label for="contentdisposition__inline">Inline</label>
 
                       <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement" />
                       <label for="contentdisposition__attachement">Attachement</label>
@@ -610,8 +610,8 @@
                 <fieldset>
                   <legend>Use ContentBlocks?</legend>
                   <div>
-                    <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked />
-                    <label for="usecontentblocks__yes" checked>Yes</label>
+                    <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" />
+                    <label for="usecontentblocks__yes">Yes</label>
 
                     <input type="radio" id="usecontentblocks__no" name="usecontentblocks" />
                     <label for="usecontentblocks__no">No</label>
@@ -621,7 +621,7 @@
             </div>
           </details>
           <details id="resource-groups" class="resource-groups">
-            <summary><h2><span emoji>📑</span>&nbsp;Resource Groups</h2></summary>
+            <summary><h2><span class="emoji">📑</span>&nbsp;Resource Groups</h2></summary>
             <div>
               <table>
                 <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
@@ -654,7 +654,7 @@
       <section><!-- maybe this should be <main> instead? -->
         <details  id="content"  class="content">
           <summary>
-            <h2><label for="contentarea"><span emoji>📇</span>&nbsp;Content</label></h2>
+            <h2><label for="contentarea"><span class="emoji">📇</span>&nbsp;Content</label></h2>
           </summary>
 
           <div>
@@ -667,11 +667,11 @@
         <div>
           <details id="template-variables" class="light">
             <summary>
-              <h2><span emoji>📺</span>&nbsp;Template Variables</h2>
+              <h2><span class="emoji">📺</span>&nbsp;Template Variables</h2>
             </summary>
             <details class="light">
               <summary>
-                <h3><span emoji>📞</span>&nbsp;Contact</h3>
+                <h3><span class="emoji">📞</span>&nbsp;Contact</h3>
               </summary>
               <div>
                 <div>
@@ -723,7 +723,7 @@
             </details>
             <details class="light">
               <summary>
-                <h3><span emoji>📓</span>&nbsp;Info</h3>
+                <h3><span class="emoji">📓</span>&nbsp;Info</h3>
               </summary>
               <div>
                 <div>
@@ -838,14 +838,14 @@
             </details>
             <details class="light">
               <summary>
-                <h3><span emoji>📌</span>&nbsp;Meta</h3>
+                <h3><span class="emoji">📌</span>&nbsp;Meta</h3>
               </summary>
               <div>
               <div>
                 <div id="autotag">
                   {% include 'mi5/autotag.twig' with {
                     allowBlank:true,
-                    placeholder:'Buter, Bread, Green Cheese',
+                    placeholder:'Buter, Bread, Cheese',
                     id:"autotag",
                     name:"autotag",
                     options:[{
@@ -853,7 +853,7 @@
                     },{
                       title:'Bread'
                     },{
-                      title:'Green Cheese'
+                      title:'Cheese'
                     }]
                   } %}
                 </div>
@@ -871,7 +871,7 @@
               </div>
             </details>
             <details class="light">
-              <summary><h3><span emoji>💰</span>&nbsp;Product</h3></summary>
+              <summary><h3><span class="emoji">💰</span>&nbsp;Product</h3></summary>
               <div>
                 <div>
                   <div>
@@ -899,7 +899,7 @@
             </details>
             <details class="light">
               <summary>
-                <h3><span emoji>👕</span>&nbsp;Product Variants</h3>
+                <h3><span class="emoji">👕</span>&nbsp;Product Variants</h3>
               </summary>
               <table class="mild data-grid">
                 <thead>
@@ -1013,7 +1013,7 @@
             </details>
             <details class="light">
               <summary>
-                <h3><span emoji>📅</span>&nbsp;Time</h3>
+                <h3><span class="emoji">📅</span>&nbsp;Time</h3>
               </summary>
               <div>
                 <div>
@@ -1022,8 +1022,7 @@
                       type:'month',
                       id: 'month',
                       name: 'month',
-                      label: 'Month',
-                      placeholder: 'March'
+                      label: 'Month'
                     } %}
                   </div>
                   <div>
@@ -1031,22 +1030,19 @@
                       type:'week',
                       id: 'week',
                       name: 'week',
-                      label: 'Week',
-                      placeholder: 'Week 42, 2016'
+                      label: 'Week'
                     } %}
                   </div>
                   <div>
                   {% include 'mi5/date.twig' with {
                         id: 'date-2',
-                        name: 'date-2',
-                        placeholder: 'March 10, 2016'
+                        name: 'date-2'
                   } only %}
                   </div>
                   <div>
                     {% include 'mi5/time.twig' with {
                           id: 'time-2',
                           name: 'time-2',
-                          placeholder: '15:32',
                           type: 'time'
                     } only %}
                   </div>

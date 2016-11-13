@@ -16,6 +16,15 @@ $white:white;
   @extend %very-greedy;
 }
 
+%close-nav {
+  @extend %clickable;
+  background:darken(#2c3a48, 6%);
+  color:$white;
+  border:1px solid darken(#2c3a48, 9%);
+  border-left:none;
+  border-right:none;
+}
+
 @mixin body-contrast($color, $bg, $outline) {
   body {
     background:$bg !important;
@@ -247,6 +256,14 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   @extend %accessibly-hidden;
 }
 
+#mainnav {
+  @include media(min-width 641px max-width 1280px, 12) {
+    h1 .search, .version > span {
+      @include accessibly-hidden;
+    }
+  }
+}
+
 .page-wrapper {
   html[complex-layout] & {
     @include media($gtMobile) {
@@ -458,17 +475,23 @@ form > .sticky-scroll {
   //min-height:100vh;
 
   .close-nav {
+    @extend %close-nav;
+    @extend %very-greedy;
+    text-align:center;
+    a {
+      display:block;
+      padding:0.5rem 0;
+    }
+    h3 {
+      margin:0 auto;
+    }
     body.searching & {
       display:block;
     }
   }
 
   & + footer {
-    background:darken(#2c3a48, 6%);
-    color:$white;
-    border:1px solid darken(#2c3a48, 9%);
-    border-left:none;
-    border-right:none;
+    @extend %close-nav;
 
     transition:background 640ms ease;
 
@@ -537,6 +560,20 @@ form > .sticky-scroll {
   }
 
   html[complex-layout] & {
+    > .page {
+      @include media(min-width 1281px, 12) {
+        flex-basis:19em;
+      }
+      @include media(min-width 641px max-width 1280px, 12) {
+        h1 {
+          @include accessibly-hidden;
+        }
+        h2 {
+          transform: translateY(.5em);
+        }
+      }
+    }
+
     @include media($gtMobile) {
       //@include outer-container;
       //max-width:none;
@@ -549,11 +586,7 @@ form > .sticky-scroll {
         @include accessibly-hidden;
       }
 
-      > .page {
-        @include media($gtMobile) {
-          flex-basis:19em;
-        }
-      }
+
 
       #uberform {
         margin:0;
@@ -598,10 +631,15 @@ form > .sticky-scroll {
 #mainnav {
   //@include outer-container;
   padding:0.5em 0 0 0;
+  @include media($gtMobile) {
+    body:not(.searching) & {
+      padding-bottom:.5em;
+    }
+  }
   > * {
     padding:0 1em;
   }
-  h1,.version {
+  h1,h2,.version {
     margin:0 auto;
     code {
       font-weight:400;
@@ -896,10 +934,13 @@ fieldset {
   min-height:2em;
   //padding-top:1em;
   margin-top:1em;
-  margin-bottom:1em;
+
   font-size:1.2em;
   padding-left:0.5rem;
   padding-right:0.5rem;
+  @include media($gtMobile) {
+    margin-bottom:1em;
+  }
   body.searching & {
     flex-grow:4;
   }
@@ -910,16 +951,9 @@ fieldset {
     flex-basis:100%;
   }
   label[for="ubersearch"] {
-    position:absolute;
-    color:#2F363D;
-    bottom:0.25em;
-    z-index:1;
-    h1 {
-      font-size:1em;
-      font-weight:600;
-      //font-weight:normal;
-    }
+
   }
+
   #ubersearch {
     min-width:6rem;
     font-size:1em;
@@ -929,7 +963,10 @@ fieldset {
     border-radius:em(4px);
     border:1px solid grey;
     margin-bottom:1rem;
-    + label[for="ubersearch"] {
+
+
+
+    + h1, + h2 {
       html.js & {
         color:grey;
         text-transform:uppercase;
@@ -939,10 +976,56 @@ fieldset {
         transition-delay:200ms;
         position:absolute;
         left:1rem;
-        bottom:2rem;
+        bottom:1.5em;
         font-size:1.2em;
+        @include media($gtMobile) {
+          bottom:0rem;
+          left:0.5em;
+          right:0.5em;
+          text-align:center;
+        }
+        @include media(min-width 1530px, 12) {
+          bottom:.8em;
+        }
+      }
+      body.searching & {
+        @include media($gtMobile) {
+          text-align:inherit;
+        }
       }
     }
+
+
+
+    &:placeholder-shown + h1, &:placeholder-shown + h2 {
+      html.js & {
+        color:grey;
+        font-size:1.2em;
+        top:0;
+        bottom:0;
+        line-height:3;
+      }
+    }
+
+    + h1, + h2, &:focus + h1, &:focus + h2 { /*  */
+     /*font-size:1em;
+     font-weight:600;
+     position:absolute;
+     color:#2F363D;
+     bottom:auto;
+     top:0.1em;
+     z-index:1;*/
+     html.js & {
+       font-size:1em;
+       font-weight:600;
+       position:absolute;
+       color:#2F363D;
+       bottom:auto;
+       top:0;
+       z-index:1;
+       line-height:normal;
+     }
+   }
 
     + label[for="ubersearch"] {
       html[complex-layout] & {
@@ -1020,6 +1103,9 @@ html[complex-layout] {
 }
 
 #tree {
+  html[data-tree-open="false"] & {
+    display:none;
+  }
   summary {
     html[complex-layout] & {
       @include media($gtMobile) {
@@ -1035,6 +1121,13 @@ html[complex-layout] {
     @include media($gtMobile) {
       padding-top:0;
       padding-bottom:0;
+    }
+  }
+  h2 {
+    span.hideable {
+      @include media(min-width 641px max-width 860px, 12) {
+        @include accessibly-hidden;
+      }
     }
   }
 }
@@ -1271,8 +1364,17 @@ details {
     border-bottom:1px solid #1a2b3d;
     margin:0;
   }
+  summary {
+    @include media($gtMobile) {
+      padding-left:0;
+      padding-right:0;
+    }
+  }
   details {
     border-bottom:1px solid #1a2b3d;
+    @include media($gtMobile) {
+      border:none;
+    }
     &[open] {
       padding-bottom:0;
       margin-bottom:0;
@@ -1342,7 +1444,7 @@ details {
   }
 }
 
-h1 {
+h1,h2 {
   color:$dark;
   #mainnav & {
     color:currentColor;

@@ -43,8 +43,8 @@
     }
   },
   "dependencies": {
-    "Twag": "git://github.com/jpdevries/Twag.git#3f4e44e66038a0c7400473b0d023c4eac832bf85",
-    "mi5": "git://github.com/jpdevries/mi5.git#acf25faffd2c400f8ddc4bedb183c3f38e55af03",
+    "Twag": "git://github.com/jpdevries/Twag.git#cdf88f20a31fe1d14db627de8aaba91b8f2ee468",
+    "mi5": "git://github.com/jpdevries/mi5.git#2ab44677c06dd72275156dfb200168b0033bdc02",
     "better-details-polyfill": "^2.1.0"
   }
 }

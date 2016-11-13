@@ -67,18 +67,30 @@ for(let i = 0; i < radios.length; i++) {
     console.log(event, event.key.toLowerCase())
     switch(event.key.toLowerCase()) {
       case 'arrowdown':
-      if(event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(true);
+      if(event.ctrlKey && event.altKey && event.shiftKey) {
+        document.body.classList.add('searching');
+        expandCollapseAllDetails(true);
+      }
 
       break;
 
       case 'arrowup':
-      if(event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(false);
+      if(event.ctrlKey && event.altKey && event.shiftKey) {
+        document.body.classList.remove('searching');
+        expandCollapseAllDetails(false);
+      }
       break;
 
       case 'escape':
       document.body.classList.remove('searching');
       mainNavDetailsOpen(false);
       break;
+
+      case '|':
+      let html = document.querySelector('html');
+      if(event.ctrlKey) {
+        html.setAttribute('data-tree-open', html.getAttribute('data-tree-open') == 'true' ? 'false' : 'true');
+      }
     }
   });
 })();
@@ -132,11 +144,17 @@ document.getElementById('jumpto').addEventListener('change', function(event) {
   });
 });
 
-document.querySelector('.sidenav > footer a').addEventListener('click', function(event) {
-  event.preventDefault();
-  document.body.classList.remove('searching');
-  mainNavDetailsOpen(false);
-});
+(function(){
+  const closeNavs = document.querySelectorAll('.sidenav > footer a, .close-nav');
+  for(let i = 0; i < closeNavs.length; i++) {
+    closeNavs[i].addEventListener('click', function(event) {
+      event.preventDefault();
+      document.body.classList.remove('searching');
+      mainNavDetailsOpen(false);
+    });
+  }
+})();
+
 
 (function(){
   let stickyComponents = document.querySelectorAll('.sticky-scroll');
@@ -150,7 +168,7 @@ document.querySelector('.sidenav > footer a').addEventListener('click', function
 })();
 
 (function(){
-  let emojis = document.querySelectorAll('span[emoji]');
+  let emojis = document.querySelectorAll('span[emoji],span.emoji');
   for(let i = 0; i < emojis.length; i++) {
 
 

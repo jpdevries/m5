@@ -4,10 +4,10 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-.greedy, .clicky {
+.greedy, #mainnav .close-nav, .clicky {
   width: 100%; }
 
-#mainnav + footer a, button.emoji {
+#mainnav .close-nav, #mainnav + footer, #mainnav + footer a, button.emoji {
   cursor: pointer; }
 
 /*
@@ -69,6 +69,13 @@ http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3/
 
 * {
   box-sizing: border-box; }
+
+#mainnav .close-nav, #mainnav + footer {
+  background: #202b35;
+  color: white;
+  border: 1px solid #1b232c;
+  border-left: none;
+  border-right: none; }
 
 html[contrast="white-on-black"] body {
   background: black !important;
@@ -247,6 +254,17 @@ html.treeless #grail main {
       -ms-flex-positive: 2;
           flex-grow: 2; } }
 
+@media screen and (min-width: 641px) and (max-width: 1280px) {
+  #mainnav h1 .search, #mainnav .version > span {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    top: 0;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
+
 @media screen and (min-width: 641px) {
   html[complex-layout] .page-wrapper {
     max-width: 1200px;
@@ -387,14 +405,17 @@ form > .sticky-scroll {
 
 #mainnav {
   color: white; }
-  body.searching #mainnav .close-nav {
-    display: block; }
+  #mainnav .close-nav {
+    text-align: center; }
+    #mainnav .close-nav a {
+      display: block;
+      padding: 8px 0;
+      padding: 0.5rem 0; }
+    #mainnav .close-nav h3 {
+      margin: 0 auto; }
+    body.searching #mainnav .close-nav {
+      display: block; }
   #mainnav + footer {
-    background: #202b35;
-    color: white;
-    border: 1px solid #1b232c;
-    border-left: none;
-    border-right: none;
     transition: background 640ms ease; }
     #mainnav + footer:hover, #mainnav + footer:focus, #mainnav + footer:target, #mainnav + footer:active {
       background: #1b232c;
@@ -448,6 +469,22 @@ form > .sticky-scroll {
       min-width: auto;
       padding-left: 0;
       padding-right: 0; } }
+  @media screen and (min-width: 1281px) {
+    html[complex-layout] #mainnav > .page {
+      -ms-flex-preferred-size: 19em;
+          flex-basis: 19em; } }
+  @media screen and (min-width: 641px) and (max-width: 1280px) {
+    html[complex-layout] #mainnav > .page h1 {
+      position: absolute;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      top: 0;
+      clip: rect(1px 1px 1px 1px);
+      /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px); }
+    html[complex-layout] #mainnav > .page h2 {
+      transform: translateY(0.5em); } }
   @media screen and (min-width: 641px) {
     html[complex-layout] #mainnav {
       display: -ms-flexbox;
@@ -460,12 +497,7 @@ form > .sticky-scroll {
         top: 0;
         clip: rect(1px 1px 1px 1px);
         /* IE6, IE7 */
-        clip: rect(1px, 1px, 1px, 1px); } }
-  @media screen and (min-width: 641px) and (min-width: 641px) {
-    html[complex-layout] #mainnav > .page {
-      -ms-flex-preferred-size: 19em;
-          flex-basis: 19em; } }
-  @media screen and (min-width: 641px) {
+        clip: rect(1px, 1px, 1px, 1px); }
       html[complex-layout] #mainnav #uberform {
         margin: 0; }
       html[complex-layout] #mainnav #mainnav__nav > details > nav {
@@ -497,11 +529,14 @@ form > .sticky-scroll {
 
 #mainnav {
   padding: 0.5em 0 0 0; }
+  @media screen and (min-width: 641px) {
+    body:not(.searching) #mainnav {
+      padding-bottom: .5em; } }
   #mainnav > * {
     padding: 0 1em; }
-  #mainnav h1, #mainnav .version {
+  #mainnav h1, #mainnav h2, #mainnav .version {
     margin: 0 auto; }
-    #mainnav h1 code, #mainnav .version code {
+    #mainnav h1 code, #mainnav h2 code, #mainnav .version code {
       font-weight: 400;
       font-size: 0.8em;
       padding-left: .2em; }
@@ -705,12 +740,14 @@ fieldset > div > div {
   position: relative;
   min-height: 2em;
   margin-top: 1em;
-  margin-bottom: 1em;
   font-size: 1.2em;
   padding-left: 8px;
   padding-left: 0.5rem;
   padding-right: 8px;
   padding-right: 0.5rem; }
+  @media screen and (min-width: 641px) {
+    #uberform {
+      margin-bottom: 1em; } }
   body.searching #uberform {
     -ms-flex-positive: 4;
         flex-grow: 4; }
@@ -720,14 +757,6 @@ fieldset > div > div {
     #uberform {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%; } }
-  #uberform label[for="ubersearch"] {
-    position: absolute;
-    color: #2F363D;
-    bottom: 0.25em;
-    z-index: 1; }
-    #uberform label[for="ubersearch"] h1 {
-      font-size: 1em;
-      font-weight: 600; }
   #uberform #ubersearch {
     min-width: 96px;
     min-width: 6rem;
@@ -751,7 +780,7 @@ fieldset > div > div {
     }*/
     /*+ label[for="ubersearch"] {
     }*/ }
-    html.js #uberform #ubersearch + label[for="ubersearch"] {
+    html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
       color: grey;
       text-transform: uppercase;
       font-size: .8em;
@@ -761,9 +790,44 @@ fieldset > div > div {
       position: absolute;
       left: 16px;
       left: 1rem;
-      bottom: 32px;
-      bottom: 2rem;
+      bottom: 1.5em;
       font-size: 1.2em; }
+      @media screen and (min-width: 641px) {
+        html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
+          bottom: 0rem;
+          left: 0.5em;
+          right: 0.5em;
+          text-align: center; } }
+      @media screen and (min-width: 1530px) {
+        html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
+          bottom: .8em; } }
+    @media screen and (min-width: 641px) {
+      body.searching #uberform #ubersearch + h1, body.searching #uberform #ubersearch + h2 {
+        text-align: inherit; } }
+    html.js #uberform #ubersearch:placeholder-shown + h1, html.js #uberform #ubersearch:placeholder-shown + h2 {
+      color: grey;
+      font-size: 1.2em;
+      top: 0;
+      bottom: 0;
+      line-height: 3; }
+    #uberform #ubersearch + h1, #uberform #ubersearch + h2, #uberform #ubersearch:focus + h1, #uberform #ubersearch:focus + h2 {
+      /*  */
+      /*font-size:1em;
+     font-weight:600;
+     position:absolute;
+     color:#2F363D;
+     bottom:auto;
+     top:0.1em;
+     z-index:1;*/ }
+      html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2, html.js #uberform #ubersearch:focus + h1, html.js #uberform #ubersearch:focus + h2 {
+        font-size: 1em;
+        font-weight: 600;
+        position: absolute;
+        color: #2F363D;
+        bottom: auto;
+        top: 0;
+        z-index: 1;
+        line-height: normal; }
     @media screen and (min-width: 641px) {
       html[complex-layout] #uberform #ubersearch + label[for="ubersearch"] {
         bottom: .9rem; } }
@@ -802,6 +866,9 @@ fieldset > div > div {
     margin-top: 0;
     margin-bottom: 0; } }
 
+html[data-tree-open="false"] #tree {
+  display: none; }
+
 @media screen and (min-width: 641px) {
   html[complex-layout] #tree summary {
     padding-top: 0;
@@ -811,6 +878,17 @@ fieldset > div > div {
   #mainnav__nav summary {
     padding-top: 0;
     padding-bottom: 0; } }
+
+@media screen and (min-width: 641px) and (max-width: 860px) {
+  #mainnav__nav h2 span.hideable {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    top: 0;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
 
 summary {
   padding: 16px 8px;
@@ -967,8 +1045,15 @@ details.context .flexible {
     padding-left: 0;
     border-bottom: 1px solid #1a2b3d;
     margin: 0; }
+  @media screen and (min-width: 641px) {
+    #mainnav__nav summary {
+      padding-left: 0;
+      padding-right: 0; } }
   #mainnav__nav details {
     border-bottom: 1px solid #1a2b3d; }
+    @media screen and (min-width: 641px) {
+      #mainnav__nav details {
+        border: none; } }
     #mainnav__nav details[open] {
       padding-bottom: 0;
       margin-bottom: 0;
@@ -1012,9 +1097,9 @@ details.context .flexible {
   .radio-bar fieldset > div input[type="radio"] {
     font-size: 1.4em; }
 
-h1 {
+h1, h2 {
   color: #343436; }
-  #mainnav h1 {
+  #mainnav h1, #mainnav h2 {
     color: currentColor; }
 
 .document, .resource-groups, .settings, .content, .light {

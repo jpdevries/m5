@@ -129,18 +129,30 @@
 	    console.log(event, event.key.toLowerCase());
 	    switch (event.key.toLowerCase()) {
 	      case 'arrowdown':
-	        if (event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(true);
+	        if (event.ctrlKey && event.altKey && event.shiftKey) {
+	          document.body.classList.add('searching');
+	          expandCollapseAllDetails(true);
+	        }
 
 	        break;
 
 	      case 'arrowup':
-	        if (event.ctrlKey && event.altKey && event.shiftKey) expandCollapseAllDetails(false);
+	        if (event.ctrlKey && event.altKey && event.shiftKey) {
+	          document.body.classList.remove('searching');
+	          expandCollapseAllDetails(false);
+	        }
 	        break;
 
 	      case 'escape':
 	        document.body.classList.remove('searching');
 	        mainNavDetailsOpen(false);
 	        break;
+
+	      case '|':
+	        var html = document.querySelector('html');
+	        if (event.ctrlKey) {
+	          html.setAttribute('data-tree-open', html.getAttribute('data-tree-open') == 'true' ? 'false' : 'true');
+	        }
 	    }
 	  });
 	})();
@@ -175,31 +187,36 @@
 	  });
 	});
 
-	document.querySelector('.sidenav > footer a').addEventListener('click', function (event) {
-	  event.preventDefault();
-	  document.body.classList.remove('searching');
-	  mainNavDetailsOpen(false);
-	});
+	(function () {
+	  var closeNavs = document.querySelectorAll('.sidenav > footer a, .close-nav');
+	  for (var _i6 = 0; _i6 < closeNavs.length; _i6++) {
+	    closeNavs[_i6].addEventListener('click', function (event) {
+	      event.preventDefault();
+	      document.body.classList.remove('searching');
+	      mainNavDetailsOpen(false);
+	    });
+	  }
+	})();
 
 	(function () {
 	  var stickyComponents = document.querySelectorAll('.sticky-scroll');
-	  for (var _i6 = 0; _i6 < stickyComponents.length; _i6++) {
-	    stickyComponents[_i6].querySelector('input[name*="snap-scroll"]').addEventListener('change', function (event) {
+	  for (var _i7 = 0; _i7 < stickyComponents.length; _i7++) {
+	    stickyComponents[_i7].querySelector('input[name*="snap-scroll"]').addEventListener('change', function (event) {
 	      event.target.checked ? document.body.classList.add('snappy') : document.body.classList.remove('snappy');
 	      var stickyBoxes = document.querySelectorAll('input[name*="snap-scroll"]');
-	      for (var _i7 = 0; _i7 < stickyBoxes.length; _i7++) {
-	        stickyBoxes[_i7].checked = event.target.checked;
+	      for (var _i8 = 0; _i8 < stickyBoxes.length; _i8++) {
+	        stickyBoxes[_i8].checked = event.target.checked;
 	      }
 	    });
 	  }
 	})();
 
 	(function () {
-	  var emojis = document.querySelectorAll('span[emoji]');
+	  var emojis = document.querySelectorAll('span[emoji],span.emoji');
 
-	  var _loop3 = function _loop3(_i8) {
+	  var _loop3 = function _loop3(_i9) {
 
-	    var emoji = emojis[_i8],
+	    var emoji = emojis[_i9],
 	        props = {
 	      iconset: emoji.getAttribute('data-iconset'),
 	      icon: emoji.getAttribute('data-icon'),
@@ -230,8 +247,8 @@
 	    })();
 	  };
 
-	  for (var _i8 = 0; _i8 < emojis.length; _i8++) {
-	    _loop3(_i8);
+	  for (var _i9 = 0; _i9 < emojis.length; _i9++) {
+	    _loop3(_i9);
 	  }
 	})();
 
@@ -251,8 +268,8 @@
 	  var open = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 	  var details = document.querySelectorAll('#mainnav__nav > details');
-	  for (var _i9 = 0; _i9 < details.length; _i9++) {
-	    var detail = details[_i9];
+	  for (var _i10 = 0; _i10 < details.length; _i10++) {
+	    var detail = details[_i10];
 	    open ? detail.setAttribute('open', true) : detail.removeAttribute('open');
 	  }
 	}
@@ -276,14 +293,14 @@
 
 	  var pageComponents = document.querySelectorAll('#mainnav__nav li');
 
-	  var _loop4 = function _loop4(_i10) {
-	    var pageComponent = pageComponents[_i10];
+	  var _loop4 = function _loop4(_i11) {
+	    var pageComponent = pageComponents[_i11];
 
 	    var match = function () {
 	      var found = false;
 
-	      for (var _i11 = 0; _i11 < filterWords.length; _i11++) {
-	        var filterWord = filterWords[_i11];
+	      for (var _i12 = 0; _i12 < filterWords.length; _i12++) {
+	        var filterWord = filterWords[_i12];
 
 	        try {
 	          if (pageComponent.querySelector('h3 > a').innerHTML.toLowerCase().includes(filterWord) || pageComponent.querySelector('p').innerHTML.toLowerCase().includes(filterWord)) {
@@ -305,8 +322,8 @@
 	    }
 	  };
 
-	  for (var _i10 = 0; _i10 < pageComponents.length; _i10++) {
-	    _loop4(_i10);
+	  for (var _i11 = 0; _i11 < pageComponents.length; _i11++) {
+	    _loop4(_i11);
 	  }
 	}
 
