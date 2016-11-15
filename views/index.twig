@@ -117,10 +117,10 @@
                   </li>
                   <li class="quick-upload">
                     <h3><a>📤&nbsp;Upload</a></h3>
-                    <p>Quickly upload a&nbsp;file</p>
+                    <label for="pic">Quickly upload a&nbsp;file</label>
                     <form>
                         <div>
-                          <input required type="file" name="pic" accept="image/*">
+                          <input required type="file" name="pic" id="pic" accept="image/*">
                           <button type="submit">Upload</button>
                         </div>
                         <div class="dragdrop">
@@ -137,7 +137,8 @@
                 <li class="extras command-line">
                   <h3><a>💥&nbsp;Installer</a></h3>
                   <p>Manage Add&ndash;ons and&nbsp;Distributions</p>
-                  <textarea name="extras_commandline" rows="3" cols="36" placeholder="$ modx install getResources"></textarea>
+                  <label for="extras_commandline" visually-hidden>MODX CLI</label>
+                  <textarea name="extras_commandline" id="extras_commandline" rows="3" cols="36" placeholder="$ modx install getResources"></textarea>
                   <p>
                     You have 3 package updates available.<br><a>Update packages now</a>.
                   </p>
