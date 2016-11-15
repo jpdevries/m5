@@ -345,7 +345,7 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
 
       min-height:100vh;
 
-      #uberform #ubersearch {
+      #uberform #uber {
         line-height:3rem;
       }
 
@@ -589,7 +589,7 @@ form > .sticky-scroll {
   }
 
   html[complex-layout] body:not(.searching) & {
-    label[for="ubersearch"] {
+    label[for="uber"] {
       @include media(min-width 641px max-width 1530px, 12) {
         top: 0 !important;
         bottom: 0 !important;
@@ -618,7 +618,7 @@ form > .sticky-scroll {
       }
     }
 
-    #ubersearch {
+    #uber {
       @include media($gtMobile) {
         min-width:auto;
         padding-left:0;
@@ -678,7 +678,7 @@ form > .sticky-scroll {
         }
       }
 
-      #uberform #ubersearch {
+      #uberform #uber {
         margin-bottom:0;
       }
 
@@ -934,7 +934,7 @@ button {
   }
 }
 
-a[href="#ubersearch"] {
+a[href="#uber"] {
   text-decoration:none;
 }
 
@@ -1018,11 +1018,11 @@ fieldset {
   @include media($mobile) {
     flex-basis:100%;
   }
-  label[for="ubersearch"] {
+  label[for="uber"] {
 
   }
 
-  #ubersearch {
+  #uber {
     min-width:6rem;
     font-size:1em;
     line-height:4rem;
@@ -1095,7 +1095,7 @@ fieldset {
      }
    }
 
-    + label[for="ubersearch"] {
+    + label[for="uber"] {
       html[complex-layout] & {
         @include media($gtMobile) {
           bottom:.9rem;
@@ -1119,7 +1119,7 @@ fieldset {
     /*&:invalid {
     }*/
 
-    /*+ label[for="ubersearch"] {
+    /*+ label[for="uber"] {
     }*/
 
     @include media($gtMobile) {
@@ -1138,7 +1138,7 @@ fieldset {
         opacity:1;
         transition-delay:240ms;
       }
-      & + label[for="ubersearch"] {
+      & + label[for="uber"] {
           font-size:.8rem !important;
           font-weight:bold !important;
           bottom:4rem !important;

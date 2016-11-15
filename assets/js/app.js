@@ -257,7 +257,7 @@
 	  document.querySelector('html > head > title').innerHTML = 'Editing ' + event.target.value;
 	});
 
-	document.getElementById('ubersearch').addEventListener('input', function (event) {
+	document.getElementById('uber').addEventListener('input', function (event) {
 	  if (event.target.value) event.target.classList.add('dirty');
 	  if (hidePageComponents) {
 	    doFilterPageComponents(event.target.value);
@@ -274,13 +274,13 @@
 	  }
 	}
 
-	document.getElementById('ubersearch').addEventListener('focus', function (event) {
+	document.getElementById('uber').addEventListener('focus', function (event) {
 	  if (event.target.value) event.target.classList.add('dirty');
 	  document.body.classList.add('searching');
 	  mainNavDetailsOpen(true);
 	});
 
-	document.getElementById('ubersearch').addEventListener('blur', function (event) {
+	document.getElementById('uber').addEventListener('blur', function (event) {
 	  if (!event.target.value) event.target.classList.remove('dirty');
 	  //document.body.classList.remove('searching');
 	  //mainNavDetailsOpen(false);
@@ -328,12 +328,12 @@
 	}
 
 	/*
-	const ubersearch = document.querySelector('#ubersearch');
-	ubersearch.addEventListener('blur', (event) => {
+	const uber = document.querySelector('#uber');
+	uber.addEventListener('blur', (event) => {
 	  console.log(event);
 	});
 
-	ubersearch.addEventListener('focus', (event) => {
+	uber.addEventListener('focus', (event) => {
 	  console.log(event);
 	});
 	*/

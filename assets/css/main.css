@@ -331,7 +331,7 @@ html.treeless #grail main > form {
       clear: both;
       content: "";
       display: block; }
-    html[complex-layout] .page-wrapper #uberform #ubersearch {
+    html[complex-layout] .page-wrapper #uberform #uber {
       line-height: 3rem; }
     html[complex-layout] .page-wrapper .sidenav {
       position: sticky;
@@ -490,7 +490,7 @@ form > .sticky-scroll {
       #mainnav .new-context-element:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 641px) and (max-width: 1530px) {
-    html[complex-layout] body:not(.searching) #mainnav label[for="ubersearch"] {
+    html[complex-layout] body:not(.searching) #mainnav label[for="uber"] {
       top: 0 !important;
       bottom: 0 !important;
       left: 0 !important;
@@ -517,7 +517,7 @@ form > .sticky-scroll {
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; } }
   @media screen and (min-width: 641px) {
-    html[complex-layout] body:not(.searching) #mainnav #ubersearch {
+    html[complex-layout] body:not(.searching) #mainnav #uber {
       min-width: auto;
       padding-left: 0;
       padding-right: 0; } }
@@ -565,7 +565,7 @@ form > .sticky-scroll {
       -ms-flex-preferred-size: 10em;
           flex-basis: 10em; } }
   @media screen and (min-width: 641px) {
-      html[complex-layout] #mainnav #uberform #ubersearch {
+      html[complex-layout] #mainnav #uberform #uber {
         margin-bottom: 0; }
       html[complex-layout] #mainnav #mainnav__nav {
         display: -ms-flexbox;
@@ -745,7 +745,7 @@ button.emoji {
   padding-right: 8px;
   padding-right: 0.5rem; }
 
-a[href="#ubersearch"] {
+a[href="#uber"] {
   text-decoration: none; }
 
 fieldset > div > div {
@@ -809,7 +809,7 @@ fieldset > div > div {
     #uberform {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%; } }
-  #uberform #ubersearch {
+  #uberform #uber {
     min-width: 96px;
     min-width: 6rem;
     font-size: 1em;
@@ -830,9 +830,9 @@ fieldset > div > div {
     }*/
     /*&:invalid {
     }*/
-    /*+ label[for="ubersearch"] {
+    /*+ label[for="uber"] {
     }*/ }
-    html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
+    html.js #uberform #uber + h1, html.js #uberform #uber + h2 {
       color: grey;
       text-transform: uppercase;
       font-size: .8em;
@@ -845,24 +845,24 @@ fieldset > div > div {
       bottom: 1.5em;
       font-size: 1.2em; }
       @media screen and (min-width: 641px) {
-        html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
+        html.js #uberform #uber + h1, html.js #uberform #uber + h2 {
           bottom: 0rem;
           left: 0.5em;
           right: 0.5em;
           text-align: center; } }
       @media screen and (min-width: 1530px) {
-        html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2 {
+        html.js #uberform #uber + h1, html.js #uberform #uber + h2 {
           bottom: .8em; } }
     @media screen and (min-width: 641px) {
-      body.searching #uberform #ubersearch + h1, body.searching #uberform #ubersearch + h2 {
+      body.searching #uberform #uber + h1, body.searching #uberform #uber + h2 {
         text-align: inherit; } }
-    html.js #uberform #ubersearch:placeholder-shown + h1, html.js #uberform #ubersearch:placeholder-shown + h2 {
+    html.js #uberform #uber:placeholder-shown + h1, html.js #uberform #uber:placeholder-shown + h2 {
       color: grey;
       font-size: 1.2em;
       top: 0;
       bottom: 0;
       line-height: 3; }
-    #uberform #ubersearch + h1, #uberform #ubersearch + h2, #uberform #ubersearch:focus + h1, #uberform #ubersearch:focus + h2 {
+    #uberform #uber + h1, #uberform #uber + h2, #uberform #uber:focus + h1, #uberform #uber:focus + h2 {
       /*  */
       /*font-size:1em;
      font-weight:600;
@@ -871,7 +871,7 @@ fieldset > div > div {
      bottom:auto;
      top:0.1em;
      z-index:1;*/ }
-      html.js #uberform #ubersearch + h1, html.js #uberform #ubersearch + h2, html.js #uberform #ubersearch:focus + h1, html.js #uberform #ubersearch:focus + h2 {
+      html.js #uberform #uber + h1, html.js #uberform #uber + h2, html.js #uberform #uber:focus + h1, html.js #uberform #uber:focus + h2 {
         font-size: 1em;
         font-weight: 600;
         position: absolute;
@@ -881,23 +881,23 @@ fieldset > div > div {
         z-index: 1;
         line-height: normal; }
     @media screen and (min-width: 641px) {
-      html[complex-layout] #uberform #ubersearch + label[for="ubersearch"] {
+      html[complex-layout] #uberform #uber + label[for="uber"] {
         bottom: .9rem; } }
-    #uberform #ubersearch::-webkit-input-placeholder {
+    #uberform #uber::-webkit-input-placeholder {
       opacity: 0;
       transition: opacity 240ms ease;
       transition-delay: 120ms; }
     @media screen and (min-width: 641px) {
-      #uberform #ubersearch {
+      #uberform #uber {
         padding-top: 0.25rem; } }
     @media screen and (max-width: 640px) {
-      #uberform #ubersearch:focus, #uberform #ubersearch.dirty {
+      #uberform #uber:focus, #uberform #uber.dirty {
         padding-top: .5rem;
         transition: padding 240ms ease; } }
-    #uberform #ubersearch:focus::-webkit-input-placeholder, #uberform #ubersearch.dirty::-webkit-input-placeholder {
+    #uberform #uber:focus::-webkit-input-placeholder, #uberform #uber.dirty::-webkit-input-placeholder {
       opacity: 1;
       transition-delay: 240ms; }
-    #uberform #ubersearch:focus + label[for="ubersearch"], #uberform #ubersearch.dirty + label[for="ubersearch"] {
+    #uberform #uber:focus + label[for="uber"], #uberform #uber.dirty + label[for="uber"] {
       font-size: 12.8px !important;
       font-size: .8rem !important;
       font-weight: bold !important;
@@ -907,7 +907,7 @@ fieldset > div > div {
       text-transform: uppercase !important;
       font-style: normal !important; }
       @media screen and (min-width: 641px) {
-        #uberform #ubersearch:focus + label[for="ubersearch"], #uberform #ubersearch.dirty + label[for="ubersearch"] {
+        #uberform #uber:focus + label[for="uber"], #uberform #uber.dirty + label[for="uber"] {
           bottom: auto !important;
           top: 0.25rem !important; } }
 
