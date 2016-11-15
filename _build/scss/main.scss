@@ -102,6 +102,60 @@ body {
        sans-serif;
 }
 
+body {
+  html[complex-layout] & {
+    @include media($gtMobile) {
+      #forest {
+        display: flex;
+        flex-grow: 1;
+      }
+    }
+  }
+
+
+  &:not(.searching) {
+    html[complex-layout] & {
+      @include media($gtMobile) {
+        display:flex;
+        flex-direction:column;
+
+        .page-wrapper {
+          width:100vw;
+        }
+
+        #forest {
+          display: flex;
+          width: 100%;
+          max-height: 100%;
+          overflow-y: hidden;
+          flex-shrink: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        #grail {
+          flex: 0 0 auto;
+          //display: none;
+          position: relative;
+          flex-grow: 1;
+
+          main {
+            display:flex;
+            flex-direction:column;
+            > form {
+              flex-grow:1;
+              overflow-y:auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .quick-links {
   padding-bottom:1rem;
 }
@@ -203,7 +257,9 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   }
   html.treeless & {
       main {
-        padding-left:14px;
+        > form {
+          padding-left:14px;
+        }
       }
   }
   > .preview {
@@ -237,8 +293,15 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
     @include media($gtMobile) {
       display: flex;
       flex-grow: 1;
+
+      // for firefox http://codepen.io/jpdevries/pen/dOXVGB?editors=1100
+      max-height:100%;
+      flex-basis:0;
+      flex-grow:1;
       main {
-        padding-right:14px;
+        > form {
+          padding-right:14px;
+        }
       }
       > .preview {
         flex-basis:320px;
@@ -371,6 +434,11 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
         flex-grow: 1;
 
       }
+    }
+  }
+  html[complex-layout] body.searching & {
+    @include media($gtMobile) {
+      display:block;
     }
   }
 }

@@ -283,79 +283,29 @@
         <button>Save</button>
       </div>
     </aside>
-    <div id="tree">
-      <nav>
-        <details id="resources">
-          <summary><h2>📃&nbsp;Resources</h2></summary>
-          <nav class="quick-links">
-            <header>
-              <h4>Quick<span visually-hidden=""> Resource</span> Links</h4>
-              <ul>
-                <li><a href="#">📝&nbsp;New Resource</a></li>
-                <li><a href="#">🔗&nbsp;New Weblink</a></li>
-                <li><a href="#">🎭&nbsp;New Symlink</a></li>
-                <li><a href="#">📎&nbsp;New Static Resource</a></li>
-                <li><a href="#">🚫&nbsp;Delete Trashed Resources (5)</a></li>
-              </ul>
-            </header>
-          </nav>
-          <details class="context">
-            <summary>
+    <div id="forest">
 
-              <div>
-                <h3>Website</h3>
-                <div>
-                  <button>
-                    ➕
-                    <span visually-hidden="">
-                      Add Resource to Website Context
-                    </span>
-                  </button>
-                </div>
-                <div>
-                  <button>
-                    🔃
-                    <span visually-hidden="">Refresh Context</span>
-                  </button>
-                </div>
-              </div>
-            </summary>
-            <nav>
-              <ul>
-                <li><a href="#">📄&nbsp;Home</a></li>
-                <li>
-                  <details>
-                    <summary><a href="#">📂&nbsp;Blog</a></summary>
-                    <ul>
-                      <li><a href="#">📄&nbsp;Post 1</a></li>
-                      <li><a href="#">📄&nbsp;Post 2</a></li>
-                      <li><a href="#">📄&nbsp;Post 3</a></li>
-                    </ul>
-                  </details>
-                </li>
-                <li><a href="#">Tips</a></li>
-              </ul>
+      <div id="tree">
+        <nav>
+          <details id="resources">
+            <summary><h2>📃&nbsp;Resources</h2></summary>
+            <nav class="quick-links">
+              <header>
+                <h4>Quick<span visually-hidden=""> Resource</span> Links</h4>
+                <ul>
+                  <li><a href="#">📝&nbsp;New Resource</a></li>
+                  <li><a href="#">🔗&nbsp;New Weblink</a></li>
+                  <li><a href="#">🎭&nbsp;New Symlink</a></li>
+                  <li><a href="#">📎&nbsp;New Static Resource</a></li>
+                  <li><a href="#">🚫&nbsp;Delete Trashed Resources (5)</a></li>
+                </ul>
+              </header>
             </nav>
-          </details>
-        </details>
-        <details>
-          <summary><h2>🔧&nbsp;Elements</h2></summary>
-          <nav class="quick-links">
-            <header>
-              <h4>Quick<span visually-hidden=""> Elements</span> Links</h4>
-              <ul>
-                <li><a href="#">📝&nbsp;New Template</a></li>
-                <li><a href="#">📺&nbsp;New Template Variable</a></li>
-                <li><a href="#">📃&nbsp;New Chunk</a></li>
-                <li><a href="#">🔨&nbsp;New Snippet</a></li>
-                <li><a href="#">🚀&nbsp;New Plugin</a></li>
-                <li><a href="#">📁&nbsp;New Folder</a></li>
-              </ul>
-            </header>
-            <details class="context templates">
+            <details class="context">
               <summary>
-                <div class="flexible">
-                  <h3>Templates</h3>
+
+                <div>
+                  <h3>Website</h3>
                   <div>
                     <button>
                       ➕
@@ -363,6 +313,8 @@
                         Add Resource to Website Context
                       </span>
                     </button>
+                  </div>
+                  <div>
                     <button>
                       🔃
                       <span visually-hidden="">Refresh Context</span>
@@ -372,686 +324,738 @@
               </summary>
               <nav>
                 <ul>
-                  <li><a href="#">📝&nbsp;Base Template</a></li>
-                  <li><a href="#">📢&nbsp;Simple Post</a></li>
-                  <li><a href="#">ℹ&nbsp;About Us</a></li>
+                  <li><a href="#">📄&nbsp;Home</a></li>
+                  <li>
+                    <details>
+                      <summary><a href="#">📂&nbsp;Blog</a></summary>
+                      <ul>
+                        <li><a href="#">📄&nbsp;Post 1</a></li>
+                        <li><a href="#">📄&nbsp;Post 2</a></li>
+                        <li><a href="#">📄&nbsp;Post 3</a></li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li><a href="#">Tips</a></li>
                 </ul>
               </nav>
             </details>
-          </nav>
-        </details>
-      </nav>
-    </div>
-    <main>
-      <header>
-        <h1>Announcing the MODX Advisory Board</h1>
-        <p class="comfy emoji-bar">
-          <button class="emoji reaction long tooltip" title="Ryan Thrash, Mark Hamstra, and 3 Others with a :+1:">👍<span>12</span></button>
-          <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
-        </p>
-        <aside class="actionnav">
-          <nav>
-            <button href="#">💾&nbsp;Save</button>
-            <button href="#">📚&nbsp;Duplicate</button>
-            <button href="#">🚫&nbsp;Delete</button>
-            <a href="#">🔎&nbsp;View</a>
-          </nav>
-        </aside>
-
-        <details open="" class="document">
-          <summary><h2>Document</h2></summary>
-          <div>
-            <div>
-              <div>
-                <label for="pagetitle">Title*</label>
-                <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required="">
-              </div>
-
-              <div>
-                <label for="longtitle">Long Title</label>
-                <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
-              </div>
-
-              <div>
-                <label for="description">Description</label>
-                <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
-              </div>
-
-              <div>
-                <label for="introtext">Summary (intro text)</label>
-                <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
-              </div>
-            </div>
-            <div>
-              <div>
-                <label for="template">Uses Template</label>
-                <select class="id" name="template" id="template">
-                  <option>Base Template
-                  </option><option>Blog Post
-                </option></select>
-              </div>
-              <div>
-                <label for="alias">Alias</label>
-                <input type="text" name="alias" id="alias" placeholder="quick-fox">
-              </div>
-              <div>
-                <label for="menutitle">Menu Title</label>
-                <input type="text" name="menutitle" id="menutitle" placeholder="The Fox &amp; The Dog">
-              </div>
-              <div>
-                <label for="linkattributes">Link Attributes</label>
-                <input type="text" name="linkattributes" id="linkattributes" placeholder="target=&quot;_foxdog&quot;">
-              </div>
-              <ul class="discrete">
-                <li>
-                  <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
-                </li>
-                <li>
-                  <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        <details class="settings">
-          <summary><h2>🔧&nbsp;Settings</h2></summary>
-          <div>
-            <div>
-              <div>
-                <label for="parent">Parent Resource</label>
-                <select name="parent" id="parent">
-                  <optgroup label="Website">
-                    <option>None (root)</option>
-                    <option>Home (1)</option>
-                    <option>Blog (1)</option>
-                  </optgroup>
-                </select>
-              </div>
-              <div>
-                <label for="resourcetype">Resource Type</label>
-                <select name="resourcetype" id="resourcetype">
-                  <option value="modResource">Document</option>
-                  <option value="modStaticResource">Static Resources</option>
-                  <option value="modWebLink">Weblink</option>
-                  <option value="modCollection">Collection</option>
-                </select>
-              </div>
-              <div>
-                <label for="contenttype">Content Type</label>
-                <select name="contenttype" id="contenttype">
-                  <option value="html">HTML</option>
-                  <option value="css">CSS</option>
-                  <option value="javascript">JavaScript</option>
-                  <option value="json">JSON</option>
-                  <option value="pdf">PDF</option>
-                  <option value="rss">RSS</option>
-                  <option value="text">text</option>
-                  <option value="xml">XML</option>
-                </select>
-              </div>
-              <div>
-                <fieldset>
-                  <legend>Content Disposition</legend>
-                  <div>
-                    <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked="">
-                    <label for="contentdisposition__inline" checked="">Inline</label>
-
-                    <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement">
-                    <label for="contentdisposition__attachement">Attachement</label>
-                  </div>
-                </fieldset>
-              </div>
-              <div>
-                <label for="menuindex">Menu Index</label>
-                <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
-              </div>
-            </div>
-            <div>
-              <div>
-                <div>
-                  <label for="publishedon">Published On Date</label>
-                  <input type="date" name="publishedondate" id="publishedon" placeholder="Mar 10, 2014">
-                </div>
-                <div>
-                  <label for="publishedontime">Published On Time</label>
-                  <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
-                </div>
-              </div>
-            </div>
-            <fieldset>
-              <legend>Bollean Attributes</legend>
-              <div>
-                <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
-              </div>
-              <div>
-                <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
-              </div>
-              <div>
-                <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
-              </div>
-              <div>
-                <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
-              </div>
-              <div>
-                <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
-              </div>
-              <div>
-                <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
-              </div>
-              <div>
-                <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Use ContentBlocks?</legend>
-              <div>
-                <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked="">
-                <label for="usecontentblocks__yes" checked="">Yes</label>
-
-                <input type="radio" id="usecontentblocks__no" name="usecontentblocks">
-                <label for="usecontentblocks__no">No</label>
-              </div>
-            </fieldset>
-          </div>
-        </details>
-        <details class="resource-groups">
-          <summary><h2>📑&nbsp;Resource Groups</h2></summary>
-          <div>
-            <table>
-              <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
-              <thead>
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Access
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <label for="resourcegroup_4_13">Client Only</label>
-                  </td>
-                  <td>
-                    <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </header>
-
-      <section><!-- maybe this should be <main> instead? -->
-        <details id="content" class="content">
-          <summary>
-            <h2><label for="contentarea">📇&nbsp;Content</label></h2>
-          </summary>
-
-          <div>
-            <textarea name="contentarea" id="contentarea" placeholder="<h1>Hello World!</h1>" rows="8" cols="40"></textarea>
-          </div>
-        </details>
-      </section>
-
-      <section>
-        <div>
-          <details id="template-variables" class="light" open="">
-            <summary>
-              <h2>📺&nbsp;Template Variables</h2>
-            </summary>
-            <details class="light" open="">
-              <summary>
-                <h3>📞&nbsp;Contact</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-
-
-<label for="email">Email</label>
-<input id="email" list="email_list" name="email" placeholder="chuck@norris.com" required="" type="email" x-moz-errormessage="NaN">
-  <datalist id="email_list">
-      <option>mail@devries.jp</option>
-      <option>johnpaul.devries@gmail.com</option>
-    </datalist>
-                  </div>
-                  <div>
-                    <label for="tel">Cell</label>
-<input id="tel" name="tel" placeholder="(555) 555–5555" type="tel" x-moz-errormessage="NaN">
-                  </div>
-                  <div>
-
-
-<label for="website">Website</label>
-<input id="website" list="url_list" name="website" placeholder="https://modx.com" required="" type="url" x-moz-errormessage="NaN">
-  <datalist id="url_list">
-      <option>http://google.com</option>
-      <option>http://facebook.com</option>
-    </datalist>
-                  </div>
-                  <div>
-                    <label for="listbox-single">Choose a Country</label>
-<datalist id="listbox-single__list">  <select name="listbox-single">
-    <option value="AF">Afghanistan</option>
-    <option value="AX">Åland Islands</option>
-    <option value="AL">Albania</option>
-    <option value="DZ">Algeria</option>
-    <option value="AS">American Samoa</option>
-    <option value="AD">Andorra</option>
-    <option value="AO">Angola</option>
-    <option value="AI">Anguilla</option>
-    <option value="AQ">Antarctica</option>
-    <option value="AG">Antigua and Barbuda</option>
-    <option value="AR">Argentina</option>
-    <option value="AM">Armenia</option>
-    <option value="AW">Aruba</option>
-    <option value="AU">Australia</option>
-    <option value="AT">Austria</option>
-    <option value="AZ">Azerbaijan</option>
-    <option value="BS">Bahamas</option>
-    <option value="BH">Bahrain</option>
-    <option value="BD">Bangladesh</option>
-    <option value="BB">Barbados</option>
-    <option value="BY">Belarus</option>
-    <option value="BE">Belgium</option>
-    <option value="BZ">Belize</option>
-    <option value="BJ">Benin</option>
-    <option value="BM">Bermuda</option>
-    <option value="BT">Bhutan</option>
-    <option value="BO">Bolivia, Plurinational State of</option>
-    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-    <option value="BA">Bosnia and Herzegovina</option>
-    <option value="BW">Botswana</option>
-    <option value="BV">Bouvet Island</option>
-    <option value="BR">Brazil</option>
-    <option value="IO">British Indian Ocean Territory</option>
-    <option value="BN">Brunei Darussalam</option>
-    <option value="BG">Bulgaria</option>
-    <option value="BF">Burkina Faso</option>
-    <option value="BI">Burundi</option>
-    <option value="KH">Cambodia</option>
-    <option value="CM">Cameroon</option>
-    <option value="CA">Canada</option>
-    <option value="CV">Cape Verde</option>
-    <option value="KY">Cayman Islands</option>
-    <option value="CF">Central African Republic</option>
-    <option value="TD">Chad</option>
-    <option value="CL">Chile</option>
-    <option value="CN">China</option>
-    <option value="CX">Christmas Island</option>
-    <option value="CC">Cocos (Keeling) Islands</option>
-    <option value="CO">Colombia</option>
-    <option value="KM">Comoros</option>
-    <option value="CG">Congo</option>
-    <option value="CD">Congo, the Democratic Republic of the</option>
-    <option value="CK">Cook Islands</option>
-    <option value="CR">Costa Rica</option>
-    <option value="CI">Côte d'Ivoire</option>
-    <option value="HR">Croatia</option>
-    <option value="CU">Cuba</option>
-    <option value="CW">Curaçao</option>
-    <option value="CY">Cyprus</option>
-    <option value="CZ">Czech Republic</option>
-    <option value="DK">Denmark</option>
-    <option value="DJ">Djibouti</option>
-    <option value="DM">Dominica</option>
-    <option value="DO">Dominican Republic</option>
-    <option value="EC">Ecuador</option>
-    <option value="EG">Egypt</option>
-    <option value="SV">El Salvador</option>
-    <option value="GQ">Equatorial Guinea</option>
-    <option value="ER">Eritrea</option>
-    <option value="EE">Estonia</option>
-    <option value="ET">Ethiopia</option>
-    <option value="FK">Falkland Islands (Malvinas)</option>
-    <option value="FO">Faroe Islands</option>
-    <option value="FJ">Fiji</option>
-    <option value="FI">Finland</option>
-    <option value="FR">France</option>
-    <option value="GF">French Guiana</option>
-    <option value="PF">French Polynesia</option>
-    <option value="TF">French Southern Territories</option>
-    <option value="GA">Gabon</option>
-    <option value="GM">Gambia</option>
-    <option value="GE">Georgia</option>
-    <option value="DE">Germany</option>
-    <option value="GH">Ghana</option>
-    <option value="GI">Gibraltar</option>
-    <option value="GR">Greece</option>
-    <option value="GL">Greenland</option>
-    <option value="GD">Grenada</option>
-    <option value="GP">Guadeloupe</option>
-    <option value="GU">Guam</option>
-    <option value="GT">Guatemala</option>
-    <option value="GG">Guernsey</option>
-    <option value="GN">Guinea</option>
-    <option value="GW">Guinea-Bissau</option>
-    <option value="GY">Guyana</option>
-    <option value="HT">Haiti</option>
-    <option value="HM">Heard Island and McDonald Islands</option>
-    <option value="VA">Holy See (Vatican City State)</option>
-    <option value="HN">Honduras</option>
-    <option value="HK">Hong Kong</option>
-    <option value="HU">Hungary</option>
-    <option value="IS">Iceland</option>
-    <option value="IN">India</option>
-    <option value="ID">Indonesia</option>
-    <option value="IR">Iran, Islamic Republic of</option>
-    <option value="IQ">Iraq</option>
-    <option value="IE">Ireland</option>
-    <option value="IM">Isle of Man</option>
-    <option value="IL">Israel</option>
-    <option value="IT">Italy</option>
-    <option value="JM">Jamaica</option>
-    <option value="JP">Japan</option>
-    <option value="JE">Jersey</option>
-    <option value="JO">Jordan</option>
-    <option value="KZ">Kazakhstan</option>
-    <option value="KE">Kenya</option>
-    <option value="KI">Kiribati</option>
-    <option value="KP">Korea, Democratic People's Republic of</option>
-    <option value="KR">Korea, Republic of</option>
-    <option value="KW">Kuwait</option>
-    <option value="KG">Kyrgyzstan</option>
-    <option value="LA">Lao People's Democratic Republic</option>
-    <option value="LV">Latvia</option>
-    <option value="LB">Lebanon</option>
-    <option value="LS">Lesotho</option>
-    <option value="LR">Liberia</option>
-    <option value="LY">Libya</option>
-    <option value="LI">Liechtenstein</option>
-    <option value="LT">Lithuania</option>
-    <option value="LU">Luxembourg</option>
-    <option value="MO">Macao</option>
-    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
-    <option value="MG">Madagascar</option>
-    <option value="MW">Malawi</option>
-    <option value="MY">Malaysia</option>
-    <option value="MV">Maldives</option>
-    <option value="ML">Mali</option>
-    <option value="MT">Malta</option>
-    <option value="MH">Marshall Islands</option>
-    <option value="MQ">Martinique</option>
-    <option value="MR">Mauritania</option>
-    <option value="MU">Mauritius</option>
-    <option value="YT">Mayotte</option>
-    <option value="MX">Mexico</option>
-    <option value="FM">Micronesia, Federated States of</option>
-    <option value="MD">Moldova, Republic of</option>
-    <option value="MC">Monaco</option>
-    <option value="MN">Mongolia</option>
-    <option value="ME">Montenegro</option>
-    <option value="MS">Montserrat</option>
-    <option value="MA">Morocco</option>
-    <option value="MZ">Mozambique</option>
-    <option value="MM">Myanmar</option>
-    <option value="NA">Namibia</option>
-    <option value="NR">Nauru</option>
-    <option value="NP">Nepal</option>
-    <option value="NL">Netherlands</option>
-    <option value="NC">New Caledonia</option>
-    <option value="NZ">New Zealand</option>
-    <option value="NI">Nicaragua</option>
-    <option value="NE">Niger</option>
-    <option value="NG">Nigeria</option>
-    <option value="NU">Niue</option>
-    <option value="NF">Norfolk Island</option>
-    <option value="MP">Northern Mariana Islands</option>
-    <option value="NO">Norway</option>
-    <option value="OM">Oman</option>
-    <option value="PK">Pakistan</option>
-    <option value="PW">Palau</option>
-    <option value="PS">Palestinian Territory, Occupied</option>
-    <option value="PA">Panama</option>
-    <option value="PG">Papua New Guinea</option>
-    <option value="PY">Paraguay</option>
-    <option value="PE">Peru</option>
-    <option value="PH">Philippines</option>
-    <option value="PN">Pitcairn</option>
-    <option value="PL">Poland</option>
-    <option value="PT">Portugal</option>
-    <option value="PR">Puerto Rico</option>
-    <option value="QA">Qatar</option>
-    <option value="RE">Réunion</option>
-    <option value="RO">Romania</option>
-    <option value="RU">Russian Federation</option>
-    <option value="RW">Rwanda</option>
-    <option value="BL">Saint Barthélemy</option>
-    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-    <option value="KN">Saint Kitts and Nevis</option>
-    <option value="LC">Saint Lucia</option>
-    <option value="MF">Saint Martin (French part)</option>
-    <option value="PM">Saint Pierre and Miquelon</option>
-    <option value="VC">Saint Vincent and the Grenadines</option>
-    <option value="WS">Samoa</option>
-    <option value="SM">San Marino</option>
-    <option value="ST">Sao Tome and Principe</option>
-    <option value="SA">Saudi Arabia</option>
-    <option value="SN">Senegal</option>
-    <option value="RS">Serbia</option>
-    <option value="SC">Seychelles</option>
-    <option value="SL">Sierra Leone</option>
-    <option value="SG">Singapore</option>
-    <option value="SX">Sint Maarten (Dutch part)</option>
-    <option value="SK">Slovakia</option>
-    <option value="SI">Slovenia</option>
-    <option value="SB">Solomon Islands</option>
-    <option value="SO">Somalia</option>
-    <option value="ZA">South Africa</option>
-    <option value="GS">South Georgia and the South Sandwich Islands</option>
-    <option value="SS">South Sudan</option>
-    <option value="ES">Spain</option>
-    <option value="LK">Sri Lanka</option>
-    <option value="SD">Sudan</option>
-    <option value="SR">Suriname</option>
-    <option value="SJ">Svalbard and Jan Mayen</option>
-    <option value="SZ">Swaziland</option>
-    <option value="SE">Sweden</option>
-    <option value="CH">Switzerland</option>
-    <option value="SY">Syrian Arab Republic</option>
-    <option value="TW">Taiwan, Province of China</option>
-    <option value="TJ">Tajikistan</option>
-    <option value="TZ">Tanzania, United Republic of</option>
-    <option value="TH">Thailand</option>
-    <option value="TL">Timor-Leste</option>
-    <option value="TG">Togo</option>
-    <option value="TK">Tokelau</option>
-    <option value="TO">Tonga</option>
-    <option value="TT">Trinidad and Tobago</option>
-    <option value="TN">Tunisia</option>
-    <option value="TR">Turkey</option>
-    <option value="TM">Turkmenistan</option>
-    <option value="TC">Turks and Caicos Islands</option>
-    <option value="TV">Tuvalu</option>
-    <option value="UG">Uganda</option>
-    <option value="UA">Ukraine</option>
-    <option value="AE">United Arab Emirates</option>
-    <option value="GB">United Kingdom</option>
-    <option value="US">United States</option>
-    <option value="UM">United States Minor Outlying Islands</option>
-    <option value="UY">Uruguay</option>
-    <option value="UZ">Uzbekistan</option>
-    <option value="VU">Vanuatu</option>
-    <option value="VE">Venezuela, Bolivarian Republic of</option>
-    <option value="VN">Viet Nam</option>
-    <option value="VG">Virgin Islands, British</option>
-    <option value="VI">Virgin Islands, U.S.</option>
-    <option value="WF">Wallis and Futuna</option>
-    <option value="EH">Western Sahara</option>
-    <option value="YE">Yemen</option>
-    <option value="ZM">Zambia</option>
-    <option value="ZW">Zimbabwe</option>
-  </select>
-  <p>If other please specify:</p></datalist><input placeholder="NL" type="text" id="listbox-single" name="listbox-single" list="listbox-single__list">
-                  </div>
-                  <div>
-
-<label for="tvcontent">Bio</label>
-<textarea placeholder="Jack and Jill went up the hill." id="tvcontent"></textarea>
-                  </div>
-                </div>
-              </div>
-            </details>
-            <details class="light" open="">
-              <summary>
-                <h3>📓&nbsp;Info</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-
-
-
-<label for="quantity">Quantity</label>
-<input id="quantity" list="quantity_list" name="quantity" placeholder="4" required="" type="number" x-moz-errormessage="NaN" data-com.agilebits.onepassword.user-edited="yes">
-
-  <datalist id="quantity_list">
-      <option>4</option>
-      <option>20</option>
-    </datalist>
-                  </div>
-                  <div>
-                    <label for="listbox-multi">Listbox (Multi-Select)</label>
-<select name="listbox-multi" id="listbox-multi" multiple="">
-  <option value="1">option1</option>
-  <option value="2">option2</option>
-  <option value="3">option3</option>
-</select>
-                  </div>
-                  <div>
-                    <label for="donation">Donation Amount (USD):</label><br>
-<input type="range" name="donation" id="donation" list="donation_list" step="1" max="200" data-com.agilebits.onepassword.user-edited="yes">
-  <datalist id="donation_list">
-      <option>100</option>
-      <option>150</option>
-    </datalist>
-                  </div>
-                  <div>
-                    <label for="file">Choose a file</label>
-<input type="file" id="file" name="file">
-                  </div>
-                  <div>
-                    <label for="airports">Airports</label>
-<select name="airports" id="airports">
-  <option value=""></option>                    <optgroup label="California">
-          <option data-iterable="true" value="SAC">Sacramento</option><option data-iterable="true" value="LAX">Los Angeles</option><option data-iterable="true" value="SFO">San Francisco</option>        </optgroup>
-                        <optgroup label="Oregon">
-          <option data-iterable="true" value="PDX">Portland</option>        </optgroup>
-            </select>
-                  </div>
-                  <div>
-                    <label for="options">Dropdown List Menu</label>
-<select name="options" id="options">
-  <option value=""></option>                            <option data-iterable="false" value="modx">MODX</option>
-                                <option data-iterable="false" value="wordpress">Wordpress</option>
-                                <option data-iterable="false" value="joomla!">Joomla!</option>
-            </select>
-                  </div>
-                  <div>
-                    <fieldset>
-  <legend>Options</legend>
-  <div class="options container">
-                <div class="option"><input id="option_a" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_a">Option A</label>
-</div>
-                <div class="option"><input id="option_b" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_b">Option B</label>
-</div>
-                <div class="option"><input id="option_c" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_c">Option C</label>
-</div>
-                <div class="option"><input id="option_d" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_d">Option D</label>
-</div>
-                <div class="option"><input id="option_f" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_f">Option F</label>
-</div>
-                <div class="option"><input id="option_g" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_g">Option G</label>
-</div>
-                <div class="option"><input id="option_h" name="radio" type="radio" x-moz-errormessage="NaN">
-<label for="option_h">Option H</label>
-</div>
-      </div>
-</fieldset>
-                  </div>
-                </div>
-              </div>
-            </details>
-            <details class="light" open="">
-              <summary>
-                <h3>📌&nbsp;Meta</h3>
-              </summary>
-              <div>
-              <div>
-                <div>
-                  <div id="auto-tag">
-  <label for="tags">Tags</label>
-    <input id="tags" name="tags" placeholder="Buter, Cheese" type="text" x-moz-errormessage="NaN">
-      <div class="auto-tags">
-          <span class="tag">
-        <input type="checkbox" id="tag__Black" name="tag__Black" value="Black"> <label for="tag__Black">Black </label>
-      </span>
-          <span class="tag">
-        <input type="checkbox" id="tag__Gold" name="tag__Gold" value="Gold"> <label for="tag__Gold">Gold </label>
-      </span>
-          <span class="tag">
-        <input type="checkbox" id="tag__Silver" name="tag__Silver" value="Silver"> <label for="tag__Silver">Silver </label>
-      </span>
-        </div>
-  </div>
-                </div>
-                <div>
-                  <input type="hidden" value="ssh">
-                </div>
-                <div>
-                  <label for="image">Facebook OG Image</label>
-<input type="file" id="image" name="image" accept="image/*">
-                </div>
-              </div>
-              </div>
-            </details>
-            <details class="light" open="">
-              <summary><h3>💰&nbsp;Product</h3></summary>
-              <div>
-                <label for="tv-1">SKU</label>
-                <input id="tv-1" name="tv-1" placeholder="#4327" x-moz-errormessage="NaN">
-              </div>
-            </details>
-            <details class="light" open="">
-              <summary>
-                <h3>📅&nbsp;Time</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-                    <label for="month">Month</label>
-<input id="month" name="month" placeholder="March" type="month" x-moz-errormessage="NaN">
-                  </div>
-                  <div>
-                    <label for="week">Week</label>
-<input id="week" name="week" placeholder="Week 42, 2016" type="week" x-moz-errormessage="NaN">
-                  </div>
-                  <div>
-                  <label for="date-2">Date</label>
-<input id="date-2" name="date-2" placeholder="March 10, 2016" type="date" x-moz-errormessage="NaN">
-                  </div>
-                  <div>
-                    <label for="time-2">Time</label>
-<input id="time-2" name="time-2" placeholder="15:32" type="time" x-moz-errormessage="NaN">
-                  </div>
-                </div>
-              </div>
-            </details>
-
           </details>
-        </div>
-      </section>
+          <details>
+            <summary><h2>🔧&nbsp;Elements</h2></summary>
+            <nav class="quick-links">
+              <header>
+                <h4>Quick<span visually-hidden=""> Elements</span> Links</h4>
+                <ul>
+                  <li><a href="#">📝&nbsp;New Template</a></li>
+                  <li><a href="#">📺&nbsp;New Template Variable</a></li>
+                  <li><a href="#">📃&nbsp;New Chunk</a></li>
+                  <li><a href="#">🔨&nbsp;New Snippet</a></li>
+                  <li><a href="#">🚀&nbsp;New Plugin</a></li>
+                  <li><a href="#">📁&nbsp;New Folder</a></li>
+                </ul>
+              </header>
+              <details class="context templates">
+                <summary>
+                  <div class="flexible">
+                    <h3>Templates</h3>
+                    <div>
+                      <button>
+                        ➕
+                        <span visually-hidden="">
+                          Add Resource to Website Context
+                        </span>
+                      </button>
+                      <button>
+                        🔃
+                        <span visually-hidden="">Refresh Context</span>
+                      </button>
+                    </div>
+                  </div>
+                </summary>
+                <nav>
+                  <ul>
+                    <li><a href="#">📝&nbsp;Base Template</a></li>
+                    <li><a href="#">📢&nbsp;Simple Post</a></li>
+                    <li><a href="#">ℹ&nbsp;About Us</a></li>
+                  </ul>
+                </nav>
+              </details>
+            </nav>
+          </details>
+        </nav>
+      </div>
+      <main>
+        <header>
+          <h1>Announcing the MODX Advisory Board</h1>
+          <p class="comfy emoji-bar">
+            <button class="emoji reaction long tooltip" title="Ryan Thrash, Mark Hamstra, and 3 Others with a :+1:">👍<span>12</span></button>
+            <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
+          </p>
+          <aside class="actionnav">
+            <nav>
+              <button href="#">💾&nbsp;Save</button>
+              <button href="#">📚&nbsp;Duplicate</button>
+              <button href="#">🚫&nbsp;Delete</button>
+              <a href="#">🔎&nbsp;View</a>
+            </nav>
+          </aside>
 
-    </main>
+          <details open="" class="document">
+            <summary><h2>Document</h2></summary>
+            <div>
+              <div>
+                <div>
+                  <label for="pagetitle">Title*</label>
+                  <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required="">
+                </div>
+
+                <div>
+                  <label for="longtitle">Long Title</label>
+                  <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
+                </div>
+
+                <div>
+                  <label for="description">Description</label>
+                  <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
+                </div>
+
+                <div>
+                  <label for="introtext">Summary (intro text)</label>
+                  <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="template">Uses Template</label>
+                  <select class="id" name="template" id="template">
+                    <option>Base Template
+                    </option><option>Blog Post
+                  </option></select>
+                </div>
+                <div>
+                  <label for="alias">Alias</label>
+                  <input type="text" name="alias" id="alias" placeholder="quick-fox">
+                </div>
+                <div>
+                  <label for="menutitle">Menu Title</label>
+                  <input type="text" name="menutitle" id="menutitle" placeholder="The Fox &amp; The Dog">
+                </div>
+                <div>
+                  <label for="linkattributes">Link Attributes</label>
+                  <input type="text" name="linkattributes" id="linkattributes" placeholder="target=&quot;_foxdog&quot;">
+                </div>
+                <ul class="discrete">
+                  <li>
+                    <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+          <details class="settings">
+            <summary><h2>🔧&nbsp;Settings</h2></summary>
+            <div>
+              <div>
+                <div>
+                  <label for="parent">Parent Resource</label>
+                  <select name="parent" id="parent">
+                    <optgroup label="Website">
+                      <option>None (root)</option>
+                      <option>Home (1)</option>
+                      <option>Blog (1)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div>
+                  <label for="resourcetype">Resource Type</label>
+                  <select name="resourcetype" id="resourcetype">
+                    <option value="modResource">Document</option>
+                    <option value="modStaticResource">Static Resources</option>
+                    <option value="modWebLink">Weblink</option>
+                    <option value="modCollection">Collection</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="contenttype">Content Type</label>
+                  <select name="contenttype" id="contenttype">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="json">JSON</option>
+                    <option value="pdf">PDF</option>
+                    <option value="rss">RSS</option>
+                    <option value="text">text</option>
+                    <option value="xml">XML</option>
+                  </select>
+                </div>
+                <div>
+                  <fieldset>
+                    <legend>Content Disposition</legend>
+                    <div>
+                      <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked="">
+                      <label for="contentdisposition__inline" checked="">Inline</label>
+
+                      <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement">
+                      <label for="contentdisposition__attachement">Attachement</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div>
+                  <label for="menuindex">Menu Index</label>
+                  <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div>
+                    <label for="publishedon">Published On Date</label>
+                    <input type="date" name="publishedondate" id="publishedon" placeholder="Mar 10, 2014">
+                  </div>
+                  <div>
+                    <label for="publishedontime">Published On Time</label>
+                    <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
+                  </div>
+                </div>
+              </div>
+              <fieldset>
+                <legend>Bollean Attributes</legend>
+                <div>
+                  <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Use ContentBlocks?</legend>
+                <div>
+                  <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked="">
+                  <label for="usecontentblocks__yes" checked="">Yes</label>
+
+                  <input type="radio" id="usecontentblocks__no" name="usecontentblocks">
+                  <label for="usecontentblocks__no">No</label>
+                </div>
+              </fieldset>
+            </div>
+          </details>
+          <details class="resource-groups">
+            <summary><h2>📑&nbsp;Resource Groups</h2></summary>
+            <div>
+              <table>
+                <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
+                <thead>
+                  <tr>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Access
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="resourcegroup_4_13">Client Only</label>
+                    </td>
+                    <td>
+                      <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </header>
+
+        <section><!-- maybe this should be <main> instead? -->
+          <details id="content" class="content">
+            <summary>
+              <h2><label for="contentarea">📇&nbsp;Content</label></h2>
+            </summary>
+
+            <div>
+              <textarea name="contentarea" id="contentarea" placeholder="<h1>Hello World!</h1>" rows="8" cols="40"></textarea>
+            </div>
+          </details>
+        </section>
+
+        <section>
+          <div>
+            <details id="template-variables" class="light" open="">
+              <summary>
+                <h2>📺&nbsp;Template Variables</h2>
+              </summary>
+              <details class="light" open="">
+                <summary>
+                  <h3>📞&nbsp;Contact</h3>
+                </summary>
+                <div>
+                  <div>
+                    <div>
+
+
+  <label for="email">Email</label>
+  <input id="email" list="email_list" name="email" placeholder="chuck@norris.com" required="" type="email" x-moz-errormessage="NaN">
+    <datalist id="email_list">
+        <option>mail@devries.jp</option>
+        <option>johnpaul.devries@gmail.com</option>
+      </datalist>
+                    </div>
+                    <div>
+                      <label for="tel">Cell</label>
+  <input id="tel" name="tel" placeholder="(555) 555–5555" type="tel" x-moz-errormessage="NaN">
+                    </div>
+                    <div>
+
+
+  <label for="website">Website</label>
+  <input id="website" list="url_list" name="website" placeholder="https://modx.com" required="" type="url" x-moz-errormessage="NaN">
+    <datalist id="url_list">
+        <option>http://google.com</option>
+        <option>http://facebook.com</option>
+      </datalist>
+                    </div>
+                    <div>
+                      <label for="listbox-single">Choose a Country</label>
+  <datalist id="listbox-single__list">  <select name="listbox-single">
+      <option value="AF">Afghanistan</option>
+      <option value="AX">Åland Islands</option>
+      <option value="AL">Albania</option>
+      <option value="DZ">Algeria</option>
+      <option value="AS">American Samoa</option>
+      <option value="AD">Andorra</option>
+      <option value="AO">Angola</option>
+      <option value="AI">Anguilla</option>
+      <option value="AQ">Antarctica</option>
+      <option value="AG">Antigua and Barbuda</option>
+      <option value="AR">Argentina</option>
+      <option value="AM">Armenia</option>
+      <option value="AW">Aruba</option>
+      <option value="AU">Australia</option>
+      <option value="AT">Austria</option>
+      <option value="AZ">Azerbaijan</option>
+      <option value="BS">Bahamas</option>
+      <option value="BH">Bahrain</option>
+      <option value="BD">Bangladesh</option>
+      <option value="BB">Barbados</option>
+      <option value="BY">Belarus</option>
+      <option value="BE">Belgium</option>
+      <option value="BZ">Belize</option>
+      <option value="BJ">Benin</option>
+      <option value="BM">Bermuda</option>
+      <option value="BT">Bhutan</option>
+      <option value="BO">Bolivia, Plurinational State of</option>
+      <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+      <option value="BA">Bosnia and Herzegovina</option>
+      <option value="BW">Botswana</option>
+      <option value="BV">Bouvet Island</option>
+      <option value="BR">Brazil</option>
+      <option value="IO">British Indian Ocean Territory</option>
+      <option value="BN">Brunei Darussalam</option>
+      <option value="BG">Bulgaria</option>
+      <option value="BF">Burkina Faso</option>
+      <option value="BI">Burundi</option>
+      <option value="KH">Cambodia</option>
+      <option value="CM">Cameroon</option>
+      <option value="CA">Canada</option>
+      <option value="CV">Cape Verde</option>
+      <option value="KY">Cayman Islands</option>
+      <option value="CF">Central African Republic</option>
+      <option value="TD">Chad</option>
+      <option value="CL">Chile</option>
+      <option value="CN">China</option>
+      <option value="CX">Christmas Island</option>
+      <option value="CC">Cocos (Keeling) Islands</option>
+      <option value="CO">Colombia</option>
+      <option value="KM">Comoros</option>
+      <option value="CG">Congo</option>
+      <option value="CD">Congo, the Democratic Republic of the</option>
+      <option value="CK">Cook Islands</option>
+      <option value="CR">Costa Rica</option>
+      <option value="CI">Côte d'Ivoire</option>
+      <option value="HR">Croatia</option>
+      <option value="CU">Cuba</option>
+      <option value="CW">Curaçao</option>
+      <option value="CY">Cyprus</option>
+      <option value="CZ">Czech Republic</option>
+      <option value="DK">Denmark</option>
+      <option value="DJ">Djibouti</option>
+      <option value="DM">Dominica</option>
+      <option value="DO">Dominican Republic</option>
+      <option value="EC">Ecuador</option>
+      <option value="EG">Egypt</option>
+      <option value="SV">El Salvador</option>
+      <option value="GQ">Equatorial Guinea</option>
+      <option value="ER">Eritrea</option>
+      <option value="EE">Estonia</option>
+      <option value="ET">Ethiopia</option>
+      <option value="FK">Falkland Islands (Malvinas)</option>
+      <option value="FO">Faroe Islands</option>
+      <option value="FJ">Fiji</option>
+      <option value="FI">Finland</option>
+      <option value="FR">France</option>
+      <option value="GF">French Guiana</option>
+      <option value="PF">French Polynesia</option>
+      <option value="TF">French Southern Territories</option>
+      <option value="GA">Gabon</option>
+      <option value="GM">Gambia</option>
+      <option value="GE">Georgia</option>
+      <option value="DE">Germany</option>
+      <option value="GH">Ghana</option>
+      <option value="GI">Gibraltar</option>
+      <option value="GR">Greece</option>
+      <option value="GL">Greenland</option>
+      <option value="GD">Grenada</option>
+      <option value="GP">Guadeloupe</option>
+      <option value="GU">Guam</option>
+      <option value="GT">Guatemala</option>
+      <option value="GG">Guernsey</option>
+      <option value="GN">Guinea</option>
+      <option value="GW">Guinea-Bissau</option>
+      <option value="GY">Guyana</option>
+      <option value="HT">Haiti</option>
+      <option value="HM">Heard Island and McDonald Islands</option>
+      <option value="VA">Holy See (Vatican City State)</option>
+      <option value="HN">Honduras</option>
+      <option value="HK">Hong Kong</option>
+      <option value="HU">Hungary</option>
+      <option value="IS">Iceland</option>
+      <option value="IN">India</option>
+      <option value="ID">Indonesia</option>
+      <option value="IR">Iran, Islamic Republic of</option>
+      <option value="IQ">Iraq</option>
+      <option value="IE">Ireland</option>
+      <option value="IM">Isle of Man</option>
+      <option value="IL">Israel</option>
+      <option value="IT">Italy</option>
+      <option value="JM">Jamaica</option>
+      <option value="JP">Japan</option>
+      <option value="JE">Jersey</option>
+      <option value="JO">Jordan</option>
+      <option value="KZ">Kazakhstan</option>
+      <option value="KE">Kenya</option>
+      <option value="KI">Kiribati</option>
+      <option value="KP">Korea, Democratic People's Republic of</option>
+      <option value="KR">Korea, Republic of</option>
+      <option value="KW">Kuwait</option>
+      <option value="KG">Kyrgyzstan</option>
+      <option value="LA">Lao People's Democratic Republic</option>
+      <option value="LV">Latvia</option>
+      <option value="LB">Lebanon</option>
+      <option value="LS">Lesotho</option>
+      <option value="LR">Liberia</option>
+      <option value="LY">Libya</option>
+      <option value="LI">Liechtenstein</option>
+      <option value="LT">Lithuania</option>
+      <option value="LU">Luxembourg</option>
+      <option value="MO">Macao</option>
+      <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+      <option value="MG">Madagascar</option>
+      <option value="MW">Malawi</option>
+      <option value="MY">Malaysia</option>
+      <option value="MV">Maldives</option>
+      <option value="ML">Mali</option>
+      <option value="MT">Malta</option>
+      <option value="MH">Marshall Islands</option>
+      <option value="MQ">Martinique</option>
+      <option value="MR">Mauritania</option>
+      <option value="MU">Mauritius</option>
+      <option value="YT">Mayotte</option>
+      <option value="MX">Mexico</option>
+      <option value="FM">Micronesia, Federated States of</option>
+      <option value="MD">Moldova, Republic of</option>
+      <option value="MC">Monaco</option>
+      <option value="MN">Mongolia</option>
+      <option value="ME">Montenegro</option>
+      <option value="MS">Montserrat</option>
+      <option value="MA">Morocco</option>
+      <option value="MZ">Mozambique</option>
+      <option value="MM">Myanmar</option>
+      <option value="NA">Namibia</option>
+      <option value="NR">Nauru</option>
+      <option value="NP">Nepal</option>
+      <option value="NL">Netherlands</option>
+      <option value="NC">New Caledonia</option>
+      <option value="NZ">New Zealand</option>
+      <option value="NI">Nicaragua</option>
+      <option value="NE">Niger</option>
+      <option value="NG">Nigeria</option>
+      <option value="NU">Niue</option>
+      <option value="NF">Norfolk Island</option>
+      <option value="MP">Northern Mariana Islands</option>
+      <option value="NO">Norway</option>
+      <option value="OM">Oman</option>
+      <option value="PK">Pakistan</option>
+      <option value="PW">Palau</option>
+      <option value="PS">Palestinian Territory, Occupied</option>
+      <option value="PA">Panama</option>
+      <option value="PG">Papua New Guinea</option>
+      <option value="PY">Paraguay</option>
+      <option value="PE">Peru</option>
+      <option value="PH">Philippines</option>
+      <option value="PN">Pitcairn</option>
+      <option value="PL">Poland</option>
+      <option value="PT">Portugal</option>
+      <option value="PR">Puerto Rico</option>
+      <option value="QA">Qatar</option>
+      <option value="RE">Réunion</option>
+      <option value="RO">Romania</option>
+      <option value="RU">Russian Federation</option>
+      <option value="RW">Rwanda</option>
+      <option value="BL">Saint Barthélemy</option>
+      <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+      <option value="KN">Saint Kitts and Nevis</option>
+      <option value="LC">Saint Lucia</option>
+      <option value="MF">Saint Martin (French part)</option>
+      <option value="PM">Saint Pierre and Miquelon</option>
+      <option value="VC">Saint Vincent and the Grenadines</option>
+      <option value="WS">Samoa</option>
+      <option value="SM">San Marino</option>
+      <option value="ST">Sao Tome and Principe</option>
+      <option value="SA">Saudi Arabia</option>
+      <option value="SN">Senegal</option>
+      <option value="RS">Serbia</option>
+      <option value="SC">Seychelles</option>
+      <option value="SL">Sierra Leone</option>
+      <option value="SG">Singapore</option>
+      <option value="SX">Sint Maarten (Dutch part)</option>
+      <option value="SK">Slovakia</option>
+      <option value="SI">Slovenia</option>
+      <option value="SB">Solomon Islands</option>
+      <option value="SO">Somalia</option>
+      <option value="ZA">South Africa</option>
+      <option value="GS">South Georgia and the South Sandwich Islands</option>
+      <option value="SS">South Sudan</option>
+      <option value="ES">Spain</option>
+      <option value="LK">Sri Lanka</option>
+      <option value="SD">Sudan</option>
+      <option value="SR">Suriname</option>
+      <option value="SJ">Svalbard and Jan Mayen</option>
+      <option value="SZ">Swaziland</option>
+      <option value="SE">Sweden</option>
+      <option value="CH">Switzerland</option>
+      <option value="SY">Syrian Arab Republic</option>
+      <option value="TW">Taiwan, Province of China</option>
+      <option value="TJ">Tajikistan</option>
+      <option value="TZ">Tanzania, United Republic of</option>
+      <option value="TH">Thailand</option>
+      <option value="TL">Timor-Leste</option>
+      <option value="TG">Togo</option>
+      <option value="TK">Tokelau</option>
+      <option value="TO">Tonga</option>
+      <option value="TT">Trinidad and Tobago</option>
+      <option value="TN">Tunisia</option>
+      <option value="TR">Turkey</option>
+      <option value="TM">Turkmenistan</option>
+      <option value="TC">Turks and Caicos Islands</option>
+      <option value="TV">Tuvalu</option>
+      <option value="UG">Uganda</option>
+      <option value="UA">Ukraine</option>
+      <option value="AE">United Arab Emirates</option>
+      <option value="GB">United Kingdom</option>
+      <option value="US">United States</option>
+      <option value="UM">United States Minor Outlying Islands</option>
+      <option value="UY">Uruguay</option>
+      <option value="UZ">Uzbekistan</option>
+      <option value="VU">Vanuatu</option>
+      <option value="VE">Venezuela, Bolivarian Republic of</option>
+      <option value="VN">Viet Nam</option>
+      <option value="VG">Virgin Islands, British</option>
+      <option value="VI">Virgin Islands, U.S.</option>
+      <option value="WF">Wallis and Futuna</option>
+      <option value="EH">Western Sahara</option>
+      <option value="YE">Yemen</option>
+      <option value="ZM">Zambia</option>
+      <option value="ZW">Zimbabwe</option>
+    </select>
+    <p>If other please specify:</p></datalist><input placeholder="NL" type="text" id="listbox-single" name="listbox-single" list="listbox-single__list">
+                    </div>
+                    <div>
+
+  <label for="tvcontent">Bio</label>
+  <textarea placeholder="Jack and Jill went up the hill." id="tvcontent"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </details>
+              <details class="light" open="">
+                <summary>
+                  <h3>📓&nbsp;Info</h3>
+                </summary>
+                <div>
+                  <div>
+                    <div>
+
+
+
+  <label for="quantity">Quantity</label>
+  <input id="quantity" list="quantity_list" name="quantity" placeholder="4" required="" type="number" x-moz-errormessage="NaN" data-com.agilebits.onepassword.user-edited="yes">
+
+    <datalist id="quantity_list">
+        <option>4</option>
+        <option>20</option>
+      </datalist>
+                    </div>
+                    <div>
+                      <label for="listbox-multi">Listbox (Multi-Select)</label>
+  <select name="listbox-multi" id="listbox-multi" multiple="">
+    <option value="1">option1</option>
+    <option value="2">option2</option>
+    <option value="3">option3</option>
+  </select>
+                    </div>
+                    <div>
+                      <label for="donation">Donation Amount (USD):</label><br>
+  <input type="range" name="donation" id="donation" list="donation_list" step="1" max="200" data-com.agilebits.onepassword.user-edited="yes">
+    <datalist id="donation_list">
+        <option>100</option>
+        <option>150</option>
+      </datalist>
+                    </div>
+                    <div>
+                      <label for="file">Choose a file</label>
+  <input type="file" id="file" name="file">
+                    </div>
+                    <div>
+                      <label for="airports">Airports</label>
+  <select name="airports" id="airports">
+    <option value=""></option>                    <optgroup label="California">
+            <option data-iterable="true" value="SAC">Sacramento</option><option data-iterable="true" value="LAX">Los Angeles</option><option data-iterable="true" value="SFO">San Francisco</option>        </optgroup>
+                          <optgroup label="Oregon">
+            <option data-iterable="true" value="PDX">Portland</option>        </optgroup>
+              </select>
+                    </div>
+                    <div>
+                      <label for="options">Dropdown List Menu</label>
+  <select name="options" id="options">
+    <option value=""></option>                            <option data-iterable="false" value="modx">MODX</option>
+                                  <option data-iterable="false" value="wordpress">Wordpress</option>
+                                  <option data-iterable="false" value="joomla!">Joomla!</option>
+              </select>
+                    </div>
+                    <div>
+                      <fieldset>
+    <legend>Options</legend>
+    <div class="options container">
+                  <div class="option"><input id="option_a" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_a">Option A</label>
+  </div>
+                  <div class="option"><input id="option_b" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_b">Option B</label>
+  </div>
+                  <div class="option"><input id="option_c" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_c">Option C</label>
+  </div>
+                  <div class="option"><input id="option_d" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_d">Option D</label>
+  </div>
+                  <div class="option"><input id="option_f" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_f">Option F</label>
+  </div>
+                  <div class="option"><input id="option_g" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_g">Option G</label>
+  </div>
+                  <div class="option"><input id="option_h" name="radio" type="radio" x-moz-errormessage="NaN">
+  <label for="option_h">Option H</label>
+  </div>
+        </div>
+  </fieldset>
+                    </div>
+                  </div>
+                </div>
+              </details>
+              <details class="light" open="">
+                <summary>
+                  <h3>📌&nbsp;Meta</h3>
+                </summary>
+                <div>
+                <div>
+                  <div>
+                    <div id="auto-tag">
+    <label for="tags">Tags</label>
+      <input id="tags" name="tags" placeholder="Buter, Cheese" type="text" x-moz-errormessage="NaN">
+        <div class="auto-tags">
+            <span class="tag">
+          <input type="checkbox" id="tag__Black" name="tag__Black" value="Black"> <label for="tag__Black">Black </label>
+        </span>
+            <span class="tag">
+          <input type="checkbox" id="tag__Gold" name="tag__Gold" value="Gold"> <label for="tag__Gold">Gold </label>
+        </span>
+            <span class="tag">
+          <input type="checkbox" id="tag__Silver" name="tag__Silver" value="Silver"> <label for="tag__Silver">Silver </label>
+        </span>
+          </div>
+    </div>
+                  </div>
+                  <div>
+                    <input type="hidden" value="ssh">
+                  </div>
+                  <div>
+                    <label for="image">Facebook OG Image</label>
+  <input type="file" id="image" name="image" accept="image/*">
+                  </div>
+                </div>
+                </div>
+              </details>
+              <details class="light" open="">
+                <summary><h3>💰&nbsp;Product</h3></summary>
+                <div>
+                  <label for="tv-1">SKU</label>
+                  <input id="tv-1" name="tv-1" placeholder="#4327" x-moz-errormessage="NaN">
+                </div>
+              </details>
+              <details class="light" open="">
+                <summary>
+                  <h3>📅&nbsp;Time</h3>
+                </summary>
+                <div>
+                  <div>
+                    <div>
+                      <label for="month">Month</label>
+  <input id="month" name="month" placeholder="March" type="month" x-moz-errormessage="NaN">
+                    </div>
+                    <div>
+                      <label for="week">Week</label>
+  <input id="week" name="week" placeholder="Week 42, 2016" type="week" x-moz-errormessage="NaN">
+                    </div>
+                    <div>
+                    <label for="date-2">Date</label>
+  <input id="date-2" name="date-2" placeholder="March 10, 2016" type="date" x-moz-errormessage="NaN">
+                    </div>
+                    <div>
+                      <label for="time-2">Time</label>
+  <input id="time-2" name="time-2" placeholder="15:32" type="time" x-moz-errormessage="NaN">
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+            </details>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
 
     <aside class="actionnav">
       <nav>
