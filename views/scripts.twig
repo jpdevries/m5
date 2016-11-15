@@ -1,3 +1,21 @@
+<div id="poly">
+
+</div>
+
+<script>
+  if(!Modernizr.details) {
+    document.getElementById('poly').appendChild((function(){
+      let script = document.createElement('script');
+      script.onload = function() {
+        console.log('details polyfill loaded');
+      };
+      script.src = "assets/js/vendor/details-element-polyfill/details-element-polyfill.js";
+
+      return script;
+    })());
+  }
+</script>
+
 <script defer src="assets/components/mi5/js/m5.input.js"></script>
 <script defer src="assets/components/mi5/js/m5.autotag.js"></script>
 
