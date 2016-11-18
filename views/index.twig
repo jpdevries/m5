@@ -1,6 +1,6 @@
 {% include 'header.twig' with { loadStyles:true } %}
 </head>
-<body class=""><!-- .snappy -->
+<body class="" data-theme="sterc"><!-- .snappy -->
   {% if deferStyles|default(false) %}<link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">{% endif %}
   <div class="page-wrapper">
     <aside class="sidenav">
@@ -502,7 +502,7 @@
                     </div>
                     <div>
                       <label for="alias">Alias</label>
-                      <input type="text" name="alias" id="alias" placeholder="quick-fox">
+                      <input type="text" name="alias" id="alias" placeholder="quick-fox" required>
                     </div>
                     <div>
                       <label for="menutitle">Menu Title</label>

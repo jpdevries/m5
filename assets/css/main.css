@@ -71,7 +71,7 @@ http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3/
   box-sizing: border-box; }
 
 #mainnav .close-nav, #mainnav + footer {
-  background: #202b35;
+  background: var(--dark-bar-bg-color);
   color: white;
   border: 1px solid #1b232c;
   border-left: none;
@@ -119,8 +119,84 @@ textarea, input[type="text"] {
   box-sizing: border-box; }
 
 body {
+  --main-bg-color: #efefef;
+  --mainnav-bg: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
+  --uber-bg-color: #2c3a48;
+  --uber-nav-bg-color: #2c3a48;
+  --uber-nav-bg-focused-color: #24303b;
+  --uber-list-item-description-color: #5ABCE5;
+  --dark-bar-bg-color: #202b35;
+  --dark-bar-border-color: #151b22;
+  --uber-list-item-description-color: #C9D4E1;
+  --uber-list-item-link-color: #C9D4E1;
+  --uber-border-color: #1a2b3d;
+  --dark-bar-focused-bg-color: #1b232c;
+  --command-line-bg-color: #343436;
+  --actionable-bg-image: linear-gradient(#2b9385, #007571);
+  --command-line-placeholder-color: initial;
+  --drag-drop-bg-color: #57728e;
+  --drag-drop-border-color: #43596e;
+  --drag-drop--focused-bg-color: #6381a0;
+  --dangerous: red;
+  --mainnav-header-color: currentColor;
+  --mainnav-subnav-header-color: currentColor; }
+  body[data-theme="sterc"] {
+    --dangerous: #D30067;
+    --mainnav-bg: #D30067;
+    --uber-bg-color: #E8E7E7;
+    --uber-nav-bg-color: transparent;
+    --uber-nav-bg-focused-color: #1D1D1D;
+    --uber-list-item-description-color: white;
+    --dark-bar-bg-color: #1D1D1D;
+    --uber-list-item-description-color: #333;
+    --uber-list-item-link-color: white;
+    --uber-border-color: #aca8a8;
+    --uber-nav-list-item-title-color: #333;
+    --mainnav-subnav-header-color: #D30067;
+    --dark-bar-focused-bg-color: #131313;
+    --dark-bar-border-color: #181818;
+    --command-line-bg-color: transparent;
+    --actionable-bg-color: #D30067;
+    --actionable-bg-image: none;
+    --command-line-placeholder-color: #ffd3e8;
+    --drag-drop-bg-color: #ffd3e8;
+    --drag-drop-border-color: #ffa0ce;
+    --drag-drop--focused-bg-color: rgba(255, 255, 255, 0.92);
+    --dark-bar-bg-image: url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png); }
+  body[data-theme="modmore"] {
+    --dangerous: #ff8f0d;
+    --mainnav-bg: #1F4A82;
+    --uber-bg-color: #1b4172;
+    --uber-nav-bg-color: #173761;
+    --uber-nav-bg-focused-color: #1F4A82;
+    --uber-list-item-description-color: #b3cced;
+    --dark-bar-bg-color: #ff8f0d;
+    --uber-list-item-description-color: white;
+    --uber-list-item-link-color: #b3cced;
+    --uber-border-color: #07121f;
+    --dark-bar-focused-bg-color: #e37a00;
+    --dark-bar-border-color: #181818;
+    --command-line-bg-color: transparent;
+    --actionable-bg-color: #1F4A82;
+    --actionable-bg-image: none;
+    --command-line-placeholder-color: #b3cced;
+    --drag-drop-bg-color: #b3cced;
+    --drag-drop-border-color: #8ab1e3;
+    --drag-drop--focused-bg-color: rgba(255, 255, 255, 0.92); }
+
+#mainnav .close-nav, #mainnav + footer {
+  background-image: var(--dark-bar-bg-image);
+  background-repeat: repeat;
+  /* background-size: cover; */
+  background-position: center center;
+  background-attachment: fixed; }
+
+input[required]:placeholder-shown {
+  outline: 2px solid var(--dangerous); }
+
+body {
   margin: 0;
-  background: #efefef;
+  background: var(--main-bg-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
 @media screen and (min-width: 641px) {
@@ -221,7 +297,7 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
     padding: 0 8px;
     padding: 0 0.5rem; }
   #mainnav__nav li form > div button {
-    background: #EFEFEA;
+    background: var(--main-bg-color);
     border: 1px solid #e2e2d9;
     color: #343436; }
   #mainnav__nav li form > div #new_pagetitle {
@@ -242,10 +318,21 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   font-family: monospace, sans-serif;
   font-size: 12.8px;
   font-size: .8rem;
-  background: #343436;
+  background: var(--command-line-bg-color);
   color: white;
   margin-top: 16px;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  border-color: var(--command-line-placeholder-color); }
+  .command-line textarea::-webkit-input-placeholder {
+    color: var(--command-line-placeholder-color); }
+  .command-line textarea:-moz-placeholder {
+    /* Firefox 18- */
+    color: var(--command-line-placeholder-color); }
+  .command-line textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    color: var(--command-line-placeholder-color); }
+  .command-line textarea:-ms-input-placeholder {
+    color: var(--command-line-placeholder-color); }
 
 #grail main > header > div, #grail main > form > header > div {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
@@ -367,7 +454,7 @@ html.treeless #grail main > form {
       margin-left: auto;
       position: sticky;
       position: -webkit-sticky;
-      background: #EFEFEA;
+      background: var(--main-bg-color);
       z-index: 99999; }
       html[complex-layout] .page-wrapper .actionnav nav > * {
         padding-left: 0.5rem;
@@ -392,7 +479,7 @@ html.treeless #grail main > form {
     display: block; } }
 
 #mainnav, #stickybar {
-  background-image: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%); }
+  background: var(--mainnav-bg); }
 
 body.searching .page-wrapper {
   max-height: none; }
@@ -410,9 +497,9 @@ html[complex-layout] body.searching .sidenav {
     html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav {
       -ms-flex-preferred-size: 100vw;
           flex-basis: 100vw;
-      background: #2c3a48; }
+      background: var(--uber-bg-color); }
       html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details {
-        border-right: 1px solid #1a2b3d;
+        border-right: 1px solid var(--uber-border-color);
         -ms-flex-positive: 1;
             flex-grow: 1; }
         html[complex-layout] body.searching .sidenav #mainnav #mainnav__nav > details:last-of-type {
@@ -470,8 +557,8 @@ form > .sticky-scroll {
   #mainnav + footer {
     transition: background 640ms ease; }
     #mainnav + footer:hover, #mainnav + footer:focus, #mainnav + footer:target, #mainnav + footer:active {
-      background: #1b232c;
-      border: 1px solid #151b22; }
+      background: var(--dark-bar-focused-bg-color);
+      border: 1px solid var(--dark-bar-border-color); }
     body.searching #mainnav + footer {
       display: block; }
     #mainnav + footer a {
@@ -631,7 +718,7 @@ html:not(.hide-unmatched-elements) #mainnav__nav li[hidden] {
       align-content: center;
   padding: 8px;
   padding: .5rem;
-  border-bottom: 1px solid #1a2b3d; }
+  border-bottom: 1px solid var(--uber-border-color); }
   @media screen and (min-height: 320px) {
     #stickybar {
       position: sticky;
@@ -769,13 +856,13 @@ fieldset > div > div {
   margin-top: 16px;
   margin-top: 1rem;
   padding-top: 50%;
-  background: #57728e;
+  background: var(--drag-drop-bg-color);
   position: relative;
   border-radius: .75em;
-  border: 1px solid #43596e;
+  border: 1px solid var(--drag-drop-border-color);
   transition: background 500ms ease; }
   .dragdrop:hover {
-    background: #6381a0; }
+    background: var(--drag-drop--focused-bg-color); }
   .dragdrop:after {
     position: absolute;
     top: 4px;
@@ -783,7 +870,7 @@ fieldset > div > div {
     bottom: 4px;
     left: 4px;
     z-index: 99999;
-    border: 2px dashed #43596e;
+    border: 2px dashed var(--drag-drop-border-color);
     content: " ";
     display: block;
     border-radius: .75em; }
@@ -822,6 +909,7 @@ fieldset > div > div {
     border: 1px solid grey;
     margin-bottom: 16px;
     margin-bottom: 1rem;
+    outline: none !important;
     /*&:not(.dirty) {
 
     }
@@ -1095,14 +1183,14 @@ details.context .flexible {
     text-decoration: none; }
   #mainnav__nav ul {
     padding-left: 0;
-    border-bottom: 1px solid #1a2b3d;
+    border-bottom: 1px solid var(--uber-border-color);
     margin: 0; }
   @media screen and (min-width: 641px) {
     #mainnav__nav summary {
       padding-left: 0;
       padding-right: 0; } }
   #mainnav__nav details {
-    border-bottom: 1px solid #1a2b3d; }
+    border-bottom: 1px solid var(--uber-border-color); }
     @media screen and (min-width: 641px) {
       #mainnav__nav details {
         border: none; } }
@@ -1111,7 +1199,7 @@ details.context .flexible {
       margin-bottom: 0;
       border: none; }
     #mainnav__nav details nav {
-      background: #2c3a48; }
+      background: var(--uber-nav-bg-color); }
     #mainnav__nav details p {
       margin-bottom: 0; }
     #mainnav__nav details li {
@@ -1124,16 +1212,18 @@ details.context .flexible {
       #mainnav__nav details li h1, #mainnav__nav details li h2, #mainnav__nav details li h3, #mainnav__nav details li h4, #mainnav__nav details li h5, #mainnav__nav details li h6 {
         margin-top: 0; }
       #mainnav__nav details li:hover, #mainnav__nav details li:target, #mainnav__nav details li:active {
-        background: #24303b;
+        background: var(--uber-nav-bg-focused-color);
         opacity: 1 !important; }
   #mainnav__nav li {
-    border-top: 1px solid #1a2b3d;
+    border-top: 1px solid var(--uber-border-color);
     padding: 0 1em;
-    color: #C9D4E1; }
+    color: var(--uber-nav-list-item-title-color); }
     #mainnav__nav li p, #mainnav__nav li label {
-      color: #5ABCE5; }
+      color: var(--uber-list-item-description-color); }
     #mainnav__nav li p a {
-      color: #5ABCE5; }
+      color: var(--uber-list-item-link-color); }
+  #mainnav__nav > details > summary {
+    padding-left: 1em; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #mainnav__nav > details > summary {
       line-height: 3; } }
@@ -1152,7 +1242,10 @@ details.context .flexible {
 h1, h2 {
   color: #343436; }
   #mainnav h1, #mainnav h2 {
-    color: currentColor; }
+    color: var(--mainnav-header-color); }
+
+body.searching #mainnav__nav > details > summary {
+  color: var(--mainnav-subnav-header-color); }
 
 .document, .resource-groups, .settings, .content, .light {
   background: white;
@@ -1280,8 +1373,8 @@ label[for="hidemenu"], label[for="published"] {
         margin-right: 0;
         margin-bottom: 6.4px;
         margin-bottom: .4rem;
-        background-color: #2b9385;
-        background-image: linear-gradient(#2b9385, #007571);
+        background-color: var(--actionable-bg-color);
+        background-image: var(--actionable-bg-image);
         color: white; }
       .actionnav nav > *:last-child {
         margin-right: 0; }
