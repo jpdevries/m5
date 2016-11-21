@@ -141,7 +141,8 @@ module.exports = function(grunt) {
           sourcemap: false
 				},
 				files: {
-					'<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.css': '<%= dirs.scss %>main.scss'
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.css': '<%= dirs.scss %>main.scss',
+          '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>print.css': '<%= dirs.scss %>print.scss'
 				}
 			}
     },
@@ -172,7 +173,8 @@ module.exports = function(grunt) {
           report:'gzip'
         },
         files: {
-            '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.min.css': '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.css'
+            '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.min.css': '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.css',
+            '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>print.min.css': '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>print.css'
         }
       },
     },

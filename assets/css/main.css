@@ -26,6 +26,11 @@ http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3/
 #tree, .actionnav nav button, .actionnav nav a {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); }
 
+body[data-theme="sterc"], #mainnav .close-nav, #mainnav + footer, #grail main > header > div > details > summary, #grail main > form > header > div > details > summary, #grail main > section > div > details > summary, #grail main > form > section > div > details > summary {
+  background-repeat: var(--background-fixed-repeat);
+  background-position: var(--background-fixed-position);
+  background-attachment: var(--background-fixed-attachment); }
+
 .dashboard.wrapper {
   display: -ms-grid;
   display: grid;
@@ -71,7 +76,7 @@ http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3/
   box-sizing: border-box; }
 
 #mainnav .close-nav, #mainnav + footer {
-  background: var(--dark-bar-bg-color);
+  background-color: var(--dark-bar-bg-color);
   color: white;
   border: 1px solid #1b232c;
   border-left: none;
@@ -118,12 +123,16 @@ select, input[type="file"] {
 textarea, input[type="text"] {
   box-sizing: border-box; }
 
+/*
+background-color:var(--main-summary-header-bg-color);
+background-image: var(--main-summary-header-bg-image);
+*/
 body {
   --main-bg-color: #efefef;
   --mainnav-bg: linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
   --uber-bg-color: #2c3a48;
   --uber-nav-bg-color: #2c3a48;
-  --uber-nav-bg-focused-color: #24303b;
+  --uber-nav-bg-focused: #24303b;
   --uber-list-item-description-color: #5ABCE5;
   --dark-bar-bg-color: #202b35;
   --dark-bar-border-color: #151b22;
@@ -139,37 +148,90 @@ body {
   --drag-drop--focused-bg-color: #6381a0;
   --dangerous: red;
   --mainnav-header-color: currentColor;
-  --mainnav-subnav-header-color: currentColor; }
+  --mainnav-subnav-header-color: currentColor;
+  --form-details-border-bottom: 1px solid #f0f0f0;
+  --dark-bar-bg-color: #202b35;
+  --main-summary-header-bg-color: transparent;
+  --main-summary-header-color: currentColor;
+  --main-nav-li-transition: all 240ms ease;
+  --main-section-summary-color: currentColor;
+  --background-fixed-repeat: repeat;
+  --background-fixed-position: center center;
+  --background-fixed-attachment: fixed;
+  --form-details-margin-bottom: 0;
+  --command-line-color: white;
+  /*&[data-theme="modmore"] {
+    $modmore:#1F4A82;
+    $modmoreOrange:#ff8f0d;
+
+    --dangerous:$modmoreOrange;
+
+    --mainnav-bg:$modmore;
+    --uber-bg-color:darken($modmore,4%);
+    --uber-nav-bg-color:darken($modmore,8%);
+    --uber-nav-bg-focused:$modmore;
+    --dark-bar-bg-color:$modmoreOrange;
+    --uber-list-item-description-color:white;
+    --uber-list-item-link-color:lighten($modmore,50%);
+    --uber-border-color:darken($modmore,24%);
+  }*/ }
   body[data-theme="sterc"] {
     --dangerous: #D30067;
     --mainnav-bg: #D30067;
     --uber-bg-color: #E8E7E7;
-    --uber-nav-bg-color: transparent;
-    --uber-nav-bg-focused-color: #1D1D1D;
-    --uber-list-item-description-color: white;
+    --uber-nav-bg-color: #EFEFEA;
+    --uber-nav-bg-focused: #181818 url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png) repeat center center;
     --dark-bar-bg-color: #1D1D1D;
     --uber-list-item-description-color: #333;
-    --uber-list-item-link-color: white;
+    --uber-list-item-link-color: currentColor;
     --uber-border-color: #aca8a8;
     --uber-nav-list-item-title-color: #333;
+    --uber-list-item-description-color: #4d4d4d;
+    --uber-list-item-description-hover-color: #fafafa;
+    --uber-list-item-description-hover-color: #fafafa;
     --mainnav-subnav-header-color: #D30067;
     --dark-bar-focused-bg-color: #131313;
     --dark-bar-border-color: #181818;
-    --command-line-bg-color: transparent;
+    --command-line-bg-color: white;
     --actionable-bg-color: #D30067;
     --actionable-bg-image: none;
-    --command-line-placeholder-color: #ffd3e8;
-    --drag-drop-bg-color: #ffd3e8;
-    --drag-drop-border-color: #ffa0ce;
-    --drag-drop--focused-bg-color: rgba(255, 255, 255, 0.92);
-    --dark-bar-bg-image: url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png); }
+    --command-line-placeholder-color: currentColor;
+    --drag-drop-bg-color: #f7f7f7;
+    --drag-drop-border-color: #d4d2d2;
+    --drag-drop--focused-bg-color: white;
+    --dark-bar-bg-image: url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png);
+    --main-summary-header-bg-image: url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png);
+    --dark-bar-bg-color: #181818;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --main-summary-header-bg-color: #181818;
+    --main-nav-li-transition: none;
+    --main-section-summary-color: #fafafa;
+    --form-details-margin-bottom: -1px;
+    --command-line-color: white;
+    --stickybar-link-bg: transparent url(../img/modx-white.svg) no-repeat left center; }
+    body[data-theme="sterc"] #stickybar a[href="#uber"] {
+      background-image: url(../img/modx-white.svg); }
+    body[data-theme="sterc"] #mainnav .version {
+      background-image: url(../img/modx-white.svg); }
+    body[data-theme="sterc"]:not(.searching) #mainnav__nav > details {
+      border-bottom: none;
+      margin-bottom: -1px; }
+    @media screen and (max-width: 640px) {
+      body[data-theme="sterc"] #mainnav__nav > details > summary {
+        background-repeat: var(--background-fixed-repeat);
+        background-position: var(--background-fixed-position);
+        background-attachment: var(--background-fixed-attachment);
+        background-color: var(--dark-bar-bg-color);
+        background-image: var(--dark-bar-bg-image); } }
+    html[complex-layout] body[data-theme="sterc"].searching #mainnav__nav > details > summary {
+      background: white; }
   body[data-theme="modmore"] {
     --dangerous: #ff8f0d;
     --mainnav-bg: #1F4A82;
     --uber-bg-color: #1b4172;
     --uber-nav-bg-color: #173761;
-    --uber-nav-bg-focused-color: #1F4A82;
-    --uber-list-item-description-color: #b3cced;
+    --uber-nav-bg-focused: #1F4A82;
     --dark-bar-bg-color: #ff8f0d;
     --uber-list-item-description-color: white;
     --uber-list-item-link-color: #b3cced;
@@ -183,21 +245,102 @@ body {
     --drag-drop-bg-color: #b3cced;
     --drag-drop-border-color: #8ab1e3;
     --drag-drop--focused-bg-color: rgba(255, 255, 255, 0.92); }
+  body[data-theme="gelstudios"] {
+    --dangerous: red;
+    --mainnav-bg: #27ae60;
+    --uber-bg-color: #27ae60;
+    --uber-nav-bg-color: #27ae60;
+    --uber-nav-bg-focused: #27ae60;
+    --dark-bar-bg-color: #1D1D1D;
+    --uber-list-item-title-color: white;
+    --uber-list-item-description-color: white;
+    --uber-list-item-link-color: #ddf7e8;
+    --uber-border-color: #239d57;
+    --dark-bar-focused-bg-color: #1D1D1D;
+    --dark-bar-border-color: #090909;
+    --command-line-bg-color: transparent;
+    --actionable-bg-color: #27ae60;
+    --actionable-bg-image: none;
+    --command-line-placeholder-color: #ddf7e8;
+    --drag-drop-bg-color: #ddf7e8;
+    --drag-drop-border-color: #b3eecc;
+    --drag-drop--focused-bg-color: rgba(255, 255, 255, 0.92); }
+  body[data-theme="northern-lights"] {
+    --dark-bar-bg-image: url(http://j4p.us/0G100H3i1B3x/norther_lights.jpg);
+    --main-summary-header-bg-image: url(http://j4p.us/0G100H3i1B3x/norther_lights.jpg);
+    --main-section-summary-color: white;
+    --main-summary-header-bg-color: #545F4B;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --background-fixed-repeat: repeat;
+    --background-fixed-position: center center;
+    --background-fixed-attachment: fixed; }
+  body[data-theme="nasa"] {
+    --dark-bar-bg-image: url(http://j4p.us/1z3E0U1f3J1P/nasa.jpg);
+    --main-summary-header-bg-image: url(http://j4p.us/1z3E0U1f3J1P/nasa.jpg);
+    --main-section-summary-color: white;
+    --main-summary-header-bg-color: #2c1506;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --background-fixed-repeat: repeat;
+    --background-fixed-position: left top;
+    --background-fixed-attachment: fixed; }
+  body[data-theme="starwalk"] {
+    --dark-bar-bg-image: url(https://images.unsplash.com/photo-1468103933896-2c34a78104c2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=584521db353d5e87e0b44095f22b008b);
+    --main-summary-header-bg-image: url(https://images.unsplash.com/photo-1468103933896-2c34a78104c2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=584521db353d5e87e0b44095f22b008b);
+    --main-section-summary-color: white;
+    --main-summary-header-bg-color: #2c1506;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --background-fixed-repeat: repeat;
+    --background-fixed-position: center center;
+    --background-fixed-attachment: fixed; }
+  body[data-theme="foggytrees"] {
+    --dark-bar-bg-image: url(https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=a74179dacb933391653d3f1323449f8c);
+    --main-summary-header-bg-image: url(https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=a74179dacb933391653d3f1323449f8c);
+    --main-section-summary-color: white;
+    --main-summary-header-bg-color: #2c1506;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --background-fixed-repeat: repeat;
+    --background-fixed-position: center center;
+    --background-fixed-attachment: fixed; }
+  body[data-theme="yosemite"] {
+    --dark-bar-bg-image: url(https://images.unsplash.com/photo-1465588042420-47a53c2d0320?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=f749ec7b26a6c1f61cb84a35f90614da);
+    --main-summary-header-bg-image: url(https://images.unsplash.com/photo-1465588042420-47a53c2d0320?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=f749ec7b26a6c1f61cb84a35f90614da);
+    --main-section-summary-color: white;
+    --main-summary-header-bg-color: #2c1506;
+    --form-details-border-bottom: none;
+    --main-summary-header-color: white;
+    --background-fixed-repeat: repeat;
+    --background-fixed-position: center center;
+    --background-fixed-attachment: fixed; }
+
+body.inverted {
+  filter: invert(100%); }
+
+summary::-webkit-details-marker {
+  color: currentColor; }
 
 #mainnav .close-nav, #mainnav + footer {
-  background-image: var(--dark-bar-bg-image);
-  background-repeat: repeat;
-  /* background-size: cover; */
-  background-position: center center;
-  background-attachment: fixed; }
+  background-color: var(--dark-bar-bg-color);
+  background-image: var(--dark-bar-bg-image); }
 
-input[required]:placeholder-shown {
+a[href="/account/i18n"] {
+  float: right; }
+
+input[required].annoying:placeholder-shown {
   outline: 2px solid var(--dangerous); }
 
 body {
   margin: 0;
   background: var(--main-bg-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  body > * {
+    background: var(--main-bg-color); }
+
+#grail main > header > div > details > summary h1, #grail main > header > div > details > summary h2, #grail main > header > div > details > summary h3, #grail main > form > header > div > details > summary h1, #grail main > form > header > div > details > summary h2, #grail main > form > header > div > details > summary h3, #grail main > section > div > details > summary h1, #grail main > section > div > details > summary h2, #grail main > section > div > details > summary h3, #grail main > form > section > div > details > summary h1, #grail main > form > section > div > details > summary h2, #grail main > form > section > div > details > summary h3 {
+  color: var(--main-section-summary-color); }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] body #forest {
@@ -270,6 +413,16 @@ button[disabled] {
           -ms-scroll-snap-coordinate: 0 -52px;
               scroll-snap-coordinate: 0 -52px; } }
 
+#stickybar a[href="#uber"] {
+  display: inline-block;
+  min-width: 2em;
+  background: transparent url(../img/modx-color.svg) no-repeat left center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  left: 0.25rem; }
+
 label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   margin-top: 8px;
   margin-top: .5rem;
@@ -318,8 +471,6 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   font-family: monospace, sans-serif;
   font-size: 12.8px;
   font-size: .8rem;
-  background: var(--command-line-bg-color);
-  color: white;
   margin-top: 16px;
   margin-top: 1rem;
   border-color: var(--command-line-placeholder-color); }
@@ -334,22 +485,23 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   .command-line textarea:-ms-input-placeholder {
     color: var(--command-line-placeholder-color); }
 
-#grail main > header > div, #grail main > form > header > div {
+#grail main > header > div, #grail main > form > header > div, #grail main > section > div, #grail main > form > section > div {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   background: white; }
+  #grail main > header > div > details > summary, #grail main > form > header > div > details > summary, #grail main > section > div > details > summary, #grail main > form > section > div > details > summary {
+    background-color: var(--main-summary-header-bg-color);
+    background-image: var(--main-summary-header-bg-image);
+    color: var(--main-summary-header-color); }
   @media screen and (min-width: 641px) {
-    #grail main > header > div, #grail main > form > header > div {
+    #grail main > header > div > details > *, #grail main > form > header > div > details > *, #grail main > section > div > details > *, #grail main > form > section > div > details > * {
       padding: .5rem; } }
 
-html.treeless #grail main > form {
-  padding-left: 14px; }
-
-#grail > .preview {
+#grail .preview {
   position: relative;
   display: none; }
-  body[data-previewing="true"] #grail > .preview {
+  body[data-previewing="true"] #grail .preview {
     display: block; }
-  #grail > .preview > div, #grail > .preview > div > iframe {
+  #grail .preview > div, #grail .preview > div > iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -357,15 +509,19 @@ html.treeless #grail main > form {
     bottom: 0;
     overflow: auto;
     border: none; }
-  #grail > .preview > div > iframe {
+  #grail .preview > div > iframe {
     width: 100%;
     height: 100%; }
   @media screen and (max-width: 640px) {
-    #grail > .preview {
+    #grail .preview {
       min-height: 100vh; }
-      #grail > .preview > div {
+      #grail .preview > div {
         left: 0.5rem;
         right: 0.5rem; } }
+
+@media screen and (min-width: 641px) {
+  html[complex-layout] body.searching #grail main > form {
+    padding-right: 0; } }
 
 @media screen and (min-width: 641px) {
   html[complex-layout] #grail {
@@ -377,9 +533,7 @@ html.treeless #grail main > form {
     -ms-flex-preferred-size: 0;
         flex-basis: 0;
     flex-grow: 1; }
-    html[complex-layout] #grail main > form {
-      padding-right: 14px; }
-    html[complex-layout] #grail > .preview {
+    html[complex-layout] #grail .preview {
       -ms-flex-preferred-size: 320px;
           flex-basis: 320px;
       max-width: 320px;
@@ -388,6 +542,11 @@ html.treeless #grail main > form {
     html[complex-layout] #grail main, html[complex-layout] #grail aside {
       -ms-flex-positive: 2;
           flex-grow: 2; } }
+
+#mainnav .version {
+  padding-left: 2em;
+  background: transparent url(../img/modx-color.svg) no-repeat left center;
+  background-size: contain; }
 
 @media screen and (min-width: 641px) and (max-width: 1280px) {
   #mainnav h1 .search, #mainnav .version > span {
@@ -476,7 +635,9 @@ html.treeless #grail main > form {
 
 @media screen and (min-width: 641px) {
   html[complex-layout] body.searching .page-wrapper {
-    display: block; } }
+    display: block; }
+    html[complex-layout] body.searching .page-wrapper main {
+      overflow-y: hidden; } }
 
 #mainnav, #stickybar {
   background: var(--mainnav-bg); }
@@ -557,7 +718,7 @@ form > .sticky-scroll {
   #mainnav + footer {
     transition: background 640ms ease; }
     #mainnav + footer:hover, #mainnav + footer:focus, #mainnav + footer:target, #mainnav + footer:active {
-      background: var(--dark-bar-focused-bg-color);
+      background-color: var(--dark-bar-focused-bg-color);
       border: 1px solid var(--dark-bar-border-color); }
     body.searching #mainnav + footer {
       display: block; }
@@ -585,6 +746,9 @@ form > .sticky-scroll {
       line-height: 3.5rem !important;
       font-size: 160% !important;
       text-align: center; } }
+  @media screen and (max-width: 640px) {
+    html[complex-layout] body:not(.searching) #mainnav #uberform {
+      padding-bottom: .5rem; } }
   @media screen and (min-width: 641px) {
     html[complex-layout] body:not(.searching) #mainnav #uberform {
       -ms-flex-preferred-size: 4em;
@@ -812,6 +976,9 @@ button.emoji {
     text-align: right; }
   button.emoji.add-reaction {
     margin-left: auto; }
+    @media screen and (min-width: 641px) {
+      button.emoji.add-reaction {
+        margin-left: 0.25rem; } }
   button.emoji span {
     font-style: monospace;
     padding-left: 0.5em; }
@@ -896,6 +1063,8 @@ fieldset > div > div {
     #uberform {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%; } }
+  #uberform label[for="uber"], #uberform label[for="uber"] a {
+    cursor: text; }
   #uberform #uber {
     min-width: 96px;
     min-width: 6rem;
@@ -1094,7 +1263,8 @@ main > section, main > form > section {
   color: #343436; }
 
 main form > * > details, main form > * > * > details {
-  border-bottom: 1px solid #f0f0f0; }
+  border-bottom: var(--form-details-border-bottom);
+  margin-bottom: var(--form-details-margin-bottom); }
 
 main > header > div > details:last-of-type, main > form > header > div > details:last-of-type {
   margin-bottom: 0; }
@@ -1208,12 +1378,15 @@ details.context .flexible {
       padding-bottom: 16px;
       padding-bottom: 1rem;
       margin-bottom: 0;
-      transition: all 240ms ease; }
+      transition: var(--main-nav-li-transition); }
       #mainnav__nav details li h1, #mainnav__nav details li h2, #mainnav__nav details li h3, #mainnav__nav details li h4, #mainnav__nav details li h5, #mainnav__nav details li h6 {
         margin-top: 0; }
       #mainnav__nav details li:hover, #mainnav__nav details li:target, #mainnav__nav details li:active {
-        background: var(--uber-nav-bg-focused-color);
+        color: var(--uber-list-item-title-hover-color);
+        background: var(--uber-nav-bg-focused);
         opacity: 1 !important; }
+        #mainnav__nav details li:hover p, #mainnav__nav details li:hover label, #mainnav__nav details li:target p, #mainnav__nav details li:target label, #mainnav__nav details li:active p, #mainnav__nav details li:active label {
+          color: var(--uber-list-item-description-hover-color); }
   #mainnav__nav li {
     border-top: 1px solid var(--uber-border-color);
     padding: 0 1em;
@@ -1251,8 +1424,8 @@ body.searching #mainnav__nav > details > summary {
   background: white;
   color: #343436; }
   .document > div, .resource-groups > div, .settings > div, .content > div, .light > div {
-    padding: 0 8px;
-    padding: 0 .5rem; }
+    padding: 8px;
+    padding: .5rem; }
   .document details, .resource-groups details, .settings details, .content details, .light details {
     padding-left: 16px;
     padding-left: 1rem; }
@@ -1302,7 +1475,7 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
   width: 100%; }
 
 #tree {
-  background: white;
+  background: #fdfdfd;
   color: #566d87; }
   @media screen and (min-width: 641px) {
     html[complex-layout] #tree {

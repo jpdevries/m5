@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="linear-gradient" x1="450.92" y1="558.75" x2="276.39" y2="445.06" gradientTransform="translate(0 -412)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#80c2e5"/>
+      <stop offset="1" stop-color="#3480c1"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="481.56" y1="821.17" x2="351.12" y2="735.01" gradientTransform="translate(0 -412)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f28548"/>
+      <stop offset="0.18" stop-color="#f08046"/>
+      <stop offset="0.41" stop-color="#ee7242"/>
+      <stop offset="0.65" stop-color="#e95a3a"/>
+      <stop offset="0.91" stop-color="#e33a2e"/>
+      <stop offset="1" stop-color="#e02b29"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="51.64" y1="637.12" x2="301.25" y2="481.15" gradientTransform="translate(0 -412)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#43aa49"/>
+      <stop offset="1" stop-color="#acd155"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="106.12" y1="916.29" x2="309.02" y2="591.6" xlink:href="#linear-gradient-3"/>
+  </defs>
+  <title>modx-color</title>
+  <g>
+    <polyline points="490.87 59.37 255.47 59.37 222.92 111.64 392.95 215.91 490.87 59.37" fill="url(#linear-gradient)"/>
+    <polygon points="222.92 111.64 239.59 84.78 392.95 215.91 222.92 111.64" opacity="0.15" style="isolation: isolate"/>
+    <polygon points="444.69 499.74 444.69 264.34 394.01 232.71 287.23 401.29 444.69 499.74" fill="url(#linear-gradient-2)"/>
+    <polygon points="287.23 401.29 313.56 417.83 394.01 232.71 287.23 401.29" opacity="0.15" style="isolation: isolate"/>
+    <polygon points="65.72 12.26 65.72 247.66 120.11 279.42 392.95 215.91 65.72 12.26" fill="url(#linear-gradient-3)"/>
+    <polygon points="119.05 297.29 21.13 451.18 256.53 451.18 394.01 232.71 119.05 297.29" fill="url(#linear-gradient-4)"/>
+  </g>
+</svg>

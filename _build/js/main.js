@@ -96,7 +96,7 @@ for(let i = 0; i < radios.length; i++) {
 })();
 
 document.getElementById('jumplink').outerHTML = `
-<label for="jumpto" visually-hidden>Jump to a section of hte page</label>
+<label for="jumpto" visually-hidden>Jump to a section of the page</label>
 <select name="jumpto" id="jumpto">
   <option value="" aria-label="Choose a section to scroll to">Scroll to&hellip;</option>
   <optgroup label="Content">

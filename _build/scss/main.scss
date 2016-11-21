@@ -18,7 +18,7 @@ $white:white;
 
 %close-nav {
   @extend %clickable;
-  background:var(--dark-bar-bg-color);
+  background-color:var(--dark-bar-bg-color);
   color:$white;
   border:1px solid darken(#2c3a48, 9%);
   border-left:none;
@@ -88,12 +88,17 @@ textarea, input[type="text"] {
   box-sizing:border-box;
 }
 
+/*
+background-color:var(--main-summary-header-bg-color);
+background-image: var(--main-summary-header-bg-image);
+*/
+
 body {
   --main-bg-color:rgb(239,239,239);
   --mainnav-bg:linear-gradient(to right, #3f4850 0%, #365462 46%, #3e5554 60%, #42554d 68%, #573d4e 100%);
   --uber-bg-color:#2c3a48;
   --uber-nav-bg-color:#2c3a48;
-  --uber-nav-bg-focused-color:#24303b;
+  --uber-nav-bg-focused:#24303b;
 
   --uber-list-item-description-color:#5ABCE5;
   --dark-bar-bg-color:darken(#2c3a48, 6%);
@@ -118,6 +123,22 @@ body {
   --mainnav-header-color:currentColor;
   --mainnav-subnav-header-color:currentColor;
 
+  --form-details-border-bottom:1px solid rgb(240,240,240);
+
+  --dark-bar-bg-color:darken(#2c3a48,6%);
+  --main-summary-header-bg-color:transparent;
+  --main-summary-header-color:currentColor;
+
+  --main-nav-li-transition:all 240ms ease;
+
+  --main-section-summary-color:currentColor;
+
+  --background-fixed-repeat:repeat;
+  --background-fixed-position:center center;
+  --background-fixed-attachment:fixed;
+
+  --form-details-margin-bottom:0;
+  --command-line-color:$white;
 
   &[data-theme="sterc"] {
     $sterc:#D30067;
@@ -128,35 +149,119 @@ body {
     --mainnav-bg:$sterc;
     //--mainnav-bg:#1D1D1D;
     --uber-bg-color:$uberBgColor;
-    --uber-nav-bg-color:transparent;
-    --uber-nav-bg-focused-color:#1D1D1D;
-    --uber-list-item-description-color:lighten($uberBgColor,50%);
+    --uber-nav-bg-color:$bodyBG;
+    --uber-nav-bg-focused:#181818 url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png) repeat center center;
+    //--uber-list-item-description-color:lighten($uberBgColor,70%);
     --dark-bar-bg-color:#1D1D1D;
     --uber-list-item-description-color:#333;
-    --uber-list-item-link-color:lighten($uberBgColor,50%);
+    --uber-list-item-link-color:currentColor;
     --uber-border-color:darken($uberBgColor,24%);
 
     --uber-nav-list-item-title-color:#333;
+    --uber-list-item-description-color:lighten(#333, 10%);
+
+    --uber-list-item-description-hover-color:rgb(250,250,250);
+    --uber-list-item-description-hover-color:rgb(250,250,250);
 
     --mainnav-subnav-header-color:$sterc;
 
     --dark-bar-focused-bg-color:darken(#1D1D1D, 4%);
     --dark-bar-border-color:#181818;
 
-    --command-line-bg-color:transparent;
+    --command-line-bg-color:white;
 
     --actionable-bg-color:$sterc;
     --actionable-bg-image:none;
 
-    --command-line-placeholder-color:lighten($sterc,50%);
+    --command-line-placeholder-color:currentColor;
 
-    --drag-drop-bg-color:lighten($sterc, 50%);
-    --drag-drop-border-color:lighten($sterc, 40%);
+    --drag-drop-bg-color:lighten(#E8E7E7,6%);
+    --drag-drop-border-color:darken(#E8E7E7, 8%);
 
-    --drag-drop--focused-bg-color:rgba(255,255,255,0.92);
+    --drag-drop--focused-bg-color:rgba(255,255,255,1);
 
     --dark-bar-bg-image:url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png);
+    --main-summary-header-bg-image:url(http://j4p.us/0K0a2k1D1q2s/sterc_dark.png);
+    --dark-bar-bg-color:#181818;
+
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --main-summary-header-bg-color:#181818;
+
+    --main-nav-li-transition:none;
+
+    @extend %background-fixed;
+
+    --main-section-summary-color:rgb(250,250,250);
+
+    --form-details-margin-bottom:-1px;
+
+    --command-line-color:lighten($uberBgColor,50%);
+
+    --stickybar-link-bg:transparent url(../img/modx-white.svg) no-repeat left center;
+
+
+    #stickybar {
+      a[href="#uber"] {
+        background-image:url(../img/modx-white.svg);
+      }
+    }
+
+    #mainnav {
+      .version {
+        background-image: url(../img/modx-white.svg);
+      }
+    }
+
+    &:not(.searching) {
+      #mainnav__nav {
+        > details {
+          border-bottom:none;
+          margin-bottom:-1px;
+        }
+      }
+    }
+
+    #mainnav__nav {
+      > details {
+        //border-bottom-color:var(--dark-bar-bg-color);
+
+      }
+      > details > summary {
+        @include media($mobile) {
+          @include background-fixed;
+          background-color:var(--dark-bar-bg-color);
+          background-image:var(--dark-bar-bg-image);
+        }
+      }
+    }
+
+    &.searching {
+      html[complex-layout] & {
+        #mainnav__nav > details > summary {
+          background:white;
+        }
+      }
+    }
+
   }
+
+  /*&[data-theme="modmore"] {
+    $modmore:#1F4A82;
+    $modmoreOrange:#ff8f0d;
+
+    --dangerous:$modmoreOrange;
+
+    --mainnav-bg:$modmore;
+    --uber-bg-color:darken($modmore,4%);
+    --uber-nav-bg-color:darken($modmore,8%);
+    --uber-nav-bg-focused:$modmore;
+    --dark-bar-bg-color:$modmoreOrange;
+    --uber-list-item-description-color:white;
+    --uber-list-item-link-color:lighten($modmore,50%);
+    --uber-border-color:darken($modmore,24%);
+  }*/
 
   &[data-theme="modmore"] {
     $modmore:#1F4A82;
@@ -165,11 +270,9 @@ body {
     --dangerous:$modmoreOrange;
 
     --mainnav-bg:$modmore;
-    //--mainnav-bg:#1D1D1D;
     --uber-bg-color:darken($modmore,4%);
     --uber-nav-bg-color:darken($modmore,8%);
-    --uber-nav-bg-focused-color:$modmore;
-    --uber-list-item-description-color:lighten($modmore,50%);
+    --uber-nav-bg-focused:$modmore;
     --dark-bar-bg-color:$modmoreOrange;
     --uber-list-item-description-color:white;
     --uber-list-item-link-color:lighten($modmore,50%);
@@ -193,17 +296,128 @@ body {
 
 
   }
+
+  &[data-theme="gelstudios"] {
+    $gel:#27ae60;
+
+    --dangerous:red;
+
+    --mainnav-bg:$gel;
+    //--mainnav-bg:#1D1D1D;
+    --uber-bg-color:$gel;
+    --uber-nav-bg-color:$gel;
+    --uber-nav-bg-focused:$gel;
+
+    --dark-bar-bg-color:#1D1D1D;
+    --uber-list-item-title-color:white;
+    --uber-list-item-description-color:white;
+    --uber-list-item-link-color:lighten($gel,50%);
+    --uber-border-color:darken($gel,4%);
+
+    --dark-bar-focused-bg-color:#1D1D1D;
+    --dark-bar-border-color:darken(#1D1D1D,8%);
+
+    --command-line-bg-color:transparent;
+
+    --actionable-bg-color:$gel;
+    --actionable-bg-image:none;
+
+    --command-line-placeholder-color:lighten($gel,50%);
+
+    --drag-drop-bg-color:lighten($gel, 50%);
+    --drag-drop-border-color:lighten($gel, 40%);
+
+    --drag-drop--focused-bg-color:rgba(255,255,255,0.92);
+  }
+
+  &[data-theme="northern-lights"] {
+    --dark-bar-bg-image:url(http://j4p.us/0G100H3i1B3x/norther_lights.jpg);
+    --main-summary-header-bg-image:url(http://j4p.us/0G100H3i1B3x/norther_lights.jpg);
+    --main-section-summary-color:white;
+    --main-summary-header-bg-color:#545F4B;
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --background-fixed-repeat:repeat;
+    --background-fixed-position:center center;
+    --background-fixed-attachment:fixed;
+  }
+
+
+  &[data-theme="nasa"] { // http://photojournal.jpl.nasa.gov/catalog/PIA21029
+    --dark-bar-bg-image:url(http://j4p.us/1z3E0U1f3J1P/nasa.jpg);
+    --main-summary-header-bg-image:url(http://j4p.us/1z3E0U1f3J1P/nasa.jpg);
+    --main-section-summary-color:white;
+    --main-summary-header-bg-color:#2c1506;
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --background-fixed-repeat:repeat;
+    --background-fixed-position:left top;
+    --background-fixed-attachment:fixed;
+  }
+
+  &[data-theme="starwalk"] { // http://photojournal.jpl.nasa.gov/catalog/PIA21029
+    --dark-bar-bg-image:url(https://images.unsplash.com/photo-1468103933896-2c34a78104c2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=584521db353d5e87e0b44095f22b008b);
+    --main-summary-header-bg-image:url(https://images.unsplash.com/photo-1468103933896-2c34a78104c2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=584521db353d5e87e0b44095f22b008b);
+    --main-section-summary-color:white;
+    --main-summary-header-bg-color:#2c1506;
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --background-fixed-repeat:repeat;
+    --background-fixed-position:center center;
+    --background-fixed-attachment:fixed;
+  }
+
+  &[data-theme="foggytrees"] { // http://photojournal.jpl.nasa.gov/catalog/PIA21029
+    --dark-bar-bg-image:url(https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=a74179dacb933391653d3f1323449f8c);
+    --main-summary-header-bg-image:url(https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=a74179dacb933391653d3f1323449f8c);
+    --main-section-summary-color:white;
+    --main-summary-header-bg-color:#2c1506;
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --background-fixed-repeat:repeat;
+    --background-fixed-position:center center;
+    --background-fixed-attachment:fixed;
+  }
+
+  &[data-theme="yosemite"] { // http://photojournal.jpl.nasa.gov/catalog/PIA21029
+    --dark-bar-bg-image:url(https://images.unsplash.com/photo-1465588042420-47a53c2d0320?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=f749ec7b26a6c1f61cb84a35f90614da);
+    --main-summary-header-bg-image:url(https://images.unsplash.com/photo-1465588042420-47a53c2d0320?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=f749ec7b26a6c1f61cb84a35f90614da);
+    --main-section-summary-color:white;
+    --main-summary-header-bg-color:#2c1506;
+    --form-details-border-bottom:none;
+    --main-summary-header-color:white;
+
+    --background-fixed-repeat:repeat;
+    --background-fixed-position:center center;
+    --background-fixed-attachment:fixed;
+  }
+}
+
+body {
+  &.inverted {
+    filter: invert(100%);
+  }
+}
+
+summary::-webkit-details-marker {
+  color:currentColor;
 }
 
 #mainnav .close-nav, #mainnav + footer {
+  @extend %background-fixed;
+  background-color:var(--dark-bar-bg-color);
   background-image: var(--dark-bar-bg-image);
-  background-repeat: repeat;
-  /* background-size: cover; */
-  background-position: center center;
-  background-attachment: fixed;
 }
 
-input[required] {
+a[href="/account/i18n"] {
+  float:right;
+}
+
+input[required].annoying {
   &:placeholder-shown {
     outline:2px solid var(--dangerous);
   }
@@ -212,6 +426,9 @@ input[required] {
 body {
   margin:0;
   background: var(--main-bg-color);
+  > * {
+    background: var(--main-bg-color); // chrome doesn't invert body background with filter:invert(100%)
+  }
   font-family: -apple-system,
        BlinkMacSystemFont,
        "Segoe UI",
@@ -221,6 +438,20 @@ body {
        Cantarell,
        "Helvetica Neue",
        sans-serif;
+}
+
+#grail {
+  main {
+    > header, > form > header, > section, > form > section {
+      > div > details {
+        > summary {
+          h1,h2,h3 {
+            color:var(--main-section-summary-color);
+          }
+        }
+      }
+    }
+  }
 }
 
 body {
@@ -307,6 +538,23 @@ body.snappy { // experimental Webkit is suuuuuper buggy spec is a WIP
   }
 }
 
+#stickybar {
+  //position:relative;
+  a[href="#uber"] {
+    display:inline-block;
+    min-width:2em;
+    background:transparent url(../img/modx-color.svg) no-repeat left center;
+    //background-color:var(--stickybar-link-bg-color);
+    //background-image:var(--stickybar-link-bg-image);
+    //background-repeat:no-repeat;
+    //background-position:left center;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0.25rem;
+  }
+}
+
 label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   margin-top:.5rem;
   display:block;
@@ -358,8 +606,8 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   textarea {
     font-family:monospace, sans-serif;
     font-size:.8rem;
-    background:var(--command-line-bg-color);
-    color:$white;
+    //background:var(--command-line-bg-color);
+    //color:var(--command-line-color);
     margin-top:1rem;
     border-color:var(--command-line-placeholder-color);
 
@@ -382,15 +630,33 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   }
 }
 
+
+
 #grail {
   main {
-    > header, > form > header {
+    > header, > form > header, > section, > form > section {
       > div {
         @include shaded;
         //padding-top:1rem;
         background:white;
+
+        > details {
+          > summary {
+            @extend %background-fixed;
+            background-color:var(--main-summary-header-bg-color);
+            background-image: var(--main-summary-header-bg-image);
+            color:var(--main-summary-header-color);
+          }
+        }
+
         @include media($gtMobile) {
-          padding:.5rem;
+          //padding:.5rem;
+          > details > * {
+            padding:.5rem;
+          }
+          > details > summary {
+            //padding:0;
+          }
         }
       }
     }
@@ -398,11 +664,11 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   html.treeless & {
       main {
         > form {
-          padding-left:14px;
+          //padding-left:14px;
         }
       }
   }
-  > .preview {
+ .preview {
     position:relative;
     display:none;
     body[data-previewing="true"] & {
@@ -429,6 +695,15 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       }
     }
   }
+  html[complex-layout] body.searching & {
+    @include media($gtMobile) {
+      main {
+        > form {
+          padding-right:0;
+        }
+      }
+    }
+  }
   html[complex-layout] & {
     @include media($gtMobile) {
       display: flex;
@@ -438,12 +713,8 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
       max-height:100%;
       flex-basis:0;
       flex-grow:1;
-      main {
-        > form {
-          padding-right:14px;
-        }
-      }
-      > .preview {
+
+     .preview {
         flex-basis:320px;
         max-width:320px;
         flex-grow:0;
@@ -460,6 +731,11 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
 }
 
 #mainnav {
+  .version {
+    padding-left:2em;
+    background: transparent url(../img/modx-color.svg) no-repeat left center;
+    background-size:contain;
+  }
   @include media(min-width 641px max-width 1280px, 12) {
     h1 .search, .version > span {
       @include accessibly-hidden;
@@ -580,6 +856,10 @@ label[for="quick__new_settingvalue"], label[for="quick_sendmessage"] {
   html[complex-layout] body.searching & {
     @include media($gtMobile) {
       display:block;
+
+      main {
+        overflow-y:hidden;
+      }
     }
   }
 }
@@ -709,7 +989,7 @@ form > .sticky-scroll {
 
     &:hover, &:focus, &:target, &:active {
       //background:darken(#2c3a48, 9%);
-      background:var(--dark-bar-focused-bg-color);
+      background-color:var(--dark-bar-focused-bg-color);
       //border:1px solid darken(#2c3a48, 12%);
       border:1px solid var(--dark-bar-border-color);
     }
@@ -748,9 +1028,13 @@ form > .sticky-scroll {
     }
 
     #uberform {
+      @include media($mobile) {
+        padding-bottom:.5rem;
+      }
       @include media($gtMobile) {
         //flex-grow:4;
         //flex-basis:10em;
+
         flex-basis:4em;
 
       }
@@ -1039,6 +1323,9 @@ button {
     }
     &.add-reaction {
       margin-left:auto;
+      @include media($gtMobile) {
+        margin-left:0.25rem;
+      }
     }
     span {
       font-style:monospace;
@@ -1165,8 +1452,8 @@ fieldset {
   @include media($mobile) {
     flex-basis:100%;
   }
-  label[for="uber"] {
-
+  label[for="uber"], label[for="uber"] a {
+    cursor:text;
   }
 
   #uber {
@@ -1451,8 +1738,8 @@ main {
   }
   form > *, form > * > * {
     > details {
-      border-bottom:1px solid rgb(240,240,240);
-
+      border-bottom:var(--form-details-border-bottom);
+      margin-bottom:var(--form-details-margin-bottom);
     }
   }
   > header, > form > header {
@@ -1555,6 +1842,8 @@ details {
   }
 }
 
+
+
 #mainnav__nav {
   h1,h2,h3,h4,h5,h6 {
     margin-bottom:0;
@@ -1607,14 +1896,19 @@ details {
       padding-top:1rem;
       padding-bottom:1rem;
       margin-bottom:0;
-      transition:all 240ms ease;
+      transition:var(--main-nav-li-transition);
       h1,h2,h3,h4,h5,h6 {
         margin-top:0;
       }
       &:hover, &:target, &:active {
         //background:darken(#2c3a48,4%);
 
-        background: var(--uber-nav-bg-focused-color);
+        color:var(--uber-list-item-title-hover-color);
+        p, label {
+          color:var(--uber-list-item-description-hover-color);
+        }
+
+        background: var(--uber-nav-bg-focused);
         opacity:1 !important;
       }
     }
@@ -1685,7 +1979,7 @@ body.searching #mainnav__nav > details > summary {
   background:white;
   color:$dark;
   > div {
-    padding:0 .5rem;
+    padding:.5rem;
   }
   details {
     padding-left:1rem;
@@ -1759,7 +2053,7 @@ input[type="text"], input[type="url"], input[type="password"], textarea {
 
 #tree {
   @extend %shaded;
-  background:$white;
+  background:rgb(253,253,253);
   color:#566d87;
   //padding-top:1rem;
   //padding-bottom:1rem;
