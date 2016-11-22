@@ -7,3 +7,13 @@
 %shaded {
   @include shaded;
 }
+
+@mixin background-fixed() {
+  background-repeat: var(--background-fixed-repeat);
+  background-position: var(--background-fixed-position);
+  background-attachment: var(--background-fixed-attachment);
+}
+
+%background-fixed {
+  @include background-fixed;
+}

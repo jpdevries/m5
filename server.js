@@ -28,6 +28,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/dashboard', function(req, res) {
+  res.render('dashboard.twig', {
+    production: process.env.NODE_ENV == 'production'
+  });
+});
+
 app.use(express.static(__dirname));
 
 app.listen(process.env.PORT || 1190);

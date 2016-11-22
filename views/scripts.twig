@@ -1,3 +1,23 @@
+<div id="poly">
+
+</div>
+
+<script src="assets/js/vendor/modernizr.js"></script>
+
+<script>
+  if(!Modernizr.details) {
+    document.getElementById('poly').appendChild((function(){
+      let script = document.createElement('script');
+      script.onload = function() {
+        console.log('details polyfill loaded');
+      };
+      script.src = "assets/js/vendor/details-element-polyfill/details-element-polyfill.js";
+
+      return script;
+    })());
+  }
+</script>
+
 <script defer src="assets/components/mi5/js/m5.input.js"></script>
 <script defer src="assets/components/mi5/js/m5.autotag.js"></script>
 
@@ -5,7 +25,7 @@
 
 <script defer src="assets/js/app{% if production %}.min{% endif %}.js"></script>
 
-<script defer>
+<script>
   document.addEventListener('DOMContentLoaded', function() {
       const autoTag = new M5AutoTag(document.getElementById('autotag'));
   });

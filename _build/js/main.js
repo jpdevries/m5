@@ -22,11 +22,139 @@ for(let i = 0; i < radios.length; i++) {
   });
 }
 
-document.querySelector('.sidenav > footer a').addEventListener('click', function(event) {
-  event.preventDefault();
-  document.body.classList.remove('searching');
-  mainNavDetailsOpen(false);
+(function(){
+  const viewBtns = document.querySelectorAll('.actionnav .view');
+  for(let i = 0; i < viewBtns.length; i++) {
+    const viewBtn = viewBtns[i];
+    const iframe = document.getElementById('preview').querySelector('iframe');
+    viewBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      (document.body.dataset.previewing) = (document.body.dataset.previewing == 'true') ? 'false' : 'true';
+      if(!iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
+    });
+  }
+})();
+
+(function(){
+  const dataGrids = document.querySelectorAll('table.data-grid');
+  for(let i = 0; i < dataGrids.length; i++) {
+    const dataGrid = dataGrids[i];
+    const trs = dataGrid.querySelectorAll('tbody > tr');
+
+    for(let i = 0; i < trs.length; i++) {
+      trs[i].addEventListener('focus', function(event) {
+        console.log(event);
+        closeModals();
+        event.target.nextElementSibling.removeAttribute('hidden');
+      });
+    }
+    function closeModals() {
+      const modals = dataGrid.querySelectorAll('tbody > tr > td[colspan]');
+      console.log('modals',modals);
+      for(let i = 0; i < modals.length; i++) {
+        modals[i].parentNode.setAttribute('hidden', 'true');
+      }
+    }
+  }
+})();
+
+(function(){
+  function expandCollapseAllDetails(open = true) {
+    const details = document.querySelectorAll('details');
+    for(let i = 0; i < details.length; i++) (open) ? details[i].setAttribute('open','true') : details[i].removeAttribute('open');
+  }
+  document.addEventListener("keydown", function(event) {
+    console.log(event, event.key.toLowerCase())
+    switch(event.key.toLowerCase()) {
+      case 'arrowdown':
+      if(event.ctrlKey && event.altKey && event.shiftKey) {
+        document.body.classList.add('searching');
+        expandCollapseAllDetails(true);
+      }
+
+      break;
+
+      case 'arrowup':
+      if(event.ctrlKey && event.altKey && event.shiftKey) {
+        document.body.classList.remove('searching');
+        expandCollapseAllDetails(false);
+      }
+      break;
+
+      case 'escape':
+      document.body.classList.remove('searching');
+      mainNavDetailsOpen(false);
+      break;
+
+      case '|':
+      let html = document.querySelector('html');
+      if(event.ctrlKey) {
+        html.setAttribute('data-tree-open', html.getAttribute('data-tree-open') == 'true' ? 'false' : 'true');
+      }
+    }
+  });
+})();
+
+document.getElementById('jumplink').outerHTML = `
+<label for="jumpto" visually-hidden>Jump to a section of the page</label>
+<select name="jumpto" id="jumpto">
+  <option value="" aria-label="Choose a section to scroll to">Scroll to&hellip;</option>
+  <optgroup label="Content">
+    <option value="#content">Content</option>
+    <option value="#document">Document</option>
+    <option value="#resources">Resources</option>
+    <option value="#resource-groups">Resource Groups</option>
+    <option value="#settings">Settings</option>
+  </optgroup>
+  <optgroup label="Code">
+    <option value="#elements">Elements</option>
+    <option value="#template-variables">Template Variables</option>
+  </optgroup>
+  <optgroup label="Navigation">
+    <option value="#mainnav__nav" data-above-sticky-bar="true">Main Navigation</option>
+  </optgroup>
+</select>
+`;
+
+document.getElementById('jumpto').addEventListener('change', function(event) {
+  /*document.querySelector(event.target.value).scrollIntoView({ // works but sticky bar covers up what we scroll to :/
+    behavior: 'smooth'
+  });*/
+
+  console.log(event.target.value);
+
+  if(!event.target.value) return;
+
+  //https://davidwalsh.name/element-matches-selector
+
+  if(document.querySelector(event.target.value).matches('details')) {
+    document.querySelector(event.target.value).setAttribute('open', true);
+  }
+
+  let offset = 0;
+  if(event.target.querySelector(`option[value="${event.target.value}"]`).dataset.aboveStickyBar !== "true") {
+    offset = document.getElementById('stickybar').offsetHeight + 4;
+  }
+
+  console.log(document.querySelector(event.target.value).getBoundingClientRect());
+  window.scrollBy({
+    top: document.querySelector(event.target.value).getBoundingClientRect().top - offset,
+    //left: 0,
+    behavior: 'smooth'
+  });
 });
+
+(function(){
+  const closeNavs = document.querySelectorAll('.sidenav > footer a, .close-nav');
+  for(let i = 0; i < closeNavs.length; i++) {
+    closeNavs[i].addEventListener('click', function(event) {
+      event.preventDefault();
+      document.body.classList.remove('searching');
+      mainNavDetailsOpen(false);
+    });
+  }
+})();
+
 
 (function(){
   let stickyComponents = document.querySelectorAll('.sticky-scroll');
@@ -40,7 +168,7 @@ document.querySelector('.sidenav > footer a').addEventListener('click', function
 })();
 
 (function(){
-  let emojis = document.querySelectorAll('span[emoji]');
+  let emojis = document.querySelectorAll('span[emoji],span.emoji');
   for(let i = 0; i < emojis.length; i++) {
 
 
@@ -54,8 +182,8 @@ document.querySelector('.sidenav > footer a').addEventListener('click', function
     sprite = undefined;
 
     (function(){
-      console.log(emoji);
-      console.log(props);
+      //console.log(emoji);
+      //console.log(props);
 
       if(!props.icon) return;
 
@@ -84,7 +212,7 @@ document.getElementById('pagetitle').addEventListener('input', function(event) {
   document.querySelector('html > head > title').innerHTML = `Editing ${event.target.value}`;
 });
 
-document.getElementById('ubersearch').addEventListener('input', function(event) {
+document.getElementById('uber').addEventListener('input', function(event) {
   if(event.target.value) event.target.classList.add('dirty');
   if(hidePageComponents) {
     doFilterPageComponents(event.target.value);
@@ -99,13 +227,13 @@ function mainNavDetailsOpen(open = true) {
   }
 }
 
-document.getElementById('ubersearch').addEventListener('focus', function(event) {
+document.getElementById('uber').addEventListener('focus', function(event) {
   if(event.target.value) event.target.classList.add('dirty');
   document.body.classList.add('searching');
   mainNavDetailsOpen(true);
 });
 
-document.getElementById('ubersearch').addEventListener('blur', function(event) {
+document.getElementById('uber').addEventListener('blur', function(event) {
   if(!event.target.value) event.target.classList.remove('dirty');
   //document.body.classList.remove('searching');
   //mainNavDetailsOpen(false);
@@ -152,12 +280,12 @@ function doFilterPageComponents(filter) {
 }
 
 /*
-const ubersearch = document.querySelector('#ubersearch');
-ubersearch.addEventListener('blur', (event) => {
+const uber = document.querySelector('#uber');
+uber.addEventListener('blur', (event) => {
   console.log(event);
 });
 
-ubersearch.addEventListener('focus', (event) => {
+uber.addEventListener('focus', (event) => {
   console.log(event);
 });
 */

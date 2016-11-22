@@ -1,34 +1,36 @@
 {% include 'header.twig' with { loadStyles:true } %}
+
 </head>
-<body class=""><!-- .snappy -->
-  <link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">
+<body class="" data-theme=""><!-- .snappy, .inverted -->
+  {% if deferStyles|default(false) %}<link rel="stylesheet" href="assets/css/main{% if production %}.min{% endif %}.css" media="screen" title="Revolution Manager Theme">{% endif %}
   <div class="page-wrapper">
     <aside class="sidenav">
       <header id="mainnav">
         <div class="page">
         <h1>MODX Advisory Board</h1>
         <h2 class="version">
-          <a>
+          <img src="assets/img/modx-black.svg" alt="" hidden aria-hidden style="width:1em" />
+          <!--a>
+            <img src="assets/img/modx-white.svg" alt="MODX" class="logo">
             <svg class="logo">
               <title>Dashboard</title>
               <use xlink:href="#modx"></use>
-              <!--use xlink:href="assets/img/icons.svg#modx"></use--> <!-- http://stackoverflow.com/a/27752594/4671250 -->
             </svg>
-          </a>
+          </a-->
           <span>MODX <code>4.0.0-pl</code></span>
         </h2>
         </div>
         <form id="uberform">
           <div>
-            <input placeholder="context:web blog" type="text" id="ubersearch" name="q" required />
-            <label for="ubersearch"><h1><span emoji>🔎</span> Search<span visually-hidden> for anything&hellip;</span></h1></label>
+            <input placeholder="context:web blog" type="text" id="uber" name="q" required />
+            <h2><label for="uber"><a href="#uber"><span class="emoji" aria-hidden>🔎</span><span class="search"> Search</span><span visually-hidden> for anything&hellip;</span></a></label></h2>
           </div>
           <div class="radio-bar">
             <fieldset>
               <legend>Hide Unmatched Elements</legend>
               <div>
                 <input type="radio" id="hide_unmatched_elements__yes" name="hide_unmatched_elements" value="1" />
-                <label for="hide_unmatched_elements__yes" checked>Yes</label>
+                <label for="hide_unmatched_elements__yes">Yes</label>
 
                 <input type="radio" id="hide_unmatched_elements__no" name="hide_unmatched_elements" value="0" checked />
                 <label for="hide_unmatched_elements__no">No</label>
@@ -38,11 +40,14 @@
               <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
             </div>
           </div>
-          <div class="radio-bar sticky-scroll" style="margin-top:1em">
+          <!--div class="radio-bar sticky-scroll" style="margin-top:1em">
             <input type="checkbox" id="snap-scroll" name="snap-scroll">
             <label for="snap-scroll">Assistive Scrolling</label>
-          </div>
+          </div-->
         </form>
+        <div class="close-nav" hidden>
+          <a><h3><span class="emoji">❌</span>&ensp;Close Navigation</h3></a>
+        </div>
         <!--div class="button-row">
           <div><a>New Resource</a></div>
           <div><a>New WebLink</a></div>
@@ -54,7 +59,7 @@
           <details>
             <summary>
               <h2>
-                <!--span emoji data-iconset="svgawesome" data-icon="heart" data-svg-class="foo">📇</span--><span emoji>📇</span>&nbsp;Content
+                <!--span emoji data-iconset="svgawesome" data-icon="heart" data-svg-class="foo">📇</span--><span class="emoji">📇</span>&nbsp;Content
               </h2>
             </summary>
             <nav>
@@ -62,13 +67,13 @@
               <li class="new_resource" data-tags="new resources">
               <h3><a>📝&nbsp;New Resource</a></h3>
                 <form action="/create/resource" target="_blank">
-                  <label for="new_pagetitle">Create a new Resource &mdash; usually a web page</label>
+                  <label for="new_pagetitle">Create a new Resource &mdash; usually a web&nbsp;page</label>
                   <div class="">
                     <div class="">
-                      <input required id="new_pagetitle" name="new_pagetitle" type="text" name="new_pagetitle" placeholder="blog > modResource * 3">
+                      <input required id="new_pagetitle" name="new_pagetitle" type="text" placeholder="blog > modResource * 3">
                     </div>
                     <div>
-                      <button type="submit">Create</button>
+                      <button type="submit" disabled>Create</button>
                     </div>
                   </div>
                 </form>
@@ -99,7 +104,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>🎑</span>&nbsp;Media</h2>
+              <h2><span class="emoji">🎑</span>&nbsp;Media</h2>
             </summary>
             <nav>
                 <ul>
@@ -117,10 +122,10 @@
                   </li>
                   <li class="quick-upload">
                     <h3><a>📤&nbsp;Upload</a></h3>
-                    <p>Quickly upload a&nbsp;file</p>
+                    <label for="pic">Quickly upload a&nbsp;file</label>
                     <form>
                         <div>
-                          <input required type="file" name="pic" accept="image/*">
+                          <input required type="file" name="pic" id="pic" accept="image/*">
                           <button type="submit">Upload</button>
                         </div>
                         <div class="dragdrop">
@@ -131,13 +136,14 @@
               </nav>
           </details>
           <details>
-            <summary><h2><span emoji>🚀</span>&nbsp;Extras</h2></summary>
+            <summary><h2><span class="emoji">🚀</span>&nbsp;Extras</h2></summary>
             <nav>
               <ul>
                 <li class="extras command-line">
                   <h3><a>💥&nbsp;Installer</a></h3>
                   <p>Manage Add&ndash;ons and&nbsp;Distributions</p>
-                  <textarea name="extras_commandline" rows="3" cols="32" placeholder="$ modx install getResources"></textarea>
+                  <label for="extras_commandline" visually-hidden>MODX CLI</label>
+                  <textarea name="extras_commandline" id="extras_commandline" rows="3" cols="36" placeholder="$ modx install getResources"></textarea>
                   <p>
                     You have 3 package updates available.<br><a>Update packages now</a>.
                   </p>
@@ -160,7 +166,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>💼</span>&nbsp;Manage</h2>
+              <h2><span class="emoji">💼</span>&nbsp;Manage</h2>
             </summary>
             <nav>
               <ul>
@@ -193,12 +199,12 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>👾</span>&nbsp;Account</h2>
+              <h2><span class="emoji">👾</span>&nbsp;<span class="hideable">Account</span></h2>
             </summary>
             <nav>
               <ul>
                 <li>
-                  <h3><a>😎&nbsp;Edit Account</a></h3>
+                  <h3><a>😎&nbsp;Edit Account</a><a href="/account/i18n"><span visually-hidden>Change language </span>🇺🇸</a></h3>
                   <p>Update account email, password or&nbsp;info</p>
                 </li>
                 <li>
@@ -237,14 +243,14 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>🔧</span>&nbsp;Settings</h2>
+              <h2><span class="emoji">🔧</span>&nbsp;<span class="hideable">Settings</span></h2>
             </summary>
             <nav>
               <ul>
                 <li class="system-setting">
-                  <h3><a>💼&nbsp;System Settings</a></h3>
+                  <h3><a><span class="emoji">💼&nbsp;</span>System Settings</a></h3>
                   <p>Configure all system settings</p>
-                  <form action="">
+                  <form>
                     <label for="quick__new_settingname">Setting Name</label>
                     <div>
                       <input required type="text" name="quick__new_settingname" id="quick__new_settingname" placeholder="foo">
@@ -295,7 +301,7 @@
           </details>
           <details>
             <summary>
-              <h2><span emoji>👋</span>&nbsp;Support</h2>
+              <h2><span class="emoji">👋</span>&nbsp;<span class="hideable">Support</span></h2>
             </summary>
             <nav>
               <ul>
@@ -323,622 +329,787 @@
                     Emergency support from the&nbsp;source
                   </p>
                 </li>
+                <li>
+                  <h3><img aria-hidden="true" src="assets/img/modmore.svg" alt=""><a style="font-weight:normal">mod<strong>more</strong></a></h3>
+                  <p>
+                    Emergency &amp; product support
+                  </p>
+                </li>
               </ul>
             </nav>
           </details>
         </nav>
       </header>
       <footer hidden>
-        <h3><a><span emoji>❌</span>&ensp;Close Navigation</a></h3>
+        <a><h3><span class="emoji">❌</span>&ensp;Close Navigation</h3></a>
       </footer>
     </aside>
     <aside id="stickybar">
-      <a>
-        <svg class="logo">
+      <!--footer>
+        <h3><a><span class="emoji">❌</span>&ensp;Close Navigation</a></h3>
+      </footer-->
+      <a href="#uber">
+        <!--svg class="logo">
           <title>Dashboard</title>
+
           <use xlink:href="#modx"></use>
-          <!--use xlink:href="assets/img/icons.svg#modx"></use--> <!-- http://stackoverflow.com/a/27752594/4671250 -->
-        </svg>
+        </svg-->
+        <!--img src="assets/img/modx-white.svg" alt="MODX" class="logo"-->
       </a>
       <div>
-        <a href="#ubersearch">Search</a>
-        <a href="#contentarea">Content</a>
+        <a id="jumpsearch" href="#uber">Search</a>
+        <a href="#contentarea" id="jumplink">Content</a>
         <button>Save</button>
       </div>
     </aside>
     <div id="grail">
-    <div id="tree">
-      <nav>
-        <details id="resources">
-          <summary><h2><span emoji>📃</span>&nbsp;Resources</h2></summary>
-          <nav class="quick-links">
-            <header>
-              <h4>Quick<span visually-hidden> Resource</span> Links</h4>
-              <ul>
-                <li><a><span emoji>📝</span>&nbsp;New Resource</a></li>
-                <li><a><span emoji>🔗</span>&nbsp;New Weblink</a></li>
-                <li><a><span emoji>🎭</span>&nbsp;New Symlink</a></li>
-                <li><a><span emoji>📎</span>&nbsp;New Static Resource</a></li>
-                <li><a><span emoji>🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
-              </ul>
-            </header>
-          </nav>
-          <details class="context">
-            <summary>
-              <div>
-                <h3>Website</h3>
-                <div>
-                  <button>
-                    <span emoji>➕</span>
-                    <span visually-hidden>
-                      Add Resource to Website Context
-                    </span>
-                  </button>
-                </div>
-                <div>
-                  <button>
-                    <span emoji>🔃</span>
-                    <span visually-hidden>Refresh Context</span>
-                  </button>
-                </div>
-              </div>
-            </summary>
-            <nav>
-              <ul>
-                <li><a><span emoji>📄</span>&nbsp;Home</a></li>
-                <li>
-                  <details>
-                    <summary><a><span emoji>📂</span>&nbsp;Blog</a></summary>
-                    <ul>
-                      <li><a><span emoji>📄</span>&nbsp;Post 1</a></li>
-                      <li><a><span emoji>📄</span>&nbsp;Post 2</a></li>
-                      <li><a><span emoji>📄</span>&nbsp;Post 3</a></li>
-                    </ul>
-                  </details>
-                </li>
-                <li><a>Tips</a></li>
-              </ul>
-            </nav>
-          </details>
-        </details>
-        <details>
-          <summary><h2><span emoji>🔧</span>&nbsp;Elements</h2></summary>
-          <nav class="quick-links">
-            <header>
-              <h4>Quick<span visually-hidden> Elements</span> Links</h4>
-              <ul>
-                <li><a><span emoji>📝</span>&nbsp;New Template</a></li>
-                <li><a><span emoji>📺</span>&nbsp;New Template Variable</a></li>
-                <li><a><span emoji>📃</span>&nbsp;New Chunk</a></li>
-                <li><a><span emoji>🔨</span>&nbsp;New Snippet</a></li>
-                <li><a><span emoji>🚀</span>&nbsp;New Plugin</a></li>
-                <li><a><span emoji>📁</span>&nbsp;New Folder</a></li>
-              </ul>
-            </header>
-            <details class="context templates">
-              <summary>
-                <div class="flexible">
-                  <h3>Templates</h3>
+
+      <div id="forest">
+
+        <div id="tree">
+          <nav>
+            <details id="resources">
+              <summary><h2><span class="emoji">📃</span>&nbsp;Resources</h2></summary>
+              <nav class="quick-links">
+                <header>
+                  <h4>Quick<span visually-hidden> Resource</span> Links</h4>
+                  <ul>
+                    <li><a href="#"><span class="emoji">📝</span>&nbsp;New Resource</a></li>
+                    <li><a href="#"><span class="emoji">🔗</span>&nbsp;New Weblink</a></li>
+                    <li><a href="#"><span class="emoji">🎭</span>&nbsp;New Symlink</a></li>
+                    <li><a href="#"><span class="emoji">📎</span>&nbsp;New Static Resource</a></li>
+                    <li><a href="#"><span class="emoji">🚫</span>&nbsp;Delete Trashed Resources (5)</a></li>
+                  </ul>
+                </header>
+              </nav>
+              <details class="context">
+                <summary>
                   <div>
-                    <button>
-                      <span emoji>➕</span>
-                      <span visually-hidden>
-                        Add Resource to Website Context
-                      </span>
-                    </button>
-                    <button>
-                      <span emoji>🔃</span>
-                      <span visually-hidden>Refresh Context</span>
-                    </button>
+                    <h3>Website</h3>
+                    <div>
+                      <button>
+                        <span class="emoji">➕</span>
+                        <span visually-hidden>
+                          Add Resource to Website Context
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="emoji">🔃</span>
+                        <span visually-hidden>Refresh Context</span>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </summary>
-              <nav>
-                <ul>
-                  <li><a><span emoji>📝</span>&nbsp;Base Template</a></li>
-                  <li><a><span emoji>📢</span>&nbsp;Simple Post</a></li>
-                  <li><a><span emoji>ℹ</span>&nbsp;About Us</a></li>
-                </ul>
+                </summary>
+                <nav>
+                  <ul>
+                    <li><a href="#"><span class="emoji">📄</span>&nbsp;Home</a></li>
+                    <li>
+                      <details>
+                        <summary contextmenu="imagemenu">
+                          <a href="#"><span class="emoji">📂</span>&nbsp;Blog</a>
+                          <menu type="context" id="imagemenu">
+                            <menuitem label="Overview" onclick=""></menuitem>
+                            <menuitem label="Edit" onclick=""></menuitem>
+                            <menuitem label="Quick Update" onclick=""></menuitem>
+                            <menuitem label="Duplicate" onclick=""></menuitem>
+                            <menuitem label="Refresh" onclick=""></menuitem>
+                            <menu label="Create">
+                              <menuitem label="Document" onclick=""></menuitem>
+                              <menuitem label="Static Resource" onclick=""></menuitem>
+                              <menuitem label="Symlink" onclick=""></menuitem>
+                              <menuitem label="Weblink" onclick=""></menuitem>
+                              <menuitem label="Collection" onclick=""></menuitem>
+                              <menuitem label="Selection" onclick=""></menuitem>
+                            </menu>
+                            <menu label="Quick Create">
+                              <menuitem label="Document" onclick=""></menuitem>
+                              <menuitem label="Static Resource" onclick=""></menuitem>
+                              <menuitem label="Symlink" onclick=""></menuitem>
+                              <menuitem label="Weblink" onclick=""></menuitem>
+                              <menuitem label="Collection" onclick=""></menuitem>
+                              <menuitem label="Selection" onclick=""></menuitem>
+                            </menu>
+                            <menuitem label="Publish" onclick=""></menuitem>
+                            <menuitem label="Delete" onclick=""></menuitem>
+                            <menuitem label="View" onclick=""></menuitem>
+                          </menu>
+                        </summary>
+                        <ul>
+                          <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 1</a></li>
+                          <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 2</a></li>
+                          <li><a href="#"><span class="emoji">📄</span>&nbsp;Post 3</a></li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li><a href="#">Tips</a></li>
+                  </ul>
+                </nav>
+              </details>
+            </details>
+            <details id="elements">
+              <summary><h2><span class="emoji">🔧</span>&nbsp;Elements</h2></summary>
+              <nav class="quick-links">
+                <header>
+                  <h4>Quick<span visually-hidden> Elements</span> Links</h4>
+                  <ul>
+                    <li><a href="#"><span class="emoji">📝</span>&nbsp;New Template</a></li>
+                    <li><a href="#"><span class="emoji">📺</span>&nbsp;New Template Variable</a></li>
+                    <li><a href="#"><span class="emoji">📃</span>&nbsp;New Chunk</a></li>
+                    <li><a href="#"><span class="emoji">🔨</span>&nbsp;New Snippet</a></li>
+                    <li><a href="#"><span class="emoji">🚀</span>&nbsp;New Plugin</a></li>
+                    <li><a href="#"><span class="emoji">📁</span>&nbsp;New Folder</a></li>
+                  </ul>
+                </header>
+                <details class="context templates">
+                  <summary>
+                    <div class="flexible">
+                      <h3>Templates</h3>
+                      <div>
+                        <button>
+                          <span class="emoji">➕</span>
+                          <span visually-hidden>
+                            Add Resource to Website Context
+                          </span>
+                        </button>
+                        <button>
+                          <span class="emoji">🔃</span>
+                          <span visually-hidden>Refresh Context</span>
+                        </button>
+                      </div>
+                    </div>
+                  </summary>
+                  <nav>
+                    <ul>
+                      <li><a href="#"><span class="emoji">📝</span>&nbsp;Base Template</a></li>
+                      <li><a href="#"><span class="emoji">📢</span>&nbsp;Simple Post</a></li>
+                      <li><a href="#"><span class="emoji">ℹ</span>&nbsp;About Us</a></li>
+                    </ul>
+                  </nav>
+                </details>
               </nav>
             </details>
           </nav>
-        </details>
-      </nav>
-    </div>
-    <main>
-      <form>
-      {% include 'partials/actionnav.twig' %}
-      <header>
-        <h1>Announcing the MODX Advisory Board</h1>
-        <p class="comfy emoji-bar">
-          <button class="emoji reaction long tooltip" title="Ryan Thrash, Mark Hamstra, and 3 Others with a :+1:">👍<span>12</span></button>
-          <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
-        </p>
-        <div class="">
-          <details open class="document">
-            <summary><h2><span class="emoji icon"><span emoji>📝</span></span>&nbsp;Document</h2></summary>
-            <div>
-              <div>
+        </div>
+        <main>
+          <form>
+          {% include 'partials/actionnav.twig' %}
+          <header>
+            <h1>Announcing the MODX Advisory Board</h1>
+            <p class="comfy emoji-bar">
+              <button class="emoji reaction long tooltip" title="Ryan Thrash, Mark Hamstra, and 3 Others with a :+1:">👍<span>12</span></button>
+              <button class="emoji add-reaction right tooltip" title="Add a Reaction">➕</button>
+            </p>
+            <div class="">
+              <details open id="document" class="document">
+                <summary><h2><span class="emoji icon"><span class="emoji">📝</span></span>&nbsp;Document</h2></summary>
                 <div>
-                  <label for="pagetitle">Title*</label>
-                  <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required>
-                </div>
-
-                <div>
-                  <label for="longtitle">Long Title</label>
-                  <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
-                </div>
-
-                <div>
-                  <label for="description">Description</label>
-                  <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
-                </div>
-
-                <div>
-                  <label for="introtext">Summary (intro text)</label>
-                  <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <label for="template">Uses Template</label>
-                  <select class="id" name="template" id="template">
-                    <option>Base Template</otpion>
-                    <option>Blog Post</otpion>
-                  </select>
-                </div>
-                <div>
-                  <label for="alias">Alias</label>
-                  <input type="text" name="alias" id="alias" placeholder="quick-fox">
-                </div>
-                <div>
-                  <label for="menutitle">Menu Title</label>
-                  <input type="text" name="menutitle" id="menutitle" placeholder="The Fox & The Dog">
-                </div>
-                <div>
-                  <label for="linkattributes">Link Attributes</label>
-                  <input type="text" name="linkattributes" id="linkattributes" placeholder=target="_foxdog">
-                </div>
-                <ul class="discrete">
-                  <li>
-                    <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
-                  </li>
-                  <li>
-                    <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </details>
-          <details class="settings">
-            <summary><h2><span emoji>🔧</span>&nbsp;Settings</h2></summary>
-            <div>
-              <div>
-                <div>
-                  <label for="parent">Parent Resource</label>
-                  <select name="parent" id="parent">
-                    <optgroup label="Website">
-                      <option>None (root)</option>
-                      <option>Home (1)</option>
-                      <option>Blog (1)</option>
-                    </optgroup>
-                  </select>
-                </div>
-                <div>
-                  <label for="resourcetype">Resource Type</label>
-                  <select name="resourcetype" id="resourcetype">
-                    <option value="modResource">Document</option>
-                    <option value="modStaticResource">Static Resources</option>
-                    <option value="modWebLink">Weblink</option>
-                    <option value="modCollection">Collection</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="contenttype">Content Type</label>
-                  <select name="contenttype" id="contenttype">
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="json">JSON</option>
-                    <option value="pdf">PDF</option>
-                    <option value="rss">RSS</option>
-                    <option value="text">text</option>
-                    <option value="xml">XML</option>
-                  </select>
-                </div>
-                <div>
-                  <fieldset>
-                    <legend>Content Disposition</legend>
+                  <div>
                     <div>
-                      <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked />
-                      <label for="contentdisposition__inline" checked>Inline</label>
-
-                      <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement" />
-                      <label for="contentdisposition__attachement">Attachement</label>
+                      <label for="pagetitle">Title*</label>
+                      <input type="text" name="pagetitle" id="pagetitle" value="Announcing the MODX Advisory Board" placeholder="A Quick Brown Fox" required>
                     </div>
-                  </fieldset>
-                </div>
-                <div>
-                  <label for="menuindex">Menu Index</label>
-                  <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
-                </div>
-              </div>
-              <div>
-                <div>
-                  <label for="publishedon">Published On Date</label>
-                  <input type="date" name="publishedondate" id="publishedon" placeholder="Mar 10, 2014">
-                </div>
-                <div>
-                  <label for="publishedontime">Published On Time</label>
-                  <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
-                </div>
-                <fieldset>
-                  <legend>Bollean Attributes</legend>
-                  <div>
-                    <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Use ContentBlocks?</legend>
-                  <div>
-                    <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" checked />
-                    <label for="usecontentblocks__yes" checked>Yes</label>
 
-                    <input type="radio" id="usecontentblocks__no" name="usecontentblocks" />
-                    <label for="usecontentblocks__no">No</label>
+                    <div>
+                      <label for="longtitle">Long Title</label>
+                      <input type="text" name="longtitle" id="longtitle" placeholder="A Quick Brown Fox Jumped Over the Lazy Dog">
+                    </div>
+
+                    <div>
+                      <label for="description">Description</label>
+                      <textarea name="description" id="description" rows="3" placeholder="An amazing blog post"></textarea>
+                    </div>
+
+                    <div>
+                      <label for="introtext">Summary (intro text)</label>
+                      <textarea name="introtext" id="introtext" rows="3" placeholder="A story of a fox and a dog"></textarea>
+                    </div>
                   </div>
-                </fieldset>
-              </div>
+                  <div>
+                    <div>
+                      <label for="template">Uses Template</label>
+                      <select class="id" name="template" id="template">
+                        <option>Base Template</option>
+                        <option>Blog Post</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="alias">Alias</label>
+                      <input type="text" name="alias" id="alias" placeholder="quick-fox" required>
+                    </div>
+                    <div>
+                      <label for="menutitle">Menu Title</label>
+                      <input type="text" name="menutitle" id="menutitle" placeholder="The Fox &amp; The Dog">
+                    </div>
+                    <div>
+                      <label for="linkattributes">Link Attributes</label>
+                      <input type="text" name="linkattributes" id="linkattributes" placeholder='target="_foxdog"'>
+                    </div>
+                    <ul class="discrete">
+                      <li>
+                        <input type="checkbox" name="hidemenu" id="hidemenu">&nbsp;<label for="hidemenu">Hide from Menus</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" name="published" id="published">&nbsp;<label for="published">Published</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+              <details id="settings" class="settings">
+                <summary><h2><span class="emoji">🔧</span>&nbsp;Settings</h2></summary>
+                <div>
+                  <div>
+                    <div>
+                      <label for="parent">Parent Resource</label>
+                      <select name="parent" id="parent">
+                        <optgroup label="Website">
+                          <option>None (root)</option>
+                          <option>Home (1)</option>
+                          <option>Blog (1)</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="resourcetype">Resource Type</label>
+                      <select name="resourcetype" id="resourcetype">
+                        <option value="modResource">Document</option>
+                        <option value="modStaticResource">Static Resources</option>
+                        <option value="modWebLink">Weblink</option>
+                        <option value="modCollection">Collection</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="contenttype">Content Type</label>
+                      <select name="contenttype" id="contenttype">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="json">JSON</option>
+                        <option value="pdf">PDF</option>
+                        <option value="rss">RSS</option>
+                        <option value="text">text</option>
+                        <option value="xml">XML</option>
+                      </select>
+                    </div>
+                    <div>
+                      <fieldset>
+                        <legend>Content Disposition</legend>
+                        <div>
+                          <input type="radio" id="contentdisposition__inline" name="contentdisposition" value="inline" checked />
+                          <label for="contentdisposition__inline">Inline</label>
+
+                          <input type="radio" id="contentdisposition__attachement" name="contentdisposition" value="attachement" />
+                          <label for="contentdisposition__attachement">Attachement</label>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div>
+                      <label for="menuindex">Menu Index</label>
+                      <input name="menuindex" id="menuindex" type="number" min="0" step="1" value="13">
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <label for="publishedon">Published On Date</label>
+                      <input type="date" name="publishedondate" id="publishedon" placeholder="Mar 10, 2014">
+                    </div>
+                    <div>
+                      <label for="publishedontime">Published On Time</label>
+                      <input type="time" name="publishedontime" id="publishedontime" placeholder="14:23">
+                    </div>
+                    <fieldset class="flexible">
+                      <legend>Bollean Attributes</legend>
+                      <div>
+                        <div>
+                          <input type="checkbox" name="container" id="container" value="1">&nbsp;<label for="container">Container</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="searchable" id="searchable" value="1">&nbsp;<label for="searchable">Searchable</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="richtext" id="richtext" value="1">&nbsp;<label for="richtext">Rich&nbsp;Text</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="freezeuri" id="freezeuri" value="1">&nbsp;<label for="freezeuri">Freeze&nbsp;URI</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="cacheable" id="cacheable" value="1">&nbsp;<label for="cacheable">Cacheable</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="emptycache" id="emptycache" value="1">&nbsp;<label for="emptycache">Empty&nbsp;Cache</label>
+                        </div>
+                        <div>
+                          <input type="checkbox" name="deleted" id="deleted" value="1">&nbsp;<label for="deleted">Deleted</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Use ContentBlocks?</legend>
+                      <div>
+                        <input type="radio" id="usecontentblocks__yes" name="usecontentblocks" value="1" />
+                        <label for="usecontentblocks__yes">Yes</label>
+
+                        <input type="radio" id="usecontentblocks__no" name="usecontentblocks" />
+                        <label for="usecontentblocks__no">No</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </details>
+              <details id="resource-groups" class="resource-groups">
+                <summary><h2><span class="emoji">📑</span>&nbsp;Resource Groups</h2></summary>
+                <div>
+                  <table>
+                    <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
+                    <thead>
+                      <tr>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Access
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <label for="resourcegroup_4_13">Client Only</label>
+                        </td>
+                        <td>
+                          <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </details>
             </div>
-          </details>
-          <details class="resource-groups">
-            <summary><h2><span emoji>📑</span>&nbsp;Resource Groups</h2></summary>
+          </header>
+
+          <section><!-- maybe this should be <main> instead? -->
             <div>
-              <table>
-                <caption>Here you can select which Resource Groups this Resource belongs&nbsp;to.</caption>
-                <thead>
-                  <tr>
-                    <th>
-                      Name
-                    </th>
-                    <th>
-                      Access
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <label for="resourcegroup_4_13">Client Only</label>
-                    </td>
-                    <td>
-                      <input type="checkbox" name="resourcegroup_4_13" id="resourcegroup_4_13" value="1">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <details  id="content"  class="content">
+                <summary>
+                  <h2><label for="contentarea"><span class="emoji">📇</span>&nbsp;Content</label></h2>
+                </summary>
+
+                <div>
+                  <textarea name="contentarea" id="contentarea" placeholder="&lt;h1&gt;Hello World!&lt;/h1&gt;" rows="8" cols="40"></textarea>
+                </div>
+              </details>
             </div>
-          </details>
-        </div>
-      </header>
+          </section>
 
-      <section><!-- maybe this should be <main> instead? -->
-        <details  id="content"  class="content">
-          <summary>
-            <h2><label for="contentarea"><span emoji>📇</span>&nbsp;Content</label></h2>
-          </summary>
+          <section>
+            <div>
+              <details id="template-variables" class="light">
+                <summary>
+                  <h2><span class="emoji">📺</span>&nbsp;Template Variables</h2>
+                </summary>
+                <details class="light">
+                  <summary>
+                    <h3><span class="emoji">📞</span>&nbsp;Contact</h3>
+                  </summary>
+                  <div>
+                    <div>
+                      <div>
+                        {% include 'mi5/email.twig' with {
+                        maxLength: undefined,
+                        placeholder: 'chuck@norris.com',
+                        options:[{
+                          title:'mail@devries.jp'
+                        },{
+                          title:'johnpaul.devries@gmail.com'
+                        }]
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/labeledinput.twig' with {
+                          id:'tel',
+                          name:'tel',
+                          type:'tel',
+                          label:'Cell',
+                          placeholder:'(555) 555–5555'
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/url.twig' with {
+                        placeholder:'https://modx.com',
+                          options:[{
+                            title:'http://google.com'
+                          },{
+                            title:'http://facebook.com'
+                          }]
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/countrylist.twig' with {
+                          placeholder:'NL'
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/richtext.twig' with {
+                          label: "Bio",
+                          id: "tvcontent",
+                          name: "tvcontent",
+                          placeholder: "Jack and Jill went up the hill."
+                        } %}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+                <details class="light">
+                  <summary>
+                    <h3><span class="emoji">📓</span>&nbsp;Info</h3>
+                  </summary>
+                  <div>
+                    <div>
+                      <div>
+                        {% include 'mi5/listbox-multi.twig' %}
+                      </div>
+                      <div>
+                        {% include 'mi5/slider.twig' with {
+                          min:0,
+                          max:200,
+                          step:1,
+                          options:[{
+                            title:100
+                          },{
+                          title:150
+                          }]
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/file.twig' %}
+                      </div>
+                      <div>
+                        {% include 'mi5/dropdown-list-menu.twig' with {
+                          id: 'airports',
+                          name: 'airports',
+                          label: 'Airports',
+                          options:[{
+                            label:'California',
+                            options:[{
+                              title:'Sacramento',
+                              value:'SAC'
+                            },{
+                              title:'Los Angeles',
+                              value:'LAX'
+                            },{
+                              title:'San Francisco',
+                              value:'SFO'
+                            }]
+                          },{
+                            label:'Oregon',
+                            options:[{
+                              title:'Portland',
+                              value:'PDX'
+                            }]
+                          }]
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/dropdown-list-menu.twig' with {
+                          options:[{
+                            title:'MODX',
+                            value:'modx'
+                          },{
+                            title:'Wordpress',
+                            value:'wordpress'
+                          },{
+                            title:'Joomla!',
+                            value:'joomla!'
+                          }]
+                        } %}
+                      </div>
+                      <div>
+                        {% include './radios.twig' with {
+                          legend:'Options',
+                          options:[{
+                            for: 'option_a',
+                            id: 'option_a',
+                            name: 'radio',
+                            label: 'Option A',
+                            type: 'radio'
+                          },{
+                            for: 'option_b',
+                            id: 'option_b',
+                            name: 'radio',
+                            label: 'Option B',
+                            type: 'radio'
+                          },{
+                            for: 'option_c',
+                            id: 'option_c',
+                            name: 'radio',
+                            label: 'Option C',
+                            type: 'radio'
+                          },{
+                            for: 'option_d',
+                            id: 'option_d',
+                            name: 'radio',
+                            label: 'Option D',
+                            type: 'radio'
+                          },{
+                            for: 'option_e',
+                            id: 'option_f',
+                            name: 'radio',
+                            label: 'Option F',
+                            type: 'radio'
+                          },{
+                            for: 'option_g',
+                            id: 'option_g',
+                            name: 'radio',
+                            label: 'Option G',
+                            type: 'radio'
+                          },{
+                            for: 'option_h',
+                            id: 'option_h',
+                            name: 'radio',
+                            label: 'Option H',
+                            type: 'radio'
+                          }]
+                        } %}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+                <details class="light">
+                  <summary>
+                    <h3><span class="emoji">📌</span>&nbsp;Meta</h3>
+                  </summary>
+                  <div>
+                  <div>
+                    <div id="autotag">
+                      {% include 'mi5/autotag.twig' with {
+                        allowBlank:true,
+                        placeholder:'Buter, Bread, Cheese',
+                        id:"autotag",
+                        name:"autotag",
+                        options:[{
+                          title:'Buter'
+                        },{
+                          title:'Bread'
+                        },{
+                          title:'Cheese'
+                        }]
+                      } %}
+                    </div>
+                    <div>
+                      {% include 'mi5/hidden.twig' %}
+                    </div>
+                    <div>
+                      {% include 'mi5/file.twig' with {
+                        label:"Facebook OG Image",
+                        name:"image",
+                        accept:"image/*"
+                      } %}
+                    </div>
+                  </div>
+                  </div>
+                </details>
+                <details class="light">
+                  <summary><h3><span class="emoji">💰</span>&nbsp;Product</h3></summary>
+                  <div>
+                    <div>
+                      <div>
+                        {% include 'mi5/number.twig' with {
+                          label:'Quantity',
+                          placeholder:4,
+                          pattern:"[0-9]*",
+                          options:[{
+                            title:4
+                          },{
+                            title:20
+                          }]
+                        } %}
+                      </div>
+                      <div>
+                        <label for="tv-1">SKU</label>
+                        {% include 'mi5/input.twig' with {
+                          name:"tv-1",
+                          id:"tv-1",
+                          placeholder:"#4327"
+                        } %}
+                      </div>
+                    </div>
+                  </div>
+                </details>
+                <details class="light">
+                  <summary>
+                    <h3><span class="emoji">👕</span>&nbsp;Product Variants</h3>
+                  </summary>
+                  <table class="mild data-grid">
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>SKU</th>
+                        <th>Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr tabindex="0">
+                        <td>Small</td>
+                        <td>#001</td>
+                        <td>$12.99</td>
+                      </tr>
+                      {% include 'dummy/edit-product-variant.twig' with {
+                        index: 1,
+                        title: {
+                          name:"editvarianttitle__001",
+                          id:"editvarianttitle__001",
+                          placeholder:"Small",
+                          value:"Small",
+                          type:"text"
+                        },
+                        sku: {
+                          name:"editvariantsku__001",
+                          id:"editvariantsku__001",
+                          placeholder:"#0125",
+                          value:"#001",
+                          type:"text"
+                        },
+                        price: {
+                          name:"editvariantprice__001",
+                          id:"editvariantprice__001",
+                          for:"editvariantprice__001",
+                          placeholder:"2.40",
+                          value:"12.99",
+                          min:0
+                        }
+                      } %}
+                      <tr tabindex="0">
+                        <td>Medium</td>
+                        <td>#002</td>
+                        <td>$12.99</td>
+                      </tr>
+                      {% include 'dummy/edit-product-variant.twig' with {
+                        index: 2,
+                        title: {
+                          name:"editvarianttitle__002",
+                          id:"editvarianttitle__002",
+                          placeholder:"Small",
+                          value:"Medium",
+                          type:"text"
+                        },
+                        sku: {
+                          name:"editvariantsku__002",
+                          id:"editvariantsku__002",
+                          placeholder:"#0125",
+                          value:"#002",
+                          type:"text"
+                        },
+                        price: {
+                          name:"editvariantprice__002",
+                          id:"editvariantprice__002",
+                          for:"editvariantprice__002",
+                          placeholder:"2.40",
+                          value:"12.99",
+                          min:0
+                        }
+                      } %}
+                    </tbody>
+                  </table>
+                  <details style="padding-left:0">
+                    <summary>Add a Product Variant</summary>
+                    <div>
+                      <fieldset class="mild">
+                        <legend>New Varient</legend>
+                        <div>
+                          <label for="varianttitle">Variant Title</label>
+                          {% include 'mi5/input.twig' with {
+                            name:"varianttitle",
+                            id:"varianttitle",
+                            placeholder:"Small",
+                            type:"text"
+                          } %}
+                        </div>
+                        <div>
+                          <label for="variantsku">SKU</label>
+                          {% include 'mi5/input.twig' with {
+                            name:"variantsku",
+                            id:"variantsku",
+                            placeholder:"#0125",
+                            type:"text"
+                          } %}
+                        </div>
+                        <div>
+                          {% include 'mi5/number.twig' with {
+                            name:"variantprice",
+                            id:"variantprice",
+                            for:"variantprice",
+                            placeholder:"2.40",
+                            min:0
+                          } %}
+                        </div>
+                        <footer>
+                          <button type="submit" class="clicky" disabled>Add Variant</button>
+                        </footer>
+                      </fieldset>
+                    </div>
+                  </details>
+                </details>
+                <details class="light">
+                  <summary>
+                    <h3><span class="emoji">📅</span>&nbsp;Time</h3>
+                  </summary>
+                  <div>
+                    <div>
+                      <div>
+                        {% include 'mi5/date.twig' with {
+                          type:'month',
+                          id: 'month',
+                          name: 'month',
+                          label: 'Month'
+                        } %}
+                      </div>
+                      <div>
+                        {% include 'mi5/date.twig' with {
+                          type:'week',
+                          id: 'week',
+                          name: 'week',
+                          label: 'Week'
+                        } %}
+                      </div>
+                      <div>
+                      {% include 'mi5/date.twig' with {
+                            id: 'date-2',
+                            name: 'date-2'
+                      } only %}
+                      </div>
+                      <div>
+                        {% include 'mi5/time.twig' with {
+                              id: 'time-2',
+                              name: 'time-2',
+                              type: 'time'
+                        } only %}
+                      </div>
+                    </div>
+                  </div>
+                </details>
 
-          <div>
-            <textarea name="contentarea" id="contentarea" placeholder="&lt;h1&gt;Hello World!&lt;/h1&gt;" rows="8" cols="40"></textarea>
+              </details>
+            </div>
+          </section>
+          <!--div class="radio-bar comfy sticky-scroll">
+            <input type="checkbox" id="snap-scroll-2" name="snap-scroll-2">
+            <label for="snap-scroll-2">Assistive Scrolling</label>
+          </div-->
+          {% include 'partials/actionnav.twig' %}
+        </form>
+        </main>
+
+        <aside id="preview" class="preview frame">
+          <div class="">
+            <iframe data-src="https://modx.com"></iframe>
           </div>
-        </details>
-      </section>
+        </aside>
 
-      <section>
-        <div>
-          <details id="template-variables" class="light">
-            <summary>
-              <h2><span emoji>📺</span>&nbsp;Template Variables</h2>
-            </summary>
-            <details class="light">
-              <summary>
-                <h3><span emoji>📞</span>&nbsp;Contact</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-                    {% include 'mi5/email.twig' with {
-                    maxLength: undefined,
-                    placeholder: 'chuck@norris.com',
-                    options:[{
-                      title:'mail@devries.jp'
-                    },{
-                      title:'johnpaul.devries@gmail.com'
-                    }]
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/labeledinput.twig' with {
-                      id:'tel',
-                      name:'tel',
-                      type:'tel',
-                      label:'Cell',
-                      placeholder:'(555) 555–5555'
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/url.twig' with {
-                    placeholder:'https://modx.com',
-                      options:[{
-                        title:'http://google.com'
-                      },{
-                        title:'http://facebook.com'
-                      }]
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/countrylist.twig' with {
-                      placeholder:'NL'
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/richtext.twig' with {
-                      label: "Bio",
-                      id: "tvcontent",
-                      name: "tvcontent",
-                      placeholder: "Jack and Jill went up the hill."
-                    } %}
-                  </div>
-                </div>
-              </div>
-            </details>
-            <details class="light">
-              <summary>
-                <h3><span emoji>📓</span>&nbsp;Info</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-                    {% include 'mi5/listbox-multi.twig' %}
-                  </div>
-                  <div>
-                    {% include 'mi5/slider.twig' with {
-                      min:0,
-                      max:200,
-                      step:1,
-                      options:[{
-                        title:100
-                      },{
-                      title:150
-                      }]
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/file.twig' %}
-                  </div>
-                  <div>
-                    {% include 'mi5/dropdown-list-menu.twig' with {
-                      id: 'airports',
-                      name: 'airports',
-                      label: 'Airports',
-                      options:[{
-                        label:'California',
-                        options:[{
-                          title:'Sacramento',
-                          value:'SAC'
-                        },{
-                          title:'Los Angeles',
-                          value:'LAX'
-                        },{
-                          title:'San Francisco',
-                          value:'SFO'
-                        }]
-                      },{
-                        label:'Oregon',
-                        options:[{
-                          title:'Portland',
-                          value:'PDX'
-                        }]
-                      }]
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/dropdown-list-menu.twig' with {
-                      options:[{
-                        title:'MODX',
-                        value:'modx'
-                      },{
-                        title:'Wordpress',
-                        value:'wordpress'
-                      },{
-                        title:'Joomla!',
-                        value:'joomla!'
-                      }]
-                    } %}
-                  </div>
-                  <div>
-                    {% include './radios.twig' with {
-                      legend:'Options',
-                      options:[{
-                        for: 'option_a',
-                        id: 'option_a',
-                        name: 'radio',
-                        label: 'Option A',
-                        type: 'radio'
-                      },{
-                        for: 'option_b',
-                        id: 'option_b',
-                        name: 'radio',
-                        label: 'Option B',
-                        type: 'radio'
-                      },{
-                        for: 'option_c',
-                        id: 'option_c',
-                        name: 'radio',
-                        label: 'Option C',
-                        type: 'radio'
-                      },{
-                        for: 'option_d',
-                        id: 'option_d',
-                        name: 'radio',
-                        label: 'Option D',
-                        type: 'radio'
-                      },{
-                        for: 'option_e',
-                        id: 'option_f',
-                        name: 'radio',
-                        label: 'Option F',
-                        type: 'radio'
-                      },{
-                        for: 'option_g',
-                        id: 'option_g',
-                        name: 'radio',
-                        label: 'Option G',
-                        type: 'radio'
-                      },{
-                        for: 'option_h',
-                        id: 'option_h',
-                        name: 'radio',
-                        label: 'Option H',
-                        type: 'radio'
-                      }]
-                    } %}
-                  </div>
-                </div>
-              </div>
-            </details>
-            <details class="light">
-              <summary>
-                <h3><span emoji>📌</span>&nbsp;Meta</h3>
-              </summary>
-              <div>
-              <div>
-                <div id="autotag">
-                  {% include 'mi5/autotag.twig' with {
-                    allowBlank:true,
-                    placeholder:'Buter, Bread, Green-Cheese',
-                    id:"autotag",
-                    name:"autotag",
-                    options:[{
-                      title:'Buter'
-                    },{
-                      title:'Bread'
-                    },{
-                      title:'Green-Cheese'
-                    }]
-                  } %}
-                </div>
-                <div>
-                  {% include 'mi5/hidden.twig' %}
-                </div>
-                <div>
-                  {% include 'mi5/file.twig' with {
-                    label:"Facebook OG Image",
-                    name:"image",
-                    accept:"image/*"
-                  } %}
-                </div>
-              </div>
-              </div>
-            </details>
-            <details class="light">
-              <summary><h3><span emoji>💰</span>&nbsp;Product</h3></summary>
-              <div>
-                <div>
-                  <div>
-                    {% include 'mi5/number.twig' with {
-                      label:'Quantity',
-                      placeholder:4,
-                      pattern:"[0-9]*",
-                      options:[{
-                        title:4
-                      },{
-                        title:20
-                      }]
-                    } %}
-                  </div>
-                  <div>
-                    <label for="tv-1">SKU</label>
-                    {% include 'mi5/input.twig' with {
-                      name:"tv-1",
-                      id:"tv-1",
-                      placeholder:"#4327"
-                    } %}
-                  </div>
-                </div>
-              </div>
-            </details>
-            <details class="light">
-              <summary>
-                <h3><span emoji>📅</span>&nbsp;Time</h3>
-              </summary>
-              <div>
-                <div>
-                  <div>
-                    {% include 'mi5/date.twig' with {
-                      type:'month',
-                      id: 'month',
-                      name: 'month',
-                      label: 'Month',
-                      placeholder: 'March'
-                    } %}
-                  </div>
-                  <div>
-                    {% include 'mi5/date.twig' with {
-                      type:'week',
-                      id: 'week',
-                      name: 'week',
-                      label: 'Week',
-                      placeholder: 'Week 42, 2016'
-                    } %}
-                  </div>
-                  <div>
-                  {% include 'mi5/date.twig' with {
-                        id: 'date-2',
-                        name: 'date-2',
-                        placeholder: 'March 10, 2016'
-                  } only %}
-                  </div>
-                  <div>
-                    {% include 'mi5/time.twig' with {
-                          id: 'time-2',
-                          name: 'time-2',
-                          placeholder: '15:32',
-                          type: 'time'
-                    } only %}
-                  </div>
-                </div>
-              </div>
-            </details>
-
-          </details>
-        </div>
-      </section>
-      <div class="radio-bar comfy sticky-scroll">
-        <input type="checkbox" id="snap-scroll-2" name="snap-scroll-2">
-        <label for="snap-scroll-2">Assistive Scrolling</label>
       </div>
-      {% include 'partials/actionnav.twig' %}
-    </form>
-    </main>
+
+
     <!--aside class="">
       <h2>Preview</h2>
     </aside-->

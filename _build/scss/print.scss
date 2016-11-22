@@ -1,0 +1,50 @@
+@page {
+  margin: 0.5cm;
+}
+
+#uberform, #mainnav__nav, #preview, #stickybar, .emoji-bar, #tree, .actionnav {
+  display:none;
+}
+
+#mainnav {
+  .version {
+    //background:transparent url(../img/modx-black.svg) no-repeat left center;
+    //-webkit-print-color-adjust: exact;
+    img {
+      display:inline-block;
+    }
+  }
+}
+
+textarea {
+  overflow: visible;
+  width:100%;
+}
+
+label {
+  display:block;
+}
+
+input[type="checkbox"] + label {
+  display:inline-block;
+}
+
+details {
+  display:none;
+  &[open] {
+    display:block;
+  }
+  > * {
+    display:block !important;
+  }
+}
+
+summary {
+  h1,h2,h3,h4,h5,h6 {
+    display:inline-block;
+  }
+}
+
+p a {
+  word-wrap: break-word;
+}
