@@ -1110,7 +1110,6 @@ fieldset > div > div {
       @media screen and (min-width: 1530px) {
         html.js #uberform #uber + h1, html.js #uberform #uber + h2 {
           bottom: .8em; } }
-<<<<<<< HEAD
     @media screen and (min-width: 641px) {
       body.searching #uberform #uber + h1, body.searching #uberform #uber + h2 {
         text-align: inherit; } }
@@ -1139,36 +1138,6 @@ fieldset > div > div {
         z-index: 1;
         line-height: normal; }
     @media screen and (min-width: 641px) {
-=======
-    @media screen and (min-width: 641px) {
-      body.searching #uberform #uber + h1, body.searching #uberform #uber + h2 {
-        text-align: inherit; } }
-    html.js #uberform #uber:placeholder-shown + h1, html.js #uberform #uber:placeholder-shown + h2 {
-      color: grey;
-      font-size: 1.2em;
-      top: 0;
-      bottom: 0;
-      line-height: 3; }
-    #uberform #uber + h1, #uberform #uber + h2, #uberform #uber:focus + h1, #uberform #uber:focus + h2 {
-      /*  */
-      /*font-size:1em;
-     font-weight:600;
-     position:absolute;
-     color:#2F363D;
-     bottom:auto;
-     top:0.1em;
-     z-index:1;*/ }
-      html.js #uberform #uber + h1, html.js #uberform #uber + h2, html.js #uberform #uber:focus + h1, html.js #uberform #uber:focus + h2 {
-        font-size: 1em;
-        font-weight: 600;
-        position: absolute;
-        color: #2F363D;
-        bottom: auto;
-        top: 0;
-        z-index: 1;
-        line-height: normal; }
-    @media screen and (min-width: 641px) {
->>>>>>> origin/master
       html[complex-layout] #uberform #uber + label[for="uber"] {
         bottom: .9rem; } }
     #uberform #uber::-webkit-input-placeholder {
