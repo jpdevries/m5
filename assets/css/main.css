@@ -332,6 +332,10 @@ a[href="/account/i18n"] {
 input[required].annoying:placeholder-shown {
   outline: 2px solid var(--dangerous); }
 
+@media screen and (max-width: 640px) {
+  form#uberform div.close-nav {
+    display: none !important; } }
+
 body {
   margin: 0;
   background: var(--main-bg-color);
