@@ -44,6 +44,7 @@
     "css-mqpacker": "^5.0.1"
   },
   "devDependencies": {
-    "postcss-color-function": "^2.0.1"
+    "postcss": "^5.2.8",
+    "postcss-cssnext": "^2.9.0"
   }
 }
