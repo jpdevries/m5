@@ -159,6 +159,7 @@ module.exports = function(grunt) {
         processors: [
           require('pixrem')(), // add fallbacks for rem units
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require("postcss-color-function")(),
           //require("css-mqpacker")()
           //require('cssnano')() // minify the result
         ]
