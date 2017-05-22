@@ -1,7 +1,7 @@
 m5bp
 ========
 
-HTML&ndash;first concept for a futuristic MODX Revolution based manager&nbsp;interface.
+HTML&ndash;first concept for a futuristic MODX Revolution based manager&nbsp;interface. [Take this concept for a spin](http://m5bp.herokuapp.com) by waking the Heroku&nbsp;dino.
 
 ## HTML&ndash;first
  - tested as raw HTML
